@@ -14,12 +14,37 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <a class="header__logo" href="/"><img src="img/logo.svg" alt="ロゴ画像"></a>
+            <a class="header__logo" href="{{ route('top') }}"><img src="img/logo.svg" alt="coachtechロゴ画像"></a>
+
             <input type="text" placeholder="なにをお探しですか？" class="header__search-box">
+
             <nav class="header__nav">
-                <a href="#login" class="header__link">ログイン</a>
-                <a href="#mypage" class="header__link">マイページ</a>
-                <button class="header__button">出品</button>
+                @guest
+                <a href="{{ route('login') }}" class="header__link">ログイン</a>
+                @endguest
+
+                @auth
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="header__link" type="submit">ログアウト</button>
+                </form>
+                @endauth
+
+                @guest
+                <a class="header__link" href="{{ route('login') }}">マイページ</a>
+                @endguest
+
+                @auth
+                <a class="header__link" href="#mypage">マイページ</a>
+                @endauth
+
+                @guest
+                <a class="header__link" href="{{ route('login') }}">出品</a>
+                @endguest
+
+                @auth
+                <a class="header__link" href="#sell">出品</a>
+                @endauth
             </nav>
         </div>
     </header>

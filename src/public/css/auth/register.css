@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* PC画面時(1400-1540px) */
+
+.header {
+    background-color: #000;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.header__container {
+    max-width: 1400px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+
+.header__logo img{
+    width: 370px;
+    height: 60px;
+}
+
+.register {
+    width: 680px;
+    margin: 100px auto;
+}
+
+.register__form {
+    margin-top: 50px;
+}
+
+.register__title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.register__form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.register__form-group:not(:nth-of-type(1)) {
+    margin-top: 30px;
+}
+
+.register__label {
+    font-size: 1.5rem;
+}
+
+.register__input {
+    padding: 10px;
+    font-size: 1.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size:1rem;
+    margin-top: 5px;
+}
+
+.register__button {
+    background-color: #ff5a5a;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 70px;
+    width: 100%;
+}
+
+.register__button:hover {
+    background-color: #e14a4a;
+}
+
+.register__login-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.register__login-link a {
+    color: #007bff;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.register__login-link a:hover {
+    text-decoration: underline;
+}
+
+/* タブレット画面時(1400-1540px) */
+
+@media screen and (max-width: 850px) {
+    .header__container {
+        max-width: 768px;
+        height: 40px;
+    }
+
+    .header__logo img {
+        width: 200px;
+        height: 40px;
+    }
+
+    .register {
+        width: 400px;
+        margin: 60px auto;
+    }
+
+    .register__form {
+        margin-top: 20px;
+    }
+
+    .register__title {
+        font-size: 1.5rem;
+    }
+
+    .register__form-group:not(nth-of-type(1)) {
+        margin-top: 20px
+    }
+
+    .register__label {
+        font-size: 1rem;
+    }
+
+    .register__input {
+        padding: 5px;
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+
+    .error-message {
+        font-size: 0.6rem;
+        margin-top: 5px;
+    }
+
+    .register__button {
+        font-size: 1rem;
+        padding: 5px;
+        margin-top: 40px;
+    }
+
+    .register__login-link {
+        margin-top: 20px;
+    }
+
+    .register__login-link a {
+        font-size: 0.7rem;
+    }
+}

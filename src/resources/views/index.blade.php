@@ -9,15 +9,21 @@
 @section('content')
 <div class="tabs">
     <div class="tabs__container">
-        <a class="tabs__tab tabs__tab--active" href="#">おすすめ</a>
+        <a class="tabs__tab tabs__tab--active" href="{{ route('top') }}">おすすめ</a>
 
-        <a class="tabs__tab" href="#">マイリスト</a>
+        @guest
+        <a class="tabs__tab" href="{{ route('login') }}">マイリスト</a>
+        @endguest
+
+        @auth
+        <a class="tabs__tab" href="#?tab=mylist">マイリスト</a>
+        @endauth
     </div>
 </div>
 
 <div class="product-grid">
     <div class="product-grid__item">
-        <div class="product-grid__image"><a href="/item">商品画像</a></div>
+        <div class="product-grid__image"><a href="{{ route('item') }}">商品画像</a></div>
 
         <p class="product-grid__name">商品名</p>
     </div>

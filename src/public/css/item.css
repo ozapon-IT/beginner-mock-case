@@ -1,324 +1,324 @@
 /* PC画面時(1400-1540px) */
 
 .product-detail__container {
-  display: flex;
-  justify-content: space-around;
-  max-width: 1400px;
-  gap: 100px;
-  padding: 100px;
-  margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1400px;
+    gap: 100px;
+    padding: 100px;
+    margin: 0 auto;
 }
 
 .product-detail__image {
-  background-color: #ddd;
-  width: 550px;
-  height: 550px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  border-radius: 5px;
+    background-color: #ddd;
+    width: 550px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    border-radius: 5px;
 }
 
 .product-detail__info {
-  width: 550px;
+    width: 550px;
 }
 
 .product-detail__title {
-  font-size: 2.8rem;
-  font-weight: bold;
+    font-size: 2.8rem;
+    font-weight: bold;
 }
 
 .product-detail__brand {
-  margin-top: 20px;
-  font-size: 1rem;
+    margin-top: 20px;
+    font-size: 1rem;
 }
 
 .product-detail__price {
-  margin-top: 30px;
-  font-size: 2.5rem;
-  color: #000;
+    margin-top: 30px;
+    font-size: 2.5rem;
+    color: #000;
 }
 
 .product-detail__tax {
-  font-size: 1.8rem;
-  color: #333;
+    font-size: 1.8rem;
+    color: #333;
 }
 
 .product-detail__actions {
-  margin-top: 20px;
-  padding: 0 60px;
-  display: flex;
-  gap: 60px;
+    margin-top: 20px;
+    padding: 0 60px;
+    display: flex;
+    gap: 60px;
 }
 
 .product-detail__icon {
-  text-align: center;
+    text-align: center;
 }
 
 .product-detail__icon i {
-  font-size: 2.5rem;
-  color: #666;
+    font-size: 2.5rem;
+    color: #666;
 }
 
 .product-detail__button {
-  display: block;
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px;
-  font-size: 1.8rem;
-  color: #fff;
-  background-color: #ff5e57;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1.8rem;
+    color: #fff;
+    background-color: #ff5e57;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }
 
 .product-detail__section {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .product-detail__section-title {
-  font-size: 2rem;
-  font-weight: bold;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .product-detail__description {
-  font-size: 1.5rem;
-  line-height: 2.5;
-  margin-top: 30px;
+    font-size: 1.5rem;
+    line-height: 2.5;
+    margin-top: 30px;
 }
 
 .product-detail__category,
 .product-detail__condition {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 30px;
 }
 
 .product-detail__tag {
-  display: inline-block;
-  padding: 5px 10px;
-  width: 80px;
-  text-align: center;
-  background-color: #ddd;
-  border-radius: 20px;
-  margin-left: 60px;
-  font-size: 1.3rem;
-  font-weight: normal;
+    display: inline-block;
+    padding: 5px 10px;
+    width: 80px;
+    text-align: center;
+    background-color: #ddd;
+    border-radius: 20px;
+    margin-left: 60px;
+    font-size: 1.3rem;
+    font-weight: normal;
 }
 
 .product-detail__condition-detail {
-  margin-left: 80px;
-  font-size: 1.3rem;
-  font-weight: normal;
+    margin-left: 80px;
+    font-size: 1.3rem;
+    font-weight: normal;
 }
 
 .product-detail__comments {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .product-detail__comment {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .product-detail__comment-box1 {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .product-detail__comment-avatar {
-  width: 80px;
-  height: 80px;
-  background-color: #ddd;
-  border-radius: 50%;
-  margin-right: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-right: 20px;
 }
 
 .product-detail__comment-username {
-  font-weight: bold;
-  margin-right: 10px;
-  font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.5rem;
 }
 
 .product-detail__comment-box2 {
-  margin-top: 20px;
-  background-color: #ddd;
-  border-radius: 5px;
-  padding: 20px 10px;
+    margin-top: 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+    padding: 20px 10px;
 }
 
 .product-detail__comment-text {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 .product-detail__comment-form {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-detail__comment-label {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .product-detail__comment-input {
-  height: 200px;
-  padding: 8px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-top: 10px;
-  resize: none;
+    height: 200px;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    resize: none;
 }
 
 .product-detail__comment-button {
-  padding: 10px;
-  font-size: 1.5rem;
-  color: #fff;
-  background-color: #ff5e57;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-top: 40px;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #ff5e57;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 40px;
 }
 
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
-  .product-detail__container {
-    max-width: 768px;
-    gap: 50px;
-    padding: 50px;
-  }
+    .product-detail__container {
+        max-width: 768px;
+        gap: 50px;
+        padding: 50px;
+    }
 
-  .product-detail__image {
-    width: 300px;
-    height: 300px;
-    font-size: 1.5rem;
-  }
+    .product-detail__image {
+        width: 300px;
+        height: 300px;
+        font-size: 1.5rem;
+    }
 
-  .product-detail__info {
-    width: 300px;
-  }
+    .product-detail__info {
+        width: 300px;
+    }
 
-  .product-detail__title {
-    font-size: 1.7rem;
-  }
+    .product-detail__title {
+        font-size: 1.7rem;
+    }
 
-  .product-detail__brand {
-    margin-top: 10px;
-    font-size: 0.6rem;
-  }
+    .product-detail__brand {
+        margin-top: 10px;
+        font-size: 0.6rem;
+    }
 
-  .product-detail__price {
-    margin-top: 15px;
-    font-size: 1.5rem;
-  }
+    .product-detail__price {
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
 
-  .product-detail__tax {
-    font-size: 1rem;
-  }
+    .product-detail__tax {
+        font-size: 1rem;
+    }
 
-  .product-detail__actions {
-    margin-top: 15px;
-    padding: 0 30px;
-    gap: 30px;
-  }
+    .product-detail__actions {
+        margin-top: 15px;
+        padding: 0 30px;
+        gap: 30px;
+    }
 
-  .product-detail__icon i {
-    font-size: 1.5rem;
-  }
+    .product-detail__icon i {
+        font-size: 1.5rem;
+    }
 
-  .product-detail__icon p {
-    font-size: 0.6rem;
-  }
+    .product-detail__icon p {
+        font-size: 0.6rem;
+    }
 
-  .product-detail__button {
-    margin-top: 10px;
-    padding: 5px;
-    font-size: 1rem;
-  }
+    .product-detail__button {
+        margin-top: 10px;
+        padding: 5px;
+        font-size: 1rem;
+    }
 
-  .product-detail__section {
-    margin-top: 20px;
-  }
+    .product-detail__section {
+        margin-top: 20px;
+    }
 
-  .product-detail__section-title {
-    font-size: 1.2rem;
-  }
+    .product-detail__section-title {
+        font-size: 1.2rem;
+    }
 
-  .product-detail__description {
-    font-size: 0.8rem;
-    line-height: 2.0;
-    margin-top: 20px;
-  }
+    .product-detail__description {
+        font-size: 0.8rem;
+        line-height: 2;
+        margin-top: 20px;
+    }
 
-  .product-detail__category,
-  .product-detail__condition {
-    font-size: 0.8rem;
-    margin-top: 20px;
-  }
+    .product-detail__category,
+    .product-detail__condition {
+        font-size: 0.8rem;
+        margin-top: 20px;
+    }
 
-  .product-detail__tag {
-    padding: 3px 8px;
-    width: 50px;
-    border-radius: 20px;
-    margin-left: 40px;
-    font-size: 0.7rem;
-  }
+    .product-detail__tag {
+        padding: 3px 8px;
+        width: 50px;
+        border-radius: 20px;
+        margin-left: 40px;
+        font-size: 0.7rem;
+    }
 
-  .product-detail__condition-detail {
-    margin-left: 50px;
-    font-size: 0.7rem;
-  }
+    .product-detail__condition-detail {
+        margin-left: 50px;
+        font-size: 0.7rem;
+    }
 
-  .product-detail__comments {
-    margin-top: 30px;
-  }
+    .product-detail__comments {
+        margin-top: 30px;
+    }
 
-  .product-detail__comment {
-    margin-top: 20px;
-  }
+    .product-detail__comment {
+        margin-top: 20px;
+    }
 
-  .product-detail__comment-avatar {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
+    .product-detail__comment-avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
 
-  .product-detail__comment-username {
-    margin-right: 5px;
-    font-size: 0.8rem;
-  }
+    .product-detail__comment-username {
+        margin-right: 5px;
+        font-size: 0.8rem;
+    }
 
-  .product-detail__comment-box2 {
-    margin-top: 10px;
-    padding: 10px 5px;
-  }
+    .product-detail__comment-box2 {
+        margin-top: 10px;
+        padding: 10px 5px;
+    }
 
-  .product-detail__comment-text {
-    font-size: 0.6rem;
-  }
+    .product-detail__comment-text {
+        font-size: 0.6rem;
+    }
 
-  .product-detail__comment-form {
-    margin-top: 20px;
-  }
+    .product-detail__comment-form {
+        margin-top: 20px;
+    }
 
-  .product-detail__comment-label {
-    font-size: 0.8rem;
-  }
+    .product-detail__comment-label {
+        font-size: 0.8rem;
+    }
 
-  .product-detail__comment-input {
-    height: 150px;
-    padding: 5px;
-    font-size: 0.6rem;
-    margin-top: 5px;
-  }
+    .product-detail__comment-input {
+        height: 150px;
+        padding: 5px;
+        font-size: 0.6rem;
+        margin-top: 5px;
+    }
 
-  .product-detail__comment-button {
-    padding: 5px;
-    font-size: 0.8rem;
-    margin-top: 20px;
-  }
+    .product-detail__comment-button {
+        padding: 5px;
+        font-size: 0.8rem;
+        margin-top: 20px;
+    }
 }

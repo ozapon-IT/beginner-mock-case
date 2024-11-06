@@ -1,0 +1,66 @@
+.profile-settings {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.profile-settings__title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.profile-settings__avatar {
+    display: flex;
+    align-items: center;
+    margin-top: 50px
+}
+
+.profile-settings__avatar-image {
+    width: 150px;
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+.profile-settings__avatar-button {
+    width: 180px;
+    color: #ff6f61;
+    border: 2px solid #ff6f61;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.profile-settings__field {
+    width: 100%;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.profile-settings__label {
+    display: block;
+    font-size: 1rem;
+}
+
+.profile-settings__input {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-settings__submit-button {
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 50px;
+}
