@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MypageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +29,6 @@ Route::get('/item', function () {
     return view('item');
 })->name('item');
 
-// 認証関連のルート
 // ログイン
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
@@ -40,7 +42,10 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 // 認証が必要なルート
 Route::middleware('auth')->group(function () {
-    Route::get('/mypage/profile', function () {
-        return view('profile');
-    })->name('profile');
+    Route::get('/mypage/profile', [ProfileController::class, 'showProfileForm'])->name('profile');
+    Route::patch('/mypage/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/mypage', [MypageController::class, 'showMypageField'])->name('mypage');
+    Route::get('/sell', function () {
+        return view('sell');
+    })->name('sell');
 });
