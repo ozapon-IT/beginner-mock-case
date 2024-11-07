@@ -35,24 +35,28 @@ body {
 
 .header__nav {
     display: flex;
-    justify-content: space-around;
+    gap: 20px;
     align-items: center;
     width: 370px;
     height: 60px;
 }
 
-.header__nav a,
-.header__button {
+.header__link {
     font-size: 1.5rem;
     color: #fff;
     text-decoration: none;
 }
 
 .header__button {
+    all: unset;
+    font-size: 1.5rem
+}
+
+.header__link--sell {
     background-color: #fff;
     color: #000;
     border: none;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -82,10 +86,18 @@ body {
     .header__nav {
         width: 200px;
         height: 40px;
+        gap: 10px;
     }
 
-    .header__nav a,
-    .header__button {
+    .header__link {
         font-size: 0.8rem;
+    }
+
+    .header__button {
+        font-size: 0.8rem
+    }
+
+    .header__link--sell {
+        padding: 8px 12px;
     }
 }

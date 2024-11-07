@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '商品一覧画面（トップ画面）- coachtechフリマ')
+@section('title', '商品一覧画面（トップ画面）- COACHTECHフリマ')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">

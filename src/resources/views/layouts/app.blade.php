@@ -14,19 +14,19 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <a class="header__logo" href="{{ route('top') }}"><img src="img/logo.svg" alt="coachtechロゴ画像"></a>
+            <a class="header__logo" href="{{ route('top') }}"><img src="{{ asset('img/logo.svg') }}" alt="coachtechロゴ画像"></a>
 
             <input type="text" placeholder="なにをお探しですか？" class="header__search-box">
 
             <nav class="header__nav">
                 @guest
-                <a href="{{ route('login') }}" class="header__link">ログイン</a>
+                <a class="header__link" href="{{ route('login') }}">ログイン</a>
                 @endguest
 
                 @auth
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button class="header__link" type="submit">ログアウト</button>
+                    <button class="header__button" type="submit">ログアウト</button>
                 </form>
                 @endauth
 
@@ -35,15 +35,15 @@
                 @endguest
 
                 @auth
-                <a class="header__link" href="#mypage">マイページ</a>
+                <a class="header__link" href="/mypage">マイページ</a>
                 @endauth
 
                 @guest
-                <a class="header__link" href="{{ route('login') }}">出品</a>
+                <a class="header__link header__link--sell" href="{{ route('login') }}">出品</a>
                 @endguest
 
                 @auth
-                <a class="header__link" href="#sell">出品</a>
+                <a class="header__link header__link--sell" href="{{ route('sell') }}">出品</a>
                 @endauth
             </nav>
         </div>

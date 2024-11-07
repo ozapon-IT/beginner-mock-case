@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会員登録画面 - coachtechフリマ</title>
+    <title>会員登録画面 - COACHTECHフリマ</title>
     <link rel="stylesheet" href="{{ asset('css/common/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/auth/register.css') }}">
 </head>
@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <a class="header__logo" href="{{ route('top') }}"><img src="img/logo.svg" alt="coachtechロゴ画像"></a>
+            <a class="header__logo" href="{{ route('top') }}"><img src="{{ asset('img/logo.svg') }}" alt="coachtechロゴ画像"></a>
         </div>
     </header>
 
