@@ -11,6 +11,7 @@
     <h1 class="listing__title">商品の出品</h1>
 
     <form class="listing__form" action="#" method="POST" enctype="multipart/form-data">
+        @csrf
         <!-- 商品画像 -->
         <div class="listing__section listing__section--image">
             <h3 class="listing__label">商品画像</h3>

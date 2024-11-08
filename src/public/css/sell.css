@@ -43,7 +43,8 @@
 }
 
 .listing__image-button:hover {
-    background-color: #ff4c4c;
+    color: #e14a4a;
+    border-color: #e14a4a;
 }
 
 .listing__image-button input[type="file"] {
