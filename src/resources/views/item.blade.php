@@ -9,14 +9,16 @@
 @section('content')
 <div class="product-detail">
     <div class="product-detail__container">
-        <div class="product-detail__image">商品画像</div>
+        <div class="product-detail__image">
+            <img src="{{ $item->image_path }}" alt="{{ $item->name }}">
+        </div>
 
         <div class="product-detail__info">
-            <h2 class="product-detail__title">商品名がここに入る</h2>
+            <h2 class="product-detail__title">{{ $item->name }}</h2>
 
             <p class="product-detail__brand">ブランド名</p>
 
-            <p class="product-detail__price">¥47,000 <span class="product-detail__tax">(税込)</span></p>
+            <p class="product-detail__price">¥{{ number_format($item->price) }} <span class="product-detail__tax">(税込)</span></p>
 
             <div class="product-detail__actions">
                 <div class="product-detail__icon">
@@ -37,27 +39,27 @@
             <section class="product-detail__section">
                 <h3 class="product-detail__section-title">商品説明</h3>
 
-                <p class="product-detail__description">
-                    カラー：グレー<br>
-                    新品<br>
-                    商品の状態は良好です。傷もありません。<br>
-                    購入後、即発送いたします。
-                </p>
+                <p class="product-detail__description">{{ $item->description }}</p>
             </section>
 
             <section class="product-detail__section">
                 <h3 class="product-detail__section-title">商品の情報</h3>
 
-                <p class="product-detail__category">
-                    カテゴリー
-                    <span class="product-detail__tag">洋服</span>
-                    <span class="product-detail__tag">メンズ</span>
-                </p>
+                <div class="product-detail__category">
+                    <p>カテゴリー</p>
 
-                <p class="product-detail__condition">
-                    商品の状態
-                    <span class="product-detail__condition-detail">良好</span>
-                </p>
+                    <div class="product-detail__category-box">
+                        @foreach ($item->categories as $category)
+                            <span class="product-detail__category-tag">{{ $category->name }}</span>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="product-detail__condition">
+                    <p>商品の状態</p>
+
+                    <span class="product-detail__condition-detail">{{ $item->condition->name }}</span>
+                </div>
             </section>
 
             <section class="product-detail__comments">

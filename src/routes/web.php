@@ -6,6 +6,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\SellController;
 
 
 /*
@@ -20,14 +23,10 @@ use App\Http\Controllers\MypageController;
 */
 
 // トップページ
-Route::get('/', function () {
-    return view('index');
-})->name('top');
+Route::get('/', [IndexController::class, 'index'])->name('top');
 
 // 商品詳細ページ
-Route::get('/item', function () {
-    return view('item');
-})->name('item');
+Route::get('/item/{id}', [ItemController::class, 'show'])->name('item');
 
 // ログイン
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -45,7 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/mypage/profile', [ProfileController::class, 'showProfileForm'])->name('profile');
     Route::patch('/mypage/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
     Route::get('/mypage', [MypageController::class, 'showMypageField'])->name('mypage');
-    Route::get('/sell', function () {
-        return view('sell');
-    })->name('sell');
+    Route::get('/sell', [SellController::class, 'show'])->name('sell');
+    Route::post('/sell', [SellController::class, 'store'])->name('sell.store');
 });

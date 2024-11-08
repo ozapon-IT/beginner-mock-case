@@ -43,7 +43,8 @@
 }
 
 .listing__image-button:hover {
-    background-color: #ff4c4c;
+    color: #e14a4a;
+    border-color: #e14a4a;
 }
 
 .listing__image-button input[type="file"] {
@@ -68,22 +69,30 @@
 }
 
 .listing__category-item {
-    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.listing__category-item input {
+    display: none;
+}
+
+.listing__category-item span {
     color: #ff6f61;
     border: 2px solid #ff6f61;
     padding: 5px 10px;
-    border-radius: 20px;
     font-size: 1rem;
     cursor: pointer;
+    border-radius: 20px;
 }
 
-.listing__category-item input[type="radio"] {
-    display: none;
+.listing__category-item input:checked + span {
+    background-color: #ff6f61;
+    color: #fff;
 }
 
 /* 商品の状態 */
 .listing__condition {
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .listing__select {
@@ -145,6 +154,14 @@
     background-color: #e14a4a;
 }
 
+.error-message {
+    color: red;
+    font-size: 1rem;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* タブレット画面時(768-850px) */
 @media screen and (max-width: 850px) {
     .listing {
         width: 400px;
@@ -192,12 +209,16 @@
     }
 
     .listing__category-item {
+        margin-bottom: 10px;
+    }
+
+    .listing__category-item span {
         font-size: 0.6rem;
     }
 
     /* 商品の状態 */
     .listing__condition {
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
     .listing__select {
@@ -234,5 +255,10 @@
     .listing__submit-button {
         font-size: 0.8rem;
         margin-top: 60px;
+    }
+
+    .error-message {
+        font-size: 0.6rem;
+        margin-top: 5px;
     }
 }
