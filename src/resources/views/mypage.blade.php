@@ -26,7 +26,7 @@
 
 <div class="product-grid">
     <div class="product-grid__item">
-        <div class="product-grid__image"><a href="{{ route('item') }}">商品画像</a></div>
+        <div class="product-grid__image"><a href="{{-- route('item', ['id' => $item->id]) --}}">商品画像</a></div>
 
         <p class="product-grid__name">商品名</p>
     </div>

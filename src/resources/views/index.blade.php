@@ -22,52 +22,16 @@
 </div>
 
 <div class="product-grid">
-    <div class="product-grid__item">
-        <div class="product-grid__image"><a href="{{ route('item') }}">商品画像</a></div>
+    @foreach ($items as $item)
+        <div class="product-grid__item">
+            <div class="product-grid__image">
+                <a href="{{ route('item', ['id' => $item->id]) }}">
+                    <img src="{{ $item->image_path }}" alt="{{ $item->name }}">
+                </a>
+            </div>
 
-        <p class="product-grid__name">商品名</p>
-    </div>
-
-    <div class="product-grid__item">
-        <div class="product-grid__image">商品画像</div>
-
-        <p class="product-grid__name">商品名</p>
-    </div>
-
-    <div class="product-grid__item">
-        <div class="product-grid__image">商品画像</div>
-
-        <p class="product-grid__name">商品名</p>
-    </div>
-
-    <div class="product-grid__item">
-        <div class="product-grid__image">商品画像</div>
-
-        <p class="product-grid__name">商品名</p>
-    </div>
-
-    <div class="product-grid__item">
-        <div class="product-grid__image">商品画像</div>
-
-        <p class="product-grid__name">商品名</p>
-    </div>
-
-    <div class="product-grid__item">
-        <div class="product-grid__image">商品画像</div>
-
-        <p class="product-grid__name">商品名</p>
-    </div>
-
-    <div class="product-grid__item">
-        <div class="product-grid__image">商品画像</div>
-
-        <p class="product-grid__name">商品名</p>
-    </div>
-
-    <div class="product-grid__item">
-        <div class="product-grid__image">商品画像</div>
-
-        <p class="product-grid__name">商品名</p>
-    </div>
+            <p class="product-grid__name">{{ $item->name }}</p>
+        </div>
+    @endforeach
 </div>
 @endsection

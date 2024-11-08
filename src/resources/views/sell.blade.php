@@ -7,10 +7,16 @@
 @endsection
 
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <div class="listing">
     <h1 class="listing__title">商品の出品</h1>
 
-    <form class="listing__form" action="#" method="POST" enctype="multipart/form-data">
+    <form class="listing__form" action="{{ route('sell.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <!-- 商品画像 -->
         <div class="listing__section listing__section--image">
@@ -22,6 +28,10 @@
                     <input type="file" name="image_path" accept=".jpg,.jpeg,.png" id="image">
                 </label>
             </div>
+
+            @error('image_path')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
         </div>
 
         <!-- 商品の詳細 -->
@@ -33,30 +43,34 @@
                 <h3 class="listing__label">カテゴリー</h3>
 
                 <div class="listing__category-items">
-                    <label class="listing__category-item" for="fashion">
-                        ファッション
-                        <input type="radio" name="category" value="fashion" id="fashion">
-                    </label>
-
-                    <label class="listing__category-item" for="electronics">
-                        家電
-                        <input type="radio" name="category" value="electronics" id="electronics">
-                    </label>
-                    <!-- 他のカテゴリも同様に追加 -->
+                    @foreach ($categories as $category)
+                        <label class="listing__category-item">
+                            <input type="checkbox" name="category_id[]" value="{{ $category->id }}" {{ in_array($category->id, old('category_id', [])) ? 'checked' : '' }}>
+                            <span>{{ $category->name }}</span>
+                        </label>
+                    @endforeach
                 </div>
+
+                @error('category_id')
+                    <span class="error-message">{{ $message }}</span>
+                @enderror
             </div>
 
             <!-- 商品の状態 -->
             <div class="listing__condition">
                 <h3 class="listing__label">商品の状態</h3>
 
-                <select class="listing__select" name="condition">
-                    <option value="" disabled selected>選択してください</option>
+                <select class="listing__select" name="condition_id">
+                    <option value="" disabled {{ old('condition_id') ? '' : 'selected' }}>選択してください</option>
 
-                    <option value="new">新品</option>
-
-                    <option value="used">中古</option>
+                    @foreach ($conditions as $condition)
+                        <option value="{{ $condition->id }}" {{ old('condition_id') == $condition->id ? 'selected' : '' }}>{{ $condition->name }}</option>
+                    @endforeach
                 </select>
+
+                @error('condition_id')
+                    <span class="error-message">{{ $message }}</span>
+                @enderror
             </div>
         </div>
 
@@ -67,20 +81,32 @@
             <div class="listing__field">
                 <label class="listing__label" for="name">商品名</label>
 
-                <input class="listing__input" type="text" id="name" name="name">
+                <input class="listing__input" type="text" id="name" name="name" value="{{ old('name') }}">
             </div>
+
+            @error('name')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
 
             <div class="listing__field">
                 <label class="listing__label" for="description">商品の説明</label>
 
-                <textarea class="listing__textarea" id="description" name="description"></textarea>
+                <textarea class="listing__textarea" id="description" name="description">{{ old('description') }}</textarea>
             </div>
+
+            @error('description')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
 
             <div class="listing__field">
                 <label class="listing__label" for="price">販売価格</label>
 
-                <input class="listing__input" type="text" id="price" name="price">
+                <input class="listing__input" type="text" id="price" name="price" value="{{ old('price') }}">
             </div>
+
+            @error('price')
+                <span class="error-message">{{ $message }}</span>
+            @enderror
         </div>
 
         <button class="listing__submit-button" type="submit">出品する</button>
