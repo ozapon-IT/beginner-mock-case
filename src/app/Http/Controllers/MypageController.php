@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
-    public function showMypageField()
+    public function showMyPage()
     {
         $user = Auth::user(); // ユーザー情報を取得
 

@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Item;
-use App\Models\Category;
-use App\Models\Condition;
 
 class ItemController extends Controller
 {
-    public function show($id)
+    public function showItemPage(Item $item)
     {
-        // 指定されたIDの商品情報を取得し、カテゴリと商品の状態を一緒に取得
-        $item = Item::with(['categories', 'condition'])->findOrFail($id);
+        $comments = $item->comments()->with('user')->get();
 
-        // ビューにデータを渡す
-        return view('item', compact('item'));
+        return view('item', compact('item', 'comments'));
     }
 }

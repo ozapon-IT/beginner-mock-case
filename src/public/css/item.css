@@ -56,22 +56,37 @@
     text-align: center;
 }
 
+.product-detail__icon button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 .product-detail__icon i {
     font-size: 2.5rem;
     color: #666;
 }
 
-.product-detail__button {
+.product-detail__icon:nth-child(2) p {
+    margin-top: 3px;
+}
+
+.product-detail__purchase-button {
     display: block;
     width: 100%;
     margin-top: 20px;
     padding: 10px;
     font-size: 1.8rem;
     color: #fff;
-    background-color: #ff5e57;
+    background-color: #ff5a5a;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+}
+
+.product-detail__purchase-button:hover {
+    background-color: #e14a4a;
 }
 
 .product-detail__section {
@@ -125,6 +140,10 @@
 
 .product-detail__comments {
     margin-top: 50px;
+}
+
+.product-detail__comments .product-detail__section-title {
+    color: #888;
 }
 
 .product-detail__comment {
@@ -185,11 +204,21 @@
     padding: 10px;
     font-size: 1.5rem;
     color: #fff;
-    background-color: #ff5e57;
+    background-color: #ff5a5a;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     margin-top: 40px;
+}
+
+.product-detail__comment-button:hover {
+    background-color: #e14a4a;
+}
+
+.error-message {
+    color: red;
+    font-size:1rem;
+    margin-top: 5px;
 }
 
 /* タブレット画面時(768-850px) */
@@ -245,6 +274,10 @@
 
     .product-detail__icon p {
         font-size: 0.6rem;
+    }
+
+    .product-detail__icon:nth-child(2) p {
+        margin-top: 2px;
     }
 
     .product-detail__button {
@@ -339,5 +372,10 @@
         padding: 5px;
         font-size: 0.8rem;
         margin-top: 20px;
+    }
+
+    .error-message {
+        font-size: 0.6rem;
+        margin-top: 5px;
     }
 }

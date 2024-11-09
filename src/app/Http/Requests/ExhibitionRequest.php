@@ -36,10 +36,14 @@ class ExhibitionRequest extends FormRequest
     {
         return [
             'name.required' => '商品名を入力してください。',
+            'name.string' => '商品名は文字列で入力してください。',
             'description.required' => '商品の説明を入力してください。',
+            'description.string' => '商品の説明は文字列で入力してください。',
             'description.max' => '商品の説明は255文字以内で入力してください。',
-            'image_path.required' => '商品画像を選択してください。',
-            'image_path.image' => 'アップロード可能な画像はJPEGまたはPNGのみです。',
+            'image_path.required' => '商品画像をアップロードしてください。',
+            'image_path.image' => '商品画像は画像ファイルをアップロードしてください。',
+            'image_path.mimes' => '商品画像はJPEG、JPGまたはPNG形式でアップロードしてください。',
+            'image_path.max' => '商品画像は2MB以下のファイルをアップロードしてください。',
             'category_id.required' => 'カテゴリーを選択してください。',
             'condition_id.required' => '商品の状態を選択してください。',
             'price.required' => '販売価格を入力してください。',
