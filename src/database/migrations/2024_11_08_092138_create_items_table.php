@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('condition_id')->constrained()->cascadeOnDelete();
             $table->string('image_path', 255);
             $table->string('name', 100);
-            $table->text('description');
+            $table->string('description', 255);
             $table->decimal('price', 8, 2);
             $table->string('status', 100);
             $table->timestamps();

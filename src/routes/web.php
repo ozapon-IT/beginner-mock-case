@@ -10,6 +10,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\SellController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 
 
 /*
@@ -54,4 +55,7 @@ Route::middleware('auth')->group(function () {
     // いいね機能関連
     Route::post('/item/{item}/like', [LikeController::class, 'like'])->name('like');
     Route::delete('/item/{item}/like', [LikeController::class, 'unlike'])->name('unlike');
+
+    // コメント機能関連
+    Route::post('/item/{item}/comment', [CommentController::class, 'storeComment'])->name('comment');
 });

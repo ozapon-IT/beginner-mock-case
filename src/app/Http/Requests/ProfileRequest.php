@@ -26,7 +26,7 @@ class ProfileRequest extends FormRequest
             'postal_code' => 'required|regex:/^\d{3}-\d{4}$/',
             'address' => 'required|string',
             'building' => 'required|string',
-            'image' => 'nullable|mimes:jpg,jpeg,png|max:2048',
+            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 
@@ -46,8 +46,9 @@ class ProfileRequest extends FormRequest
             'address.string' => '住所は文字列で入力してください。',
             'building.required' => '建物名を入力してください。',
             'building.string' => '建物名は文字列で入力してください。',
-            'image.mimes' => 'プロフィール画像はjpg、jpeg、またはpng形式でアップロードしてください。',
-            'image.max' => 'プロフィール画像は2MB以下のファイルを選択してください。',
+            'image_path.image' => 'プロフィール画像は画像ファイルでアップロードしてください。',
+            'image_path.mimes' => 'プロフィール画像はJPEG、JPGまたはPNG形式でアップロードしてください。',
+            'image_path.max' => 'プロフィール画像は2MB以下のファイルをアップロードしてください。',
         ];
     }
 }
