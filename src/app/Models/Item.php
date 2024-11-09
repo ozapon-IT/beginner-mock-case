@@ -28,4 +28,10 @@ class Item extends Model
     {
         return $this->belongsTo(Condition::class);
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
 }

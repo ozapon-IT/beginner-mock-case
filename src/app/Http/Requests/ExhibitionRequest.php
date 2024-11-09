@@ -36,7 +36,9 @@ class ExhibitionRequest extends FormRequest
     {
         return [
             'name.required' => '商品名を入力してください。',
+            'name.string' => '商品名は文字列で入力してください。',
             'description.required' => '商品の説明を入力してください。',
+            'description.string' => '商品の説明は文字列で入力してください。',
             'description.max' => '商品の説明は255文字以内で入力してください。',
             'image_path.required' => '商品画像を選択してください。',
             'image_path.image' => 'アップロード可能な画像はJPEGまたはPNGのみです。',

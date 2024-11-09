@@ -10,7 +10,7 @@ use App\Models\Item;
 
 class SellController extends Controller
 {
-    public function show()
+    public function showSellForm()
     {
         // カテゴリーと商品状態のデータを取得
         $categories = Category::all();
