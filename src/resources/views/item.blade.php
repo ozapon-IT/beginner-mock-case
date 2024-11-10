@@ -9,10 +9,12 @@
 @section('content')
 <div class="product-detail">
     <div class="product-detail__container">
+        <!-- 商品画像 -->
         <div class="product-detail__image">
             <img src="{{ $item->image_path }}" alt="{{ $item->name }}">
         </div>
 
+        <!-- 商品情報 -->
         <div class="product-detail__info">
             <h2 class="product-detail__title">{{ $item->name }}</h2>
 
@@ -37,7 +39,6 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">
-                                    <!-- いいね済みのアイコン -->
                                     <i class="bi bi-star-fill"></i>
                                 </button>
                             </form>
@@ -45,18 +46,16 @@
                             <form action="{{ route('like', $item) }}" method="POST">
                                 @csrf
                                 <button type="submit">
-                                    <!-- 未いいねのアイコン -->
                                     <i class="bi bi-star"></i>
                                 </button>
                             </form>
                         @endif
                     @endauth
 
-                    <!-- いいね数を表示 -->
                     <p>{{ $item->likes->count() }}</p>
                 </div>
 
-                <!-- コメント数を表示 -->
+                <!-- コメント数表示 -->
                 <div class="product-detail__icon">
                     <i class="bi bi-chat"></i>
 
@@ -64,8 +63,20 @@
                 </div>
             </div>
 
-            <button class="product-detail__purchase-button">購入手続きへ</button>
+            <!-- 購入手続き -->
+            @guest
+                <form action="{{ route('login') }}" method="GET">
+                    <button class="product-detail__purchase-button" type="submit">購入手続きへ</button>
+                </form>
+            @endguest
 
+            @auth
+                <form action="{{ route('purchase', ['item' => $item]) }}" method="GET">
+                    <button class="product-detail__purchase-button" type="submit">購入手続きへ</button>
+                </form>
+            @endauth
+
+            <!-- 商品についての各セクション -->
             <section class="product-detail__section">
                 <h3 class="product-detail__section-title">商品説明</h3>
 
@@ -92,6 +103,7 @@
                 </div>
             </section>
 
+            <!-- コメント機能 -->
             <section class="product-detail__comments">
                 <h3 class="product-detail__section-title">コメント ({{ $comments->count() }})</h3>
 
