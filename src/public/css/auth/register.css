@@ -98,7 +98,7 @@ body {
     text-decoration: underline;
 }
 
-/* タブレット画面時(1400-1540px) */
+/* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
     .header__container {

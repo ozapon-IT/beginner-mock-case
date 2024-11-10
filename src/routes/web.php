@@ -11,6 +11,8 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\SellController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\AddressController;
 
 
 /*
@@ -58,4 +60,11 @@ Route::middleware('auth')->group(function () {
 
     // コメント機能関連
     Route::post('/item/{item}/comment', [CommentController::class, 'storeComment'])->name('comment');
+
+    // 商品購入関連
+    Route::get('/purchase/{item}', [PurchaseController::class, 'showPurchasePage'])->name('purchase');
+
+    // 住所変更関連（商品購入時）
+    Route::get('/purchase/address', [AddressController::class, 'showAddressChangePage'])->name('address');
+    Route::post('/purchase/address', [AddressController::class, 'changeAddress'])->name('address.change');
 });

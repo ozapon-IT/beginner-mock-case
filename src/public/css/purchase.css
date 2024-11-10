@@ -1,0 +1,223 @@
+/* PC画面時(1400-1540px) */
+.purchase {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 0 50px;
+}
+
+.purchase__details {
+    width: 750px;
+}
+
+.purchase__item {
+    display: flex;
+    border-bottom: 1px solid #000;
+    padding-bottom: 40px;
+}
+
+.purchase__item-image {
+    width: 180px;
+    height: 180px;
+    margin-right: 60px;
+}
+
+.purchase__item-details {
+    font-size: 2rem;
+}
+
+.purchase__item-name {
+    font-weight: bold;
+}
+
+.purchase__item-price {
+    margin-top: 30px;
+}
+
+.purchase__payment {
+    border-bottom: 1px solid #000;
+    padding: 30px 30px 60px;
+}
+
+.purchase__payment-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.purchase__payment-select {
+    width: 270px;
+    padding: 5px 10px;
+    border-color: #999;
+    color: #777;
+    border-radius: 5px;
+    margin-left: 80px;
+    margin-top: 40px;
+    font-size: 1rem;
+}
+
+.purchase__shipping {
+    border-bottom: 1px solid #000;
+    padding: 30px 30px 60px;
+    position: relative;
+}
+
+.purchase__shipping-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.purchase__shipping-address {
+    margin-left: 80px;
+    margin-top: 40px;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.purchase__shipping-change {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.purchase__shipping-change:hover {
+    text-decoration: underline;
+}
+
+.purchase__summary {
+    width: 380px;
+}
+
+.purchase__summary-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.purchase__summary-item:nth-of-type(1) {
+    border: 1px solid #000;
+}
+
+.purchase__summary-item:nth-of-type(2) {
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.purchase__summary-label {
+    font-size: 1.2rem;
+}
+
+.purchase__summary-price, .purchase__summary-method {
+    font-size: 1.5rem;
+}
+
+.purchase__buy-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #ff5a5a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+.purchase__buy-button:hover {
+    background-color: #e14a4a;
+}
+
+@media screen and (max-width: 850px) {
+    .purchase {
+        padding: 0 40px;
+        max-width: 768px;
+        margin: 50px auto;
+    }
+
+    .purchase__details {
+        width: 400px;
+    }
+
+    .purchase__item {
+        padding-bottom: 20px;
+    }
+
+    .purchase__item-image {
+        width: 100px;
+        height: 100px;
+        margin-right: 40px;
+    }
+
+    .purchase__item-details {
+        font-size: 1.5rem;
+    }
+
+    .purchase__item-price {
+        margin-top: 30px;
+    }
+
+    .purchase__payment {
+        padding: 20px 20px 40px;
+    }
+
+    .purchase__payment-title {
+        font-size: 1rem;
+    }
+
+    .purchase__payment-select {
+        width: 150px;
+        padding: 2px 6px;
+        margin-left: 50px;
+        margin-top: 30px;
+        font-size: 0.6rem;
+    }
+
+    .purchase__shipping {
+        padding: 20px 20px 40px;
+    }
+
+    .purchase__shipping-title {
+        font-size: 1rem;
+    }
+
+    .purchase__shipping-address {
+        margin-left: 50px;
+        margin-top: 30px;
+        font-size: 1rem;
+        line-height: 1.0;
+    }
+
+    .purchase__shipping-change {
+        top: 20px;
+        right: 20px;
+        font-size: 0.7rem;
+    }
+
+    .purchase__summary {
+        width: 248px;
+        margin-left: 40px;
+    }
+
+    .purchase__summary-item {
+        padding: 30px 0;
+    }
+
+    .purchase__summary-label {
+        font-size: 0.7rem;
+    }
+
+    .purchase__summary-price, .purchase__summary-method {
+        font-size: 1rem;
+    }
+
+    .purchase__buy-button {
+        padding: 5px;
+        font-size: 1rem;
+        margin-top: 40px;
+    }
+}
