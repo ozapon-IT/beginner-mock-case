@@ -42,6 +42,7 @@
     width: 300px;
     height: 300px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .product-grid__image a {
@@ -52,6 +53,18 @@
 .product-grid__image a img {
     width: 300px;
     height: 300px;
+    border-radius: 5px;
+}
+
+.product-grid__sold-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
     border-radius: 5px;
 }
 
@@ -87,6 +100,7 @@
     }
 
     .product-grid__image {
+        width: 167px;
         height: 167px;
         font-size: 1.5rem;
     }
@@ -94,6 +108,13 @@
     .product-grid__image a img {
         width: 167px;
         height: 167px;
+    }
+
+    .product-grid__sold-label {
+        top: 5px;
+        right: 5px;
+        padding: 3px 6px;
+        font-size: 1rem;
     }
 
     .product-grid__name {

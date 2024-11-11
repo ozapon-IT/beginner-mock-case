@@ -62,9 +62,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/item/{item}/comment', [CommentController::class, 'storeComment'])->name('comment');
 
     // 商品購入関連
-    Route::get('/purchase/{item}', [PurchaseController::class, 'showPurchasePage'])->name('purchase');
+    Route::get('/purchase/{item}', [PurchaseController::class, 'showPurchasePage'])->where('item', '[0-9]+')->name('purchase');
+    Route::post('/purchase/{item}', [PurchaseController::class, 'purchaseItem'])->where('item', '[0-9]+')->name('purchase.item');
 
     // 住所変更関連（商品購入時）
-    Route::get('/purchase/address', [AddressController::class, 'showAddressChangePage'])->name('address');
-    Route::post('/purchase/address', [AddressController::class, 'changeAddress'])->name('address.change');
+    Route::get('/purchase/{item}/address', [AddressController::class, 'showAddressChangePage'])->name('address');
+    Route::post('/purchase/{item}/address', [AddressController::class, 'changeAddress'])->name('address.change');
 });

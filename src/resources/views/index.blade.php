@@ -27,6 +27,10 @@
             <div class="product-grid__image">
                 <a href="{{ route('item', ['item' => $item]) }}">
                     <img src="{{ $item->image_path }}" alt="{{ $item->name }}">
+
+                    @if ($item->status === 'sold')
+                        <span class="product-grid__sold-label">SOLD</span>
+                    @endif
                 </a>
             </div>
 

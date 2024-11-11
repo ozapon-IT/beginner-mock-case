@@ -7,6 +7,12 @@
 @endsection
 
 @section('content')
+@if (session('error'))
+    <div class="error-message">
+        {{ session('error') }}
+    </div>
+@endif
+
 <div class="profile-settings">
     <h1 class="profile-settings__title">プロフィール設定</h1>
 
