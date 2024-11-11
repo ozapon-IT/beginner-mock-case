@@ -41,6 +41,6 @@ class SellController extends Controller
         // 中間テーブル category_item に保存
         $item->categories()->attach($request->category_id);
 
-        return redirect()->route('sell')->with('success', '商品を出品しました');
+        return redirect()->route('mypage')->with('success', '商品を出品しました');
     }
 }

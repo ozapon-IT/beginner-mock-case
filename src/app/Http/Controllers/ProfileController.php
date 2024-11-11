@@ -45,7 +45,7 @@ class ProfileController extends Controller
             $profileData
         );
 
-        return redirect()->route('profile');
+        return redirect()->route('top', ['tab' => 'mylist']);
     }
 
 }

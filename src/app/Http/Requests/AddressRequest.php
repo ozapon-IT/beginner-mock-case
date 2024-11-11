@@ -23,8 +23,8 @@ class AddressRequest extends FormRequest
     {
         return [
             'postal_code' => 'required|regex:/^\d{3}-\d{4}$/',
-            'address' => 'required|string',
-            'building' => 'required|string',
+            'address' => 'required|string|max:255',
+            'building' => 'nullable|string|max:255',
         ];
     }
 
@@ -40,8 +40,9 @@ class AddressRequest extends FormRequest
             'postal_code.regex' => '郵便番号はハイフンありの8文字で入力してください。',
             'address.required' => '住所を入力してください。',
             'address.string' => '住所は文字列で入力してください。',
-            'building.required' => '建物名を入力してください。',
+            'address.max' => '住所は255文字以内で入力してください。',
             'building.string' => '建物名は文字列で入力してください。',
+            'building.max' => '建物名は255文字以内でで入力してください。',
         ];
     }
 }

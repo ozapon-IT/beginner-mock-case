@@ -1,15 +1,15 @@
 /* PC画面時(1400-1540px) */
 .purchase {
-    display: flex;
-    justify-content: space-around;
+    /* display: flex;
+    justify-content: space-around; */
     max-width: 1400px;
     margin: 80px auto;
     padding: 0 50px;
 }
 
-.purchase__details {
+/* .purchase__details {
     width: 750px;
-}
+} */
 
 .purchase__item {
     display: flex;

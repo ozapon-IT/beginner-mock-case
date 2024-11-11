@@ -27,7 +27,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('top'); // ログイン後のリダイレクト先
+            return redirect()->route('top', ['tab' => 'mylist']); // ログイン後のリダイレクト先
         }
 
         return back()->withErrors([

@@ -10,7 +10,7 @@
 <div class="address-change">
     <h1 class="address-change__title">住所の変更</h1>
 
-    <form class="address-change__form" action="{{ route('address.change') }}" method="POST">
+    <form class="address-change__form" action="{{ route('address.change', ['item' => $item]) }}" method="POST">
         @csrf
         <div class="address-change__form-group">
             <label class="address-change__label" for="postal_code">郵便番号</label>
