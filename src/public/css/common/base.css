@@ -35,7 +35,7 @@ body {
 
 .header__nav {
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
     align-items: center;
     width: 370px;
     height: 60px;
@@ -86,7 +86,6 @@ body {
     .header__nav {
         width: 200px;
         height: 40px;
-        gap: 10px;
     }
 
     .header__link {
