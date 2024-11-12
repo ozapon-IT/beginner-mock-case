@@ -42,6 +42,8 @@
             @enderror
         </div>
 
+        <input type="hidden" name="payment_method" value="{{ $payment_method }}">
+
         <button class="address-change__button" type="submit">更新する</button>
     </form>
 </div>

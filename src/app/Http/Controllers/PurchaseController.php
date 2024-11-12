@@ -17,12 +17,13 @@ class PurchaseController extends Controller
     {
         $profile = Profile::where('user_id', Auth::id())->first();
         $address = $request->session()->get('address', null);
+        $payment_method = $request->session()->get('payment_method', null);
 
         if (is_null($profile) || empty($profile->postal_code) || empty($profile->address)) {
             return redirect()->route('profile')->with('error', '購入手続きを行う前に、プロフィールで住所を設定してください。');
         }
 
-        return view('purchase', compact('item', 'profile', 'address'));
+        return view('purchase', compact('item', 'profile', 'address', 'payment_method'));
     }
 
     public function purchaseItem(PurchaseRequest $request, Item $item)
@@ -31,6 +32,9 @@ class PurchaseController extends Controller
         if ($item->status === 'sold') {
             return redirect()->back()->with('error', 'この商品は既に購入済みです。');
         }
+
+        // セッションに支払い方法を保存
+        session(['payment_method' => $request->input('payment_method')]);
 
         // トランザクションの開始
         DB::beginTransaction();
