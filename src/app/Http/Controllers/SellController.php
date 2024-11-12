@@ -20,7 +20,7 @@ class SellController extends Controller
         return view('sell', compact('categories', 'conditions'));
     }
 
-    public function store(ExhibitionRequest $request)
+    public function sellItem(ExhibitionRequest $request)
     {
         // 画像の保存
         if ($request->hasFile('image_path')) {
@@ -36,6 +36,7 @@ class SellController extends Controller
             'condition_id' => $request->condition_id,
             'image_path' => $path ?? null,
             'status' => '在庫あり',
+            'brand' => $request->brand,
         ]);
 
         // 中間テーブル category_item に保存

@@ -52,14 +52,14 @@ Route::middleware('auth')->group(function () {
 
     // 商品出品関連
     Route::get('/sell', [SellController::class, 'showSellForm'])->name('sell');
-    Route::post('/sell', [SellController::class, 'store'])->name('sell.store');
+    Route::post('/sell', [SellController::class, 'sellItem'])->name('sell.item');
 
     // いいね機能関連
     Route::post('/item/{item}/like', [LikeController::class, 'like'])->name('like');
     Route::delete('/item/{item}/like', [LikeController::class, 'unlike'])->name('unlike');
 
     // コメント機能関連
-    Route::post('/item/{item}/comment', [CommentController::class, 'storeComment'])->name('comment');
+    Route::post('/item/{item}/comment', [CommentController::class, 'comment'])->name('comment');
 
     // 商品購入関連
     Route::get('/purchase/{item}', [PurchaseController::class, 'showPurchasePage'])->where('item', '[0-9]+')->name('purchase');

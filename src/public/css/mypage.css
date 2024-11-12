@@ -88,6 +88,19 @@
     font-size: 1.5rem;
 }
 
+.success {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: rgb(208 231 222);
+}
+
+.success span {
+    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: rgb(9 83 54);
+}
+
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
@@ -146,5 +159,14 @@
 
     .product-grid__name {
         font-size: 0.8rem;
+    }
+
+    .success {
+        padding: 5px 20px;
+    }
+
+    .success span {
+        font-size: 0.5rem;
+        max-width: 768px;
     }
 }

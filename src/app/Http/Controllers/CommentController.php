@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function storeComment(CommentRequest $request, Item $item)
+    public function comment(CommentRequest $request, Item $item)
     {
         Comment::create([
             'item_id' => $item->id,

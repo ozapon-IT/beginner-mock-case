@@ -22,13 +22,14 @@ class ExhibitionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
+            'name' => 'required|string|max:100',
             'description' => 'required|string|max:255',
             'image_path' => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'category_id' => 'required|array|min:1',
             'category_id.*' => 'exists:categories,id',
             'condition_id' => 'required|exists:conditions,id',
             'price' => 'required|numeric|min:0',
+            'brand' => 'nullable|string|max:100',
         ];
     }
 
@@ -37,6 +38,7 @@ class ExhibitionRequest extends FormRequest
         return [
             'name.required' => '商品名を入力してください。',
             'name.string' => '商品名は文字列で入力してください。',
+            'name.max' => '商品名は100文字以内でで入力してください。',
             'description.required' => '商品の説明を入力してください。',
             'description.string' => '商品の説明は文字列で入力してください。',
             'description.max' => '商品の説明は255文字以内で入力してください。',
@@ -49,6 +51,8 @@ class ExhibitionRequest extends FormRequest
             'price.required' => '販売価格を入力してください。',
             'price.numeric' => '販売価格は数値で入力してください。',
             'price.min' => '販売価格は0円以上でなければなりません。',
+            'brand.string' => 'ブランド名は文字列で入力してください。',
+            'brand.max' => 'ブランド名は100文字以内で入力してください。',
         ];
     }
 }
