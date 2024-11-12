@@ -8,8 +8,8 @@
 
 @section('content')
 @if (session('error'))
-    <div class="error-message">
-        {{ session('error') }}
+    <div class="error">
+        <span>{{ session('error') }}</span>
     </div>
 @endif
 
@@ -29,13 +29,15 @@
         <section class="purchase__payment">
             <h2 class="purchase__payment-title">支払い方法</h2>
 
-            <select class="purchase__payment-select" id="payment-method-select" name="payment_method">
-                <option value="">選択してください</option>
+            <div class="purchase__payment-method">
+                <select class="purchase__payment-select" id="payment-method-select" name="payment_method">
+                    <option value="">選択してください</option>
 
-                <option value="コンビニ払い" {{ (old('payment_method', $payment_method) == 'コンビニ払い') ? 'selected' : '' }}>コンビニ払い</option>
+                    <option value="コンビニ払い" {{ (old('payment_method', $payment_method) == 'コンビニ払い') ? 'selected' : '' }}>コンビニ払い</option>
 
-                <option value="カード払い" {{ (old('payment_method', $payment_method) == 'カード払い') ? 'selected' : '' }}>カード払い</option>
-            </select>
+                    <option value="カード払い" {{ (old('payment_method', $payment_method) == 'カード払い') ? 'selected' : '' }}>カード払い</option>
+                </select>
+            </div>
 
             @error('payment_method')
                 <span class="error-message">{{ $message }}</span>

@@ -7,12 +7,6 @@
 @endsection
 
 @section('content')
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
 <div class="listing">
     <h1 class="listing__title">商品の出品</h1>
 

@@ -89,12 +89,25 @@
     margin-top: 5px;
 }
 
+.error {
+    padding: 10px 20px;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+}
+
+.error span {
+    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: #842029;
+}
+
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
     .profile-settings {
         max-width: 400px;
-        margin: 60px auto;
+        margin: 50px auto;
     }
 
     .profile-settings__title {
@@ -141,8 +154,12 @@
         margin-top: 40px;
     }
 
-    .error-message {
-        font-size: 0.6rem;
-        margin-top: 5px;
+    .error {
+        padding: 5px 20px;
+    }
+
+    .error span {
+        font-size: 0.5rem;
+        max-width: 768px;
     }
 }

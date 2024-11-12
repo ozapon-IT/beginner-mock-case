@@ -8,8 +8,8 @@
 
 @section('content')
 @if (session('error'))
-    <div class="error-message">
-        {{ session('error') }}
+    <div class="error">
+        <span>{{ session('error') }}</span>
     </div>
 @endif
 
