@@ -19,7 +19,7 @@
             <div class="sell__image-upload">
                 <label class="sell__image-button" for="image">
                     画像を選択する
-                    <input type="file" name="image_path" accept=".jpg,.jpeg,.png" id="image">
+                    <input type="file" name="image_path" accept=".jpeg,.png" id="image">
                 </label>
             </div>
 

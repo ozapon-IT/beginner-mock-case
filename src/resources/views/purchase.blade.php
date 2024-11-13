@@ -17,7 +17,7 @@
 <div class="purchase">
     <!-- 購入商品 -->
     <section class="purchase__item">
-        <img class="purchase__item-image" src="{{ $item->image_path }}" alt="{{ $item->name }}">
+        <img class="purchase__item-image" src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
 
         <div class="purchase__item-details">
             <h1 class="purchase__item-name">{{ $item->name }}</h1>

@@ -34,7 +34,7 @@
         <div class="product-grid__item">
             <div class="product-grid__image">
                 <a href="{{ route('item', ['item' => $item->id]) }}">
-                    <img src="{{ $item->image_path }}" alt="{{ $item->name }}">
+                    <img src="{{ asset('storage/' .$item->image_path) }}" alt="{{ $item->name }}">
                 </a>
             </div>
 

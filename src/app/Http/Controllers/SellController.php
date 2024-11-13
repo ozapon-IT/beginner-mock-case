@@ -21,7 +21,7 @@ class SellController extends Controller
     {
         // 画像の保存
         if ($request->hasFile('image_path')) {
-            $path = $request->file('image_path')->store('storage', 'public');
+            $path = $request->file('image_path')->store('items', 'public');
         }
 
         // itemsテーブルに保存

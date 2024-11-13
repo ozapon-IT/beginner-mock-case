@@ -26,7 +26,7 @@
 
             <nav class="header__nav">
                 @guest
-                <a class="header__link" href="{{ route('login') }}">ログイン</a>
+                    <a class="header__link" href="{{ route('login') }}">ログイン</a>
                 @endguest
 
                 @auth
@@ -37,19 +37,19 @@
                 @endauth
 
                 @guest
-                <a class="header__link" href="{{ route('login') }}">マイページ</a>
+                    <a class="header__link" href="{{ route('login') }}">マイページ</a>
                 @endguest
 
                 @auth
-                <a class="header__link" href="/mypage">マイページ</a>
+                    <a class="header__link" href="/mypage">マイページ</a>
                 @endauth
 
                 @guest
-                <a class="header__link header__link--sell" href="{{ route('login') }}">出品</a>
+                    <a class="header__link header__link--sell" href="{{ route('login') }}">出品</a>
                 @endguest
 
                 @auth
-                <a class="header__link header__link--sell" href="{{ route('sell') }}">出品</a>
+                    <a class="header__link header__link--sell" href="{{ route('sell') }}">出品</a>
                 @endauth
             </nav>
         </div>
