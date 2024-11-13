@@ -1,5 +1,27 @@
 /* PC画面時(1400-1540px) */
 
+/* セッションエラー */
+.error {
+    padding: 10px 20px;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+}
+
+.error span {
+    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: #842029;
+}
+
+/* バリデーションエラー */
+.error-message {
+    color: red;
+    font-size:1rem;
+    margin-top: 5px;
+}
+
+/* コンテンツ */
 .profile-settings {
     max-width: 680px;
     margin: 80px auto;
@@ -83,28 +105,27 @@
     background-color: #e14a4a;
 }
 
-.error-message {
-    color: red;
-    font-size:1rem;
-    margin-top: 5px;
-}
-
-.error {
-    padding: 10px 20px;
-    border-color: #f5c2c7;
-    background-color: #f8d7da;
-}
-
-.error span {
-    display: block;
-    max-width: 1400px;
-    margin: 0 auto;
-    color: #842029;
-}
-
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
+    /* セッションエラー */
+    .error {
+        padding: 5px 20px;
+    }
+
+    .error span {
+        font-size: 0.5rem;
+        max-width: 768px;
+    }
+
+    /* バリデーションエラー */
+    .error-message {
+        color: red;
+        font-size:0.5rem;
+        margin-top: 5px;
+    }
+
+    /* コンテンツ */
     .profile-settings {
         max-width: 400px;
         margin: 50px auto;
@@ -152,14 +173,5 @@
         padding: 5px;
         font-size: 1rem;
         margin-top: 40px;
-    }
-
-    .error {
-        padding: 5px 20px;
-    }
-
-    .error span {
-        font-size: 0.5rem;
-        max-width: 768px;
     }
 }

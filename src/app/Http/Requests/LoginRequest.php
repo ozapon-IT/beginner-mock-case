@@ -22,25 +22,22 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string', 'min:8'],
+            'email' => 'required|string|email|max:100',
+            'password' => 'required|string|min:8|max:100',
         ];
     }
 
-    /**
-     * カスタムエラーメッセージ
-     *
-     * @return array
-     */
-    public function messages()
+    public function messages(): array
     {
         return [
             'email.required' => 'メールアドレスを入力してください。',
             'email.string' => 'メールアドレスは文字列で入力してください。',
-            'email.email' => '有効なメールアドレスを入力してください。',
+            'email.email' => '正しいメールアドレス形式で入力してください。',
+            'email.max' => 'メールアドレスは100文字以内で入力してください。',
             'password.required' => 'パスワードを入力してください。',
             'password.string' => 'パスワードは文字列で入力してください。',
             'password.min' => 'パスワードは8文字以上で入力してください。',
+            'password.max' => 'パスワードは100文字以内で入力してください。',
         ];
     }
 }

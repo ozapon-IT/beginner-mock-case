@@ -28,12 +28,7 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-    /**
-     * カスタムエラーメッセージの定義
-     *
-     * @return array
-     */
-    public function messages()
+    public function messages(): array
     {
         return [
             'name.required' => 'ユーザー名を入力してください。',

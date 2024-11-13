@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Condition;
 use App\Http\Requests\ExhibitionRequest;
@@ -12,11 +11,9 @@ class SellController extends Controller
 {
     public function showSellForm()
     {
-        // カテゴリーと商品状態のデータを取得
         $categories = Category::all();
         $conditions = Condition::all();
 
-        // ビューにデータを渡す
         return view('sell', compact('categories', 'conditions'));
     }
 

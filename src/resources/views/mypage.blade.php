@@ -21,7 +21,6 @@
     <a class="user__profile-link" href="{{ route('profile') }}">プロフィールを編集</a>
 </div>
 
-
 <div class="tabs">
     <div class="tabs__container">
         <a class="tabs__tab {{ $currentTab === 'sell' ? 'tabs__tab--active' : '' }}" href="{{ route('mypage', ['tab' => 'sell']) }}">出品した商品</a>
@@ -38,6 +37,7 @@
                     <img src="{{ $item->image_path }}" alt="{{ $item->name }}">
                 </a>
             </div>
+
             <p class="product-grid__name">{{ $item->name }}</p>
         </div>
     @endforeach

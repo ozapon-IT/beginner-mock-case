@@ -19,6 +19,7 @@
     <form class="profile-settings__form" method="POST" action="{{ route('profile.update') }}">
         @method('PATCH')
         @csrf
+
         <div class="profile-settings__avatar">
             <img class="profile-settings__avatar-image" src="{{ $profile && $profile->image_path ? Storage::url($profile->image_path) : null }}" alt="{{ $profile && $profile->image_path ? 'プロフィール画像' : '' }}">
 
@@ -28,7 +29,7 @@
             </label>
 
             @error('image')
-            <span class="error-message">{{ $message }}</span>
+                <span class="error-message">{{ $message }}</span>
             @enderror
         </div>
 
@@ -38,7 +39,7 @@
             <input class="profile-settings__input" type="text" id="username" name="name" value="{{ old('name', $user->name) }}">
 
             @error('name')
-            <span class="error-message">{{ $message }}</span>
+                <span class="error-message">{{ $message }}</span>
             @enderror
         </div>
 
@@ -48,7 +49,7 @@
             <input class="profile-settings__input" type="text" id="postal_code" name="postal_code" value="{{ old('postal_code', $profile->postal_code ?? '') }}">
 
             @error('postal_code')
-            <span class="error-message">{{ $message }}</span>
+                <span class="error-message">{{ $message }}</span>
             @enderror
         </div>
 
@@ -58,7 +59,7 @@
             <input class="profile-settings__input" type="text" id="address" name="address" value="{{ old('address', $profile->address ?? '') }}">
 
             @error('address')
-            <span class="error-message">{{ $message }}</span>
+                <span class="error-message">{{ $message }}</span>
             @enderror
         </div>
 
@@ -68,7 +69,7 @@
             <input class="profile-settings__input" type="text" id="building" name="building" value="{{ old('building', $profile->building ?? '') }}">
 
             @error('building')
-            <span class="error-message">{{ $message }}</span>
+                <span class="error-message">{{ $message }}</span>
             @enderror
         </div>
 

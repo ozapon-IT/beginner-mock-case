@@ -9,6 +9,13 @@
     text-align: center;
 }
 
+.error-message {
+    color: red;
+    font-size: 1rem;
+    display: inline-block;
+    margin-top: 5px;
+}
+
 /* 商品画像 */
 .sell__section--image {
     margin-top: 50px;
@@ -80,7 +87,7 @@
     color: #ff6f61;
     border: 2px solid #ff6f61;
     padding: 5px 10px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     border-radius: 20px;
 }
@@ -113,16 +120,34 @@
 /* 商品の状態 */
 .sell__condition {
     margin-top: 40px;
+    position: relative;
+}
+
+.sell__condition:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 75%;
+    transform: translateY(-50%);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 14px solid #777;
+    pointer-events: none;
 }
 
 .sell__select {
     width: 100%;
     padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #bbb;
+    font-size: 1.2rem;
+    border: 1px solid #999;
+    color: #777;
     border-radius: 5px;
     background-color: #fff;
     margin-top: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
 }
 
 /* 商品名と説明 */
@@ -134,6 +159,7 @@
     margin-top: 40px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .sell__label {
@@ -145,7 +171,7 @@
 .sell__input,
 .sell__textarea {
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     border: 1px solid #bbb;
     border-radius: 5px;
     margin-top: 10px;
@@ -154,6 +180,19 @@
 .sell__textarea {
     height: 150px;
     resize: vertical;
+}
+
+.sell__field:nth-of-type(3) .sell__input {
+    padding-left: 35px;
+}
+
+.sell__input--yen-sign {
+    position: absolute;
+    top: 56%;
+    left: 15px;
+    pointer-events: none;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 /* 出品ボタン */
@@ -174,13 +213,6 @@
     background-color: #e14a4a;
 }
 
-.error-message {
-    color: red;
-    font-size: 1rem;
-    display: inline-block;
-    margin-top: 5px;
-}
-
 /* タブレット画面時(768-850px) */
 @media screen and (max-width: 850px) {
     .sell {
@@ -190,6 +222,11 @@
 
     .sell__title {
         font-size: 1.5rem;
+    }
+
+    .error-message {
+        font-size: 0.5rem;
+        margin-top: 5px;
     }
 
     /* 商品画像 */
@@ -233,7 +270,8 @@
     }
 
     .sell__category-item span {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
+        padding: 4px 8px;
     }
 
     /* ブランド名 */
@@ -252,9 +290,17 @@
         margin-top: 30px;
     }
 
+    .sell__condition:after {
+        right: 10px;
+        top: 73%;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 10px solid #777;
+    }
+
     .sell__select {
         padding: 8px;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
         margin-top: 5px;
     }
 
@@ -274,7 +320,7 @@
     .sell__input,
     .sell__textarea {
         padding: 8px;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
         margin-top: 5px;
     }
 
@@ -282,14 +328,22 @@
         height: 80px;
     }
 
+    .sell__field:nth-of-type(3) .sell__input {
+        padding-left: 25px;
+    }
+
+    .sell__input--yen-sign {
+        position: absolute;
+        top: 53%;
+        left: 10px;
+        pointer-events: none;
+        font-size: 1.0rem;
+        font-weight: bold;
+    }
+
     /* 出品ボタン */
     .sell__submit-button {
         font-size: 0.8rem;
         margin-top: 60px;
-    }
-
-    .error-message {
-        font-size: 0.6rem;
-        margin-top: 5px;
     }
 }

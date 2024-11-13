@@ -9,6 +9,12 @@
     margin: 0 auto;
 }
 
+.error-message {
+    color: red;
+    font-size:1rem;
+    margin-top: 5px;
+}
+
 /* 商品画像 */
 .product-detail__image {
     width: 550px;
@@ -221,12 +227,6 @@
     background-color: #e14a4a;
 }
 
-.error-message {
-    color: red;
-    font-size:1rem;
-    margin-top: 5px;
-}
-
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
@@ -234,6 +234,11 @@
         max-width: 768px;
         gap: 50px;
         padding: 50px;
+    }
+
+    .error-message {
+        font-size: 0.5rem;
+        margin-top: 5px;
     }
 
     /* 商品画像 */
@@ -384,10 +389,5 @@
         padding: 5px;
         font-size: 0.8rem;
         margin-top: 20px;
-    }
-
-    .error-message {
-        font-size: 0.6rem;
-        margin-top: 5px;
     }
 }

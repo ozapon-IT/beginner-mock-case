@@ -1,18 +1,24 @@
 /* PC画面時(1400-1540px) */
 
+.error-message {
+    color: red;
+    font-size:1rem;
+    margin-top: 5px;
+}
+
 .address-change {
     width: 680px;
     margin: 100px auto;
-}
-
-.address-change__form {
-    margin-top: 50px;
 }
 
 .address-change__title {
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
+}
+
+.address-change__form {
+    margin-top: 50px;
 }
 
 .address-change__form-group {
@@ -36,12 +42,6 @@
     margin-top: 10px;
 }
 
-.error-message {
-    color: red;
-    font-size:1rem;
-    margin-top: 5px;
-}
-
 .address-change__button {
     background-color: #ff5a5a;
     color: #ffffff;
@@ -63,18 +63,24 @@
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
+    .error-message {
+        font-size: 0.5rem;
+        margin-top: 5px;
+    }
+
     .address-change {
         width: 400px;
         margin: 60px auto;
+    }
+
+    .address-change__title {
+        font-size: 1.5rem;
     }
 
     .address-change__form {
         margin-top: 20px;
     }
 
-    .address-change__title {
-        font-size: 1.5rem;
-    }
 
     .address-change__form-group:not(nth-of-type(1)) {
         margin-top: 20px
@@ -87,11 +93,6 @@
     .address-change__input {
         padding: 5px;
         font-size: 1rem;
-        margin-top: 5px;
-    }
-
-    .error-message {
-        font-size: 0.6rem;
         margin-top: 5px;
     }
 

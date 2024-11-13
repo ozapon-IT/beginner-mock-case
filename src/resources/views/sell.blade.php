@@ -108,6 +108,7 @@
                 <label class="sell__label" for="price">販売価格</label>
 
                 <input class="sell__input" type="text" id="price" name="price" value="{{ old('price') }}">
+                <span class="sell__input--yen-sign">¥</span>
             </div>
 
             @error('price')
