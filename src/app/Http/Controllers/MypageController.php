@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use App\Models\Order;
+use App\Models\Profile;
 
 class MypageController extends Controller
 {
@@ -29,6 +30,9 @@ class MypageController extends Controller
                 ->pluck('item'); // itemデータのみ抽出
         }
 
-        return view('mypage', compact('user', 'items', 'currentTab'));
+        // プロフィール情報を取得
+        $profile = Profile::where('user_id', $user->id)->first();
+
+        return view('mypage', compact('user', 'items', 'currentTab', 'profile'));
     }
 }

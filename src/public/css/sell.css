@@ -30,6 +30,17 @@
     color: #888;
 }
 
+.sell__image-preview {
+    display: none;
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+}
+
+.sell__image-preview--visible {
+    display: block;
+}
+
 .sell__image-upload {
     border: 2px dashed #bbb;
     border-radius: 5px;
@@ -238,6 +249,12 @@
         font-size: 1.2rem;
         padding-bottom: 5px;
         margin-top: 40px;
+    }
+
+    .sell__image-preview {
+        width: 80px;
+        height: 80px;
+        margin-top: 5px;
     }
 
     .sell__image-upload {

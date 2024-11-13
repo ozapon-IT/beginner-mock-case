@@ -14,7 +14,7 @@
 @endif
 
 <div class="user">
-    <img class="user__avatar-image" {{-- src="" alt="" --}}>
+    <img class="user__avatar-image" src="{{ $profile && $profile->image_path ? asset('storage/' . $profile->image_path) : '' }}" alt="プロフィール画像">
 
     <h2 class="user__username">{{ $user->name }}</h2>
 

@@ -16,22 +16,23 @@
 <div class="profile-settings">
     <h1 class="profile-settings__title">プロフィール設定</h1>
 
-    <form class="profile-settings__form" method="POST" action="{{ route('profile.update') }}">
+    <form class="profile-settings__form" method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
 
         <div class="profile-settings__avatar">
-            <img class="profile-settings__avatar-image" src="{{ $profile && $profile->image_path ? Storage::url($profile->image_path) : null }}" alt="{{ $profile && $profile->image_path ? 'プロフィール画像' : '' }}">
+            <img class="profile-settings__avatar-image" src="{{ $profile && $profile->image_path ? Storage::url($profile->image_path) : '' }}" alt="{{ $profile && $profile->image_path ? 'プロフィール画像' : '' }}" id="avatar-preview">
 
             <label class="profile-settings__avatar-button" for="image">
                 画像を選択
-                <input type="file" name="image_path" accept=".jpg,.jpeg,.png" id="image">
+                <input type="file" name="image_path" accept=".jpeg,.png" id="image">
             </label>
 
-            @error('image')
-                <span class="error-message">{{ $message }}</span>
-            @enderror
         </div>
+
+        @error('image_path')
+            <span class="error-message">{{ $message }}</span>
+        @enderror
 
         <div class="profile-settings__group">
             <label class="profile-settings__label" for="username">ユーザー名</label>
@@ -76,4 +77,30 @@
         <button class="profile-settings__button" type="submit">更新する</button>
     </form>
 </div>
+@endsection
+
+@section('script')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var imageInput = document.getElementById('image');
+    var avatarPreview = document.getElementById('avatar-preview');
+
+    imageInput.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                avatarPreview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            // ファイルが選択されていない場合、元の画像を表示
+            avatarPreview.src = "{{ $profile && $profile->image_path ? Storage::url($profile->image_path) : '' }}";
+        }
+    });
+});
+</script>
 @endsection

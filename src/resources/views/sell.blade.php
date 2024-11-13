@@ -16,6 +16,8 @@
         <section class="sell__section sell__section--image">
             <h3 class="sell__label">商品画像</h3>
 
+            <img class="sell__image-preview" id="item-image-preview" src="" alt="商品のプレビュー画像">
+
             <div class="sell__image-upload">
                 <label class="sell__image-button" for="image">
                     画像を選択する
@@ -119,4 +121,32 @@
         <button class="sell__submit-button" type="submit">出品する</button>
     </form>
 </div>
+@endsection
+
+@section('script')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var imageInput = document.getElementById('image');
+    var imagePreview = document.getElementById('item-image-preview');
+
+    imageInput.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+                imagePreview.classList.add('sell__image-preview--visible');
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            // ファイルが選択されていない場合、プレビューを非表示にする
+            imagePreview.src = '';
+            imagePreview.classList.remove('sell__image-preview--visible');
+        }
+    });
+});
+</script>
 @endsection

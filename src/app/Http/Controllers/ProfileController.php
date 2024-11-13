@@ -28,8 +28,8 @@ class ProfileController extends Controller
         $profileData = $request->only(['postal_code', 'address', 'building']);
 
         // 画像の処理
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('storage', 'public');
+        if ($request->hasFile('image_path')) {
+            $path = $request->file('image_path')->store('items', 'public');
             $profileData['image_path'] = $path;
         }
 
