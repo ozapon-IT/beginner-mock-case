@@ -34,6 +34,7 @@ Route::get('/item/{item}', [ItemController::class, 'showItemPage'])->name('item'
 
 // ログイン
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
 
 // ログアウト
@@ -41,21 +42,26 @@ Route::post('/logout', [LogoutController::class, 'logout'])->middleware('auth')-
 
 // 登録
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
 Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
 
 // 認証が必要なルート
 Route::middleware('auth')->group(function () {
     // プロフィール関連
     Route::get('/mypage/profile', [ProfileController::class, 'showProfileForm'])->name('profile');
+
     Route::patch('/mypage/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
+
     Route::get('/mypage', [MypageController::class, 'showMyPage'])->name('mypage');
 
     // 商品出品関連
     Route::get('/sell', [SellController::class, 'showSellForm'])->name('sell');
+
     Route::post('/sell', [SellController::class, 'sellItem'])->name('sell.item');
 
     // いいね機能関連
     Route::post('/item/{item}/like', [LikeController::class, 'like'])->name('like');
+
     Route::delete('/item/{item}/like', [LikeController::class, 'unlike'])->name('unlike');
 
     // コメント機能関連
@@ -63,9 +69,11 @@ Route::middleware('auth')->group(function () {
 
     // 商品購入関連
     Route::get('/purchase/{item}', [PurchaseController::class, 'showPurchasePage'])->where('item', '[0-9]+')->name('purchase');
+
     Route::post('/purchase/{item}', [PurchaseController::class, 'purchaseItem'])->where('item', '[0-9]+')->name('purchase.item');
 
     // 住所変更関連（商品購入時）
     Route::get('/purchase/{item}/address', [AddressController::class, 'showAddressChangePage'])->name('address');
+
     Route::post('/purchase/{item}/address', [AddressController::class, 'changeAddress'])->name('address.change');
 });

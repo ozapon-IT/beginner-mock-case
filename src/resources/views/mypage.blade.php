@@ -14,13 +14,12 @@
 @endif
 
 <div class="user">
-    <img class="user__avatar-image" {{-- src="" alt="" --}}>
+    <img class="user__avatar-image" src="{{ $profile && $profile->image_path ? asset('storage/' . $profile->image_path) : '' }}" alt="プロフィール画像">
 
     <h2 class="user__username">{{ $user->name }}</h2>
 
     <a class="user__profile-link" href="{{ route('profile') }}">プロフィールを編集</a>
 </div>
-
 
 <div class="tabs">
     <div class="tabs__container">
@@ -35,9 +34,10 @@
         <div class="product-grid__item">
             <div class="product-grid__image">
                 <a href="{{ route('item', ['item' => $item->id]) }}">
-                    <img src="{{ $item->image_path }}" alt="{{ $item->name }}">
+                    <img src="{{ asset('storage/' .$item->image_path) }}" alt="{{ $item->name }}">
                 </a>
             </div>
+
             <p class="product-grid__name">{{ $item->name }}</p>
         </div>
     @endforeach

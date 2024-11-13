@@ -4,6 +4,11 @@ body {
 }
 
 /* PC画面時(1400-1540px) */
+.error-message {
+    color: red;
+    font-size:1rem;
+    margin-top: 5px;
+}
 
 .header {
     background-color: #000;
@@ -59,12 +64,6 @@ body {
     margin-top: 10px;
 }
 
-.error-message {
-    color: red;
-    font-size:1rem;
-    margin-top: 5px;
-}
-
 .login__button {
     background-color: #ff5a5a;
     color: #ffffff;
@@ -101,6 +100,11 @@ body {
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
+    .error-message {
+        font-size: 0.5rem;
+        margin-top: 5px;
+    }
+
     .header__container {
         max-width: 768px;
         height: 40px;
@@ -135,11 +139,6 @@ body {
     .login__input {
         padding: 5px;
         font-size: 1rem;
-        margin-top: 5px;
-    }
-
-    .error-message {
-        font-size: 0.6rem;
         margin-top: 5px;
     }
 

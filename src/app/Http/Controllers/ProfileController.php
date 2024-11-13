@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
 use App\Http\Requests\ProfileRequest;
@@ -11,41 +10,42 @@ class ProfileController extends Controller
 {
     public function showProfileForm()
     {
-        // ログイン中のユーザーのプロフィール情報を取得
         $profile = Profile::where('user_id', Auth::id())->first();
-        $user = Auth::user(); // ユーザー情報を取得
+        $user = Auth::user();
 
-        // profile.blade.php に `$profile` と `$user` 変数として渡す
         return view('profile', compact('profile', 'user'));
     }
 
     public function updateProfile(ProfileRequest $request)
     {
-        // ログイン中のユーザーを取得
         $user = Auth::user();
 
         // ユーザー名（usersテーブル）の更新
         $user->update([
-            'name' => $request->input('name'),
+            'name' => $request->input('name')
         ]);
 
-        // プロフィールデータの準備（profilesテーブル）
         $profileData = $request->only(['postal_code', 'address', 'building']);
 
         // 画像の処理
-        if ($request->hasFile('image')) {
-            // 画像ファイルを保存
-            $path = $request->file('image')->store('avatars', 'public');
+        if ($request->hasFile('image_path')) {
+            $path = $request->file('image_path')->store('items', 'public');
             $profileData['image_path'] = $path;
         }
 
-        // プロフィールの更新または作成（profilesテーブル）
-        Profile::updateOrCreate(
-            ['user_id' => $user->id], // 条件
-            $profileData
-        );
+        // プロフィールの存在確認
+        $profileExists = Profile::where('user_id', $user->id)->exists();
 
-        return redirect()->route('top', ['tab' => 'mylist']);
+        // プロフィールの更新または作成（profilesテーブル）
+        Profile::updateOrCreate(['user_id' => $user->id], $profileData);
+
+        // 初回プロフィール設定の場合、商品一覧画面にリダイレクト
+        if (!$profileExists) {
+            return redirect()->route('top', ['tab' => 'mylist']);
+        }
+
+        // 2回目以降はマイページにリダイレクト
+        return redirect()->route('mypage')->with('success', 'プロフィールを更新しました。');
     }
 
 }

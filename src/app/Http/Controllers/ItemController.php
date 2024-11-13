@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Profile;
 
 class ItemController extends Controller
 {
@@ -10,6 +12,8 @@ class ItemController extends Controller
     {
         $comments = $item->comments()->with('user')->get();
 
-        return view('item', compact('item', 'comments'));
+        $profile = Profile::where('user_id', Auth::id())->first();
+
+        return view('item', compact('item', 'comments', 'profile'));
     }
 }

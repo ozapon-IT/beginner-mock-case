@@ -12,13 +12,12 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
-        $tab = $request->input('tab', 'recommend'); // デフォルトは 'recommend'
-        $search = $request->input('search'); // 検索キーワードの取得
+        $tab = $request->input('tab', 'recommend');
+        $search = $request->input('search');
 
         if ($tab === 'mylist') {
-            // 「マイリスト」タブが選択された場合
+            // ログインユーザーが「いいね」した商品を取得
             if (Auth::check()) {
-                // ログインユーザーが「いいね」した商品を取得
                 $items = Item::whereIn('id', function ($query) {
                     $query->select('item_id')
                         ->from('likes')

@@ -1,4 +1,16 @@
 /* PC画面時(1400-1540px) */
+.success {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: rgb(208 231 222);
+}
+
+.success span {
+    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: rgb(9 83 54);
+}
 
 .user {
     display: flex;
@@ -54,9 +66,8 @@
 }
 
 .product-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     padding: 40px;
     max-width: 1400px;
@@ -88,22 +99,18 @@
     font-size: 1.5rem;
 }
 
-.success {
-    padding: 10px 30px;
-    border-color: #badbcc;
-    background-color: rgb(208 231 222);
-}
-
-.success span {
-    display: block;
-    max-width: 1400px;
-    margin: 0 auto;
-    color: rgb(9 83 54);
-}
-
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
+    .success {
+        padding: 5px 20px;
+    }
+
+    .success span {
+        font-size: 0.5rem;
+        max-width: 768px;
+    }
+
     .user {
         max-width: 768px;
         width: 600px;
@@ -159,14 +166,5 @@
 
     .product-grid__name {
         font-size: 0.8rem;
-    }
-
-    .success {
-        padding: 5px 20px;
-    }
-
-    .success span {
-        font-size: 0.5rem;
-        max-width: 768px;
     }
 }

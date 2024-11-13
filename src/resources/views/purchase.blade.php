@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<!-- セッションエラー -->
 @if (session('error'))
     <div class="error">
         <span>{{ session('error') }}</span>
@@ -14,8 +15,9 @@
 @endif
 
 <div class="purchase">
+    <!-- 購入商品 -->
     <section class="purchase__item">
-        <img class="purchase__item-image" src="{{ $item->image_path }}" alt="{{ $item->name }}">
+        <img class="purchase__item-image" src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
 
         <div class="purchase__item-details">
             <h1 class="purchase__item-name">{{ $item->name }}</h1>
@@ -26,6 +28,8 @@
 
     <form class="purchase__form" action="{{ route('purchase.item', ['item' => $item->id]) }}" method="POST">
         @csrf
+
+        <!-- 支払い方法 -->
         <section class="purchase__payment">
             <h2 class="purchase__payment-title">支払い方法</h2>
 
@@ -44,6 +48,7 @@
             @enderror
         </section>
 
+        <!-- 配送先 -->
         <section class="purchase__shipping">
             <h2 class="purchase__shipping-title">配送先</h2>
 
@@ -73,9 +78,11 @@
             @error('postal_code')
                 <span class="error-message">{{ $message }}</span>
             @enderror
+
             @error('address')
                 <span class="error-message">{{ $message }}</span>
             @enderror
+
             @error('building')
                 <span class="error-message">{{ $message }}</span>
             @enderror
@@ -83,6 +90,7 @@
             <a class="purchase__shipping-change" id="change-address-link" href="{{ route('address', ['item' => $item->id]) }}">変更する</a>
         </section>
 
+        <!-- 購入概要 -->
         <div class="purchase__summary">
             <div class="purchase__summary-item">
                 <p class="purchase__summary-label">商品名</p>
@@ -122,65 +130,6 @@
         </div>
     </form>
 </div>
-{{-- <div class="purchase">
-    <div class="purchase__details">
-        <section class="purchase__item">
-            <img class="purchase__item-image" src="{{ $item->image_path }}" alt="{{ $item->name }}">
-
-            <div class="purchase__item-details">
-                <h1 class="purchase__item-name">{{ $item->name }}</h1>
-
-                <p class="purchase__item-price">¥ {{ number_format($item->price) }}</p>
-            </div>
-        </section>
-
-        <section class="purchase__payment">
-            <h2 class="purchase__payment-title">支払い方法</h2>
-
-            <select class="purchase__payment-select" id="payment-method-select">
-                <option value="">選択してください</option>
-
-                <option value="コンビニ払い">コンビニ払い</option>
-
-                <option value="カード払い">カード払い</option>
-            </select>
-        </section>
-
-        <section class="purchase__shipping">
-            <h2 class="purchase__shipping-title">配送先</h2>
-
-            <p class="purchase__shipping-address">
-                @if (!isset($address) || empty($address))
-                〒 {{ $profile->postal_code }} <br>
-                {{ $profile->address }} <br>
-                {{ $profile->building}}
-                @else
-                〒 {{ $address['postal_code'] }} <br>
-                {{ $address['address'] }} <br>
-                {{ $address['building'] }}
-                @endif
-            </p>
-
-            <a class="purchase__shipping-change" href="{{ route('address', ['item' => $item->id]) }}">変更する</a>
-        </section>
-    </div>
-
-    <div class="purchase__summary">
-        <div class="purchase__summary-item">
-            <p class="purchase__summary-label">商品代金</p>
-
-            <p class="purchase__summary-price">¥ {{ number_format($item->price) }}</p>
-        </div>
-
-        <div class="purchase__summary-item">
-            <p class="purchase__summary-label">支払い方法</p>
-
-            <p class="purchase__summary-method" id="selected-payment-method">選択してください</p>
-        </div>
-
-        <button class="purchase__buy-button">購入する</button>
-    </div>
-</div> --}}
 @endsection
 
 @section('script')

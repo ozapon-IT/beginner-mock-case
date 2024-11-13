@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Condition;
 use App\Models\Item;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ItemSeeder extends Seeder
 {
@@ -123,6 +125,21 @@ class ItemSeeder extends Seeder
             // category_ids を取り出して変数に保持し、itemData から削除
             $categoryIds = $itemData['category_ids'];
             unset($itemData['category_ids']);
+
+            // 画像パスの生成処理
+            $imageUrl = $itemData['image_path'];
+            $imageContents = file_get_contents($imageUrl); // URLから画像データを取得
+
+            // ファイル拡張子を取得
+            $extension = pathinfo($imageUrl, PATHINFO_EXTENSION);
+
+            // ファイル名をランダムな文字列に変更
+            $imageName = 'items/' . Str::random(20) . '.' . $extension;
+
+            Storage::disk('public')->put($imageName, $imageContents); // storage/app/public/items に保存
+
+            // itemsテーブルには相対パスのみを保存
+            $itemData['image_path'] = $imageName;
 
             // 商品を作成（category_id は削除または無視）
             $item = Item::create($itemData);

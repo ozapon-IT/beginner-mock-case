@@ -11,7 +11,7 @@
     <div class="product-detail__container">
         <!-- 商品画像 -->
         <div class="product-detail__image">
-            <img src="{{ $item->image_path }}" alt="{{ $item->name }}">
+            <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
         </div>
 
         <!-- 商品情報 -->
@@ -110,7 +110,7 @@
                 @foreach ($comments as $comment)
                     <div class="product-detail__comment">
                         <div class="product-detail__comment-box1">
-                            <div class="product-detail__comment-avatar"></div>
+                            <img class="product-detail__comment-avatar" src="{{ $profile && $profile->image_path ? asset('storage/' . $profile->image_path) : '' }}" alt="プロフィール画像">
 
                             <p class="product-detail__comment-username">
                                 {{ $comment->user->name }}

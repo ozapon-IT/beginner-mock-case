@@ -26,16 +26,11 @@ class ProfileRequest extends FormRequest
             'postal_code' => 'required|regex:/^\d{3}-\d{4}$/',
             'address' => 'required|string|max:255',
             'building' => 'nullable|string|max:255',
-            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'image_path' => 'nullable|image|mimes:jpeg,png|max:2048',
         ];
     }
 
-    /**
-     * カスタムエラーメッセージの定義
-     *
-     * @return array
-     */
-    public function messages()
+    public function messages(): array
     {
         return [
             'name.required' => 'ユーザー名を入力してください。',
@@ -49,7 +44,7 @@ class ProfileRequest extends FormRequest
             'building.string' => '建物名は文字列で入力してください。',
             'building.max' => '建物名は255文字以内で入力してください。',
             'image_path.image' => 'プロフィール画像は画像ファイルでアップロードしてください。',
-            'image_path.mimes' => 'プロフィール画像はJPEG、JPGまたはPNG形式でアップロードしてください。',
+            'image_path.mimes' => 'プロフィール画像はJPEGまたはPNG形式でアップロードしてください。',
             'image_path.max' => 'プロフィール画像は2MB以下のファイルをアップロードしてください。',
         ];
     }

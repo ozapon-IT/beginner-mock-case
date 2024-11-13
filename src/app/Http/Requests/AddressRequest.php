@@ -29,12 +29,7 @@ class AddressRequest extends FormRequest
         ];
     }
 
-    /**
-     * カスタムエラーメッセージの定義
-     *
-     * @return array
-     */
-    public function messages()
+    public function messages(): array
     {
         return [
             'postal_code.required' => '郵便番号を入力してください。',
