@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\IndexController;
@@ -31,19 +28,6 @@ Route::get('/', [IndexController::class, 'index'])->name('top');
 
 // 商品詳細ページ
 Route::get('/item/{item}', [ItemController::class, 'showItemPage'])->name('item');
-
-// ログイン
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-
-Route::post('/login', [LoginController::class, 'login'])->name('login.post');
-
-// ログアウト
-Route::post('/logout', [LogoutController::class, 'logout'])->middleware('auth')->name('logout');
-
-// 登録
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-
-Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
 
 // 認証が必要なルート
 Route::middleware('auth')->group(function () {

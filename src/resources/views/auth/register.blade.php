@@ -20,7 +20,7 @@
         <div class="register">
             <h1 class="register__title">会員登録</h1>
 
-            <form class="register__form" action="{{ route('register.post') }}" method="POST">
+            <form class="register__form" action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="register__form-group">
                     <label class="register__label" for="username">ユーザー名</label>
@@ -56,6 +56,10 @@
                     <label class="register__label" for="password_confirmation">確認用パスワード</label>
 
                     <input class="register__input" type="password" id="password_confirmation" name="password_confirmation">
+
+                    @error('password_confirmation')
+                        <span class="error-message">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <button class="register__button" type="submit">登録する</button>
