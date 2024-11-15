@@ -11,6 +11,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\AddressController;
 
+use Laravel\Fortify\Http\Controllers\VerifyEmailController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +63,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/purchase/{item}/address', [AddressController::class, 'changeAddress'])->name('address.change');
 });
+
+ // デフォルトのメール認証ルートを上書き
+Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+    ->middleware(['signed', 'setUserFromId']) // 'auth' ミドルウェアは削除
+    ->name('verification.verify');

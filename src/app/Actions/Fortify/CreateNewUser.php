@@ -25,10 +25,15 @@ class CreateNewUser implements CreatesNewUsers
 
 		$validatedData = Validator::make($input, $rules, $messages)->validate();
 
-        return User::create([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => Hash::make($validatedData['password']),
+        $user = User::create([
+        'name' => $validatedData['name'],
+        'email' => $validatedData['email'],
+        'password' => Hash::make($validatedData['password']),
         ]);
+
+        // メール認証リンクを送信
+        // $user->sendEmailVerificationNotification();
+
+        return $user;
     }
 }
