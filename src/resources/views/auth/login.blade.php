@@ -17,6 +17,12 @@
     </header>
 
     <main>
+        @if (session('success'))
+            <div class="success">
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+
         <div class="login">
             <h1 class="login__title">ログイン</h1>
 

@@ -4,6 +4,19 @@ body {
 }
 
 /* PC画面時(1400-1540px) */
+.success {
+    padding: 10px 30px;
+    border-color: #badbcc;
+    background-color: rgb(208 231 222);
+}
+
+.success span {
+    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: rgb(9 83 54);
+}
+
 .error-message {
     color: red;
     font-size:1rem;
@@ -100,6 +113,15 @@ body {
 /* タブレット画面時(768-850px) */
 
 @media screen and (max-width: 850px) {
+    .success {
+        padding: 5px 20px;
+    }
+
+    .success span {
+        font-size: 0.5rem;
+        max-width: 768px;
+    }
+
     .error-message {
         font-size: 0.5rem;
         margin-top: 5px;
