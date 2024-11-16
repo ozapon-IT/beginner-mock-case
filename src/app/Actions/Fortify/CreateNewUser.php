@@ -31,9 +31,6 @@ class CreateNewUser implements CreatesNewUsers
         'password' => Hash::make($validatedData['password']),
         ]);
 
-        // メール認証リンクを送信
-        // $user->sendEmailVerificationNotification();
-
         return $user;
     }
 }

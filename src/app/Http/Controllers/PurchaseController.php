@@ -20,7 +20,7 @@ class PurchaseController extends Controller
         $payment_method = $request->session()->get('payment_method', null);
 
         if (is_null($profile) || empty($profile->postal_code) || empty($profile->address)) {
-            return redirect()->route('profile')->with('error', '購入手続きを行う前に、プロフィールで住所を設定してください。');
+            return redirect()->route('profile')->with('alert', '購入手続きを行う前に、プロフィールで住所を設定してください。');
         }
 
         return view('purchase', compact('item', 'profile', 'address', 'payment_method'));

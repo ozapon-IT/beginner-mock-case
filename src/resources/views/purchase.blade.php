@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<!-- セッションエラー -->
+<!-- セッションメッセージ -->
 @if (session('error'))
     <div class="error">
         <span>{{ session('error') }}</span>

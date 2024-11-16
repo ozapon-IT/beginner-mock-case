@@ -1,13 +1,13 @@
 /* PC画面時(1400-1540px) */
 
-/* セッションエラー */
-.error {
+/* セッションメッセージ */
+.alert {
     padding: 10px 20px;
     border-color: #f5c2c7;
     background-color: #f8d7da;
 }
 
-.error span {
+.alert span {
     display: block;
     max-width: 1400px;
     margin: 0 auto;
