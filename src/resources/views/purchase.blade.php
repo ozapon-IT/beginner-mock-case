@@ -13,6 +13,12 @@
         <span>{{ session('error') }}</span>
     </div>
 @endif
+<!-- stripe決済キャンセル時メーセージ -->
+@if (request('error') === 'cancelled')
+    <div class="error">
+        <span>決済がキャンセルされました。再度お試しください。</span>
+    </div>
+@endif
 
 <div class="purchase">
     <!-- 購入商品 -->
@@ -53,26 +59,26 @@
             <h2 class="purchase__shipping-title">配送先</h2>
 
             <p class="purchase__shipping-address">
-                @if (!isset($address) || empty($address))
-                    〒 {{ $profile->postal_code }} <br>
-                    {{ $profile->address }} <br>
-                    {{ $profile->building}}
-                @else
+                @if (is_array($address))
                     〒 {{ $address['postal_code'] }} <br>
                     {{ $address['address'] }} <br>
                     {{ $address['building'] }}
+                @else
+                    〒 {{ $profile->postal_code }} <br>
+                    {{ $profile->address }} <br>
+                    {{ $profile->building}}
                 @endif
             </p>
 
             <!-- 配送先情報の隠しフィールド -->
-            @if (!isset($address) || empty($address))
-                <input type="hidden" name="postal_code" value="{{ $profile->postal_code }}">
-                <input type="hidden" name="address" value="{{ $profile->address }}">
-                <input type="hidden" name="building" value="{{ $profile->building }}">
-            @else
+            @if (is_array($address))
                 <input type="hidden" name="postal_code" value="{{ $address['postal_code'] }}">
                 <input type="hidden" name="address" value="{{ $address['address'] }}">
                 <input type="hidden" name="building" value="{{ $address['building'] }}">
+            @else
+                <input type="hidden" name="postal_code" value="{{ $profile->postal_code }}">
+                <input type="hidden" name="address" value="{{ $profile->address }}">
+                <input type="hidden" name="building" value="{{ $profile->building }}">
             @endif
 
             @error('postal_code')
@@ -114,14 +120,14 @@
                 <p class="purchase__summary-label">配送先</p>
 
                 <p class="purchase__summary-shipping">
-                    @if (!isset($address) || empty($address))
-                        〒 {{ $profile->postal_code }} <br>
-                        {{ $profile->address }} <br>
-                        {{ $profile->building}}
-                    @else
+                    @if (is_array($address))
                         〒 {{ $address['postal_code'] }} <br>
                         {{ $address['address'] }} <br>
                         {{ $address['building'] }}
+                    @else
+                        〒 {{ $profile->postal_code }} <br>
+                        {{ $profile->address }} <br>
+                        {{ $profile->building}}
                     @endif
                 </p>
             </div>
