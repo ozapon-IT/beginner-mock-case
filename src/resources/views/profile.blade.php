@@ -7,9 +7,9 @@
 @endsection
 
 @section('content')
-@if (session('error'))
-    <div class="error">
-        <span>{{ session('error') }}</span>
+@if (session('alert'))
+    <div class="alert">
+        <span>{{ session('alert') }}</span>
     </div>
 @endif
 

@@ -11,6 +11,6 @@ class RegisterResponse implements RegisterResponseContract
     {
         Auth::logout();
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', '会員登録が完了しました。登録したメールアドレスにメール認証通知が届くので確認し、メール認証を完了してください。');
     }
 }

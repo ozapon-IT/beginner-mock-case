@@ -68,3 +68,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
     ->middleware(['signed', 'setUserFromId']) // 'auth' ミドルウェアは削除
     ->name('verification.verify');
+
+// stripe決済成功時
+Route::get('/purchase/success/{item}', [PurchaseController::class, 'handleSuccess'])->name('purchase.success');

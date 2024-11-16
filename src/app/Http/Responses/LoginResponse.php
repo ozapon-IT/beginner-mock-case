@@ -8,6 +8,14 @@ class LoginResponse implements LoginResponseContract
 {
     public function toResponse($request)
     {
-        return redirect()->route('top', ['tab' => 'mylist']);
+        $user = $request->user();
+
+        $hasProfile = $user->profile && $user->profile->postal_code && $user->profile->address;
+
+        if($hasProfile) {
+            return redirect()->route('top', ['tab' => 'mylist']);
+        } else {
+            return redirect()->route('profile');
+        }
     }
 }
