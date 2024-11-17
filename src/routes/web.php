@@ -10,9 +10,8 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\AddressController;
-
 use Laravel\Fortify\Http\Controllers\VerifyEmailController;
-
+use App\Http\Controllers\StripeWebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +70,6 @@ Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke
 
 // stripe決済成功時
 Route::get('/purchase/success/{item}', [PurchaseController::class, 'handleSuccess'])->name('purchase.success');
+
+// webhookイベント用ルート
+Route::post('/stripe/webhook', [StripeWebhookController::class, 'handleWebhook']);

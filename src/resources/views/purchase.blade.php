@@ -16,7 +16,7 @@
 <!-- stripe決済キャンセル時メーセージ -->
 @if (request('error') === 'cancelled')
     <div class="error">
-        <span>決済がキャンセルされました。再度お試しください。</span>
+        <span>決済がキャンセルされました。</span>
     </div>
 @endif
 

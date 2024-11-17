@@ -74,18 +74,30 @@ class PurchaseController extends Controller
                 'mode' => 'payment',
                 'success_url' => route('purchase.success', ['item' => $item->id]),
                 'cancel_url' => route('purchase', ['item' => $item->id]) . '?error=cancelled',
-                'customer_email' => Auth::user()->email, // コンビニ払いの場合は必須
-                'payment_method_options' => [
-                    'konbini' => [
-                        'expires_after_days' => 3, // 支払い期限を3日後に設定
-                    ],
-                ],
+                'customer_email' => Auth::user()->email,
             ]);
+
+            // 配送先の取得（セッションから）
+            $addressData = session('address', [
+                'postal_code' => '',
+                'address' => '',
+                'building' => ''
+            ]);
+            $shippingAddress = "〒{$addressData['postal_code']} {$addressData['address']} {$addressData['building']}";
+
+            // Orderを取得または作成
+            $order = Order::firstOrCreate(
+                ['user_id' => Auth::id(), 'item_id' => $item->id, 'status' => 'pending'],
+                ['payment_method' => $paymentMethod, 'shipping_address' => $shippingAddress]
+            );
+
+            // stripe_session_idを保存
+            $order->stripe_session_id = $checkoutSession->id;
+            $order->save();
 
             Log::info('Stripe Checkoutセッションが作成されました', [
                 'session_id' => $checkoutSession->id,
-                'item_id' => $item->id,
-                'user_id' => Auth::id(),
+                'order_id' => $order->id,
             ]);
 
             return redirect($checkoutSession->url);
@@ -104,20 +116,30 @@ class PurchaseController extends Controller
 		DB::beginTransaction();
 
         try {
-            $addressData = $request->session()->get('address');
-            $postalCode = $addressData['postal_code'] ?? '';
-            $address = $addressData['address'] ?? '';
-            $building = $addressData['building'] ?? '';
+            // $addressData = $request->session()->get('address');
+            // $postalCode = $addressData['postal_code'] ?? '';
+            // $address = $addressData['address'] ?? '';
+            // $building = $addressData['building'] ?? '';
 
-            $shippingAddress = "〒{$postalCode} {$address} {$building}";
+            // $shippingAddress = "〒{$postalCode} {$address} {$building}";
 
-            $paymentMethod = $request->session()->get('payment_method');
+            // $paymentMethod = $request->session()->get('payment_method');
 
-            $order = new Order();
-            $order->user_id = Auth::id();
-            $order->item_id = $item->id;
-            $order->payment_method = $paymentMethod;
-            $order->shipping_address = $shippingAddress;
+            // $order = new Order();
+            // $order->user_id = Auth::id();
+            // $order->item_id = $item->id;
+            // $order->payment_method = $paymentMethod;
+            // $order->shipping_address = $shippingAddress;
+            // $order->stripe_session_id = $checkoutSession->id;
+            // $order->status = 'pending';
+            // $order->save();
+
+            $order = Order::where('user_id', Auth::id())
+            ->where('item_id', $item->id)
+            ->where('status', 'pending')
+            ->firstOrFail();
+
+            $order->status = 'paid';
             $order->save();
 
             $item->status = 'sold';
