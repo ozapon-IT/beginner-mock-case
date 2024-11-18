@@ -9,6 +9,21 @@
     margin: 0 auto;
 }
 
+/* セッションメッセージ */
+.error {
+    padding: 10px 20px;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+}
+
+.error span {
+    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
+    color: #842029;
+}
+
+/* バリデーションエラー */
 .error-message {
     color: red;
     font-size:1rem;
@@ -236,6 +251,17 @@
         padding: 50px;
     }
 
+    /* セッションエラー */
+    .error {
+        padding: 5px 20px;
+    }
+
+    .error span {
+        font-size: 0.5rem;
+        max-width: 768px;
+    }
+
+    /* バリデーションエラー */
     .error-message {
         font-size: 0.5rem;
         margin-top: 5px;

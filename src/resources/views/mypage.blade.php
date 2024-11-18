@@ -35,6 +35,10 @@
             <div class="product-grid__image">
                 <a href="{{ route('item', ['item' => $item->id]) }}">
                     <img src="{{ asset('storage/' .$item->image_path) }}" alt="{{ $item->name }}">
+
+                    @if ($item->status === 'transaction')
+                        <span class="product-grid__label">未確定</span>
+                    @endif
                 </a>
             </div>
 

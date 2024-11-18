@@ -16,7 +16,10 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('item_id')->constrained()->onDelete('cascade');
             $table->string('payment_method', 100);
-            $table->string('shipping_address', 255);
+            $table->string('shipping_address', 255)->default('');
+            $table->text('stripe_session_id')->nullable();
+            $table->text('payment_intent_id')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

@@ -17,6 +17,10 @@ class PurchaseController extends Controller
 {
     public function showPurchasePage(Request $request, Item $item)
     {
+        if ($item->status === 'sold' || $item->status === 'transaction') {
+            return redirect()->back()->with('error', 'この商品は既に購入済みです。');
+        }
+
         $profile = Profile::where('user_id', Auth::id())->first();
         $address = $request->session()->get('address', null);
         $payment_method = $request->session()->get('payment_method', null);
@@ -30,12 +34,6 @@ class PurchaseController extends Controller
 
     public function purchaseItem(PurchaseRequest $request, Item $item)
     {
-        // 商品が既に購入されていないか確認
-        if ($item->status === 'sold') {
-            return redirect()->back()->with('error', 'この商品は既に購入済みです。');
-        }
-
-        // 配列形式でセッションに保存
         $addressData = [
             'postal_code' => $request->input('postal_code'),
             'address' => $request->input('address'),
@@ -54,7 +52,28 @@ class PurchaseController extends Controller
     {
         Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
+        DB::beginTransaction();
+
         try {
+            $addressData = session('address', [
+                'postal_code' => '',
+                'address' => '',
+                'building' => ''
+            ]);
+            $shippingAddress = "〒{$addressData['postal_code']} {$addressData['address']} {$addressData['building']}";
+
+            $order = Order::updateOrCreate(
+                ['user_id' => Auth::id(), 'item_id' => $item->id],
+                [
+                    'status' => 'pending',
+                    'payment_method' => $paymentMethod,
+                    'shipping_address' => $shippingAddress,
+                ]
+            );
+
+            $item->status = 'transaction';
+            $item->save();
+
 			$lineItem = [
                 'price_data' => [
                     'currency' => 'jpy',
@@ -73,23 +92,29 @@ class PurchaseController extends Controller
                 'line_items' => [$lineItem],
                 'mode' => 'payment',
                 'success_url' => route('purchase.success', ['item' => $item->id]),
-                'cancel_url' => route('purchase', ['item' => $item->id]) . '?error=cancelled',
-                'customer_email' => Auth::user()->email, // コンビニ払いの場合は必須
-                'payment_method_options' => [
-                    'konbini' => [
-                        'expires_after_days' => 3, // 支払い期限を3日後に設定
+                'cancel_url' => route('purchase.cancel', ['item' => $item->id]),
+                'customer_email' => Auth::user()->email,
+                'payment_intent_data' => [
+                    'metadata' => [
+                        'order_id' => $order->id,
                     ],
                 ],
             ]);
 
+            $order->stripe_session_id = $checkoutSession->id;
+            $order->save();
+
+            DB::commit();
+
             Log::info('Stripe Checkoutセッションが作成されました', [
                 'session_id' => $checkoutSession->id,
-                'item_id' => $item->id,
-                'user_id' => Auth::id(),
+                'order_id' => $order->id,
             ]);
 
             return redirect($checkoutSession->url);
         } catch (\Exception $e) {
+            DB::rollBack();
+
             Log::error('Stripe決済エラー', [
                 'message' => $e->getMessage(),
                 'stack' => $e->getTraceAsString(),
@@ -99,86 +124,40 @@ class PurchaseController extends Controller
         }
     }
 
-    public function handleSuccess(Request $request, Item $item)
+    public function handleSuccess()
     {
-		DB::beginTransaction();
+        return redirect()->route('mypage', ['tab' => 'buy'])->with('success', '購入が完了しました。');
+    }
+
+    public function handleCancel(Item $item)
+    {
+        DB::beginTransaction();
 
         try {
-            $addressData = $request->session()->get('address');
-            $postalCode = $addressData['postal_code'] ?? '';
-            $address = $addressData['address'] ?? '';
-            $building = $addressData['building'] ?? '';
+            $order = Order::where('user_id', Auth::id())
+                ->where('item_id', $item->id)
+                ->where('status', 'pending')
+                ->first();
 
-            $shippingAddress = "〒{$postalCode} {$address} {$building}";
+            if ($order) {
+                $order->delete();
+            }
 
-            $paymentMethod = $request->session()->get('payment_method');
-
-            $order = new Order();
-            $order->user_id = Auth::id();
-            $order->item_id = $item->id;
-            $order->payment_method = $paymentMethod;
-            $order->shipping_address = $shippingAddress;
-            $order->save();
-
-            $item->status = 'sold';
+            $item->status = '在庫あり';
             $item->save();
 
             DB::commit();
 
-            return redirect()->route('mypage', ['tab' => 'buy'])->with('success', '購入が完了しました。');
+            return redirect()->route('item', ['item' => $item->id]);
         } catch (\Exception $e) {
-            DB::rollback();
-            Log::error('購入処理エラー', [
+            DB::rollBack();
+
+            Log::error('キャンセル処理エラー', [
                 'message' => $e->getMessage(),
                 'stack' => $e->getTraceAsString(),
             ]);
 
-            return redirect()->route('purchase', ['item' => $item->id])->with('error', '購入処理中にエラーが発生しました。');
+            return redirect()->route('item', ['item' => $item->id])->with('error', 'キャンセル処理中にエラーが発生しました。');
         }
     }
-
-    // public function purchaseItem(PurchaseRequest $request, Item $item)
-    // {
-    //     // 商品が既に購入されていないか確認
-    //     if ($item->status === 'sold') {
-    //         return redirect()->back()->with('error', 'この商品は既に購入済みです。');
-    //     }
-
-    //     // セッションに支払い方法を保存
-    //     session(['payment_method' => $request->input('payment_method')]);
-
-    //     // トランザクションの開始
-    //     DB::beginTransaction();
-
-    //     try {
-    //         $shipping_address = '〒' . $request->input('postal_code') . ' ' . $request->input('address') . ' ' . $request->input('building');
-
-    //         // オーダーの作成
-    //         $order = new Order();
-    //         $order->user_id = Auth::id();
-    //         $order->item_id = $item->id;
-    //         $order->payment_method = $request->input('payment_method');
-    //         $order->shipping_address = $shipping_address;
-    //         $order->save();
-
-    //         // 商品のステータスを'sold'に更新
-    //         $item->status = 'sold';
-    //         $item->save();
-
-    //         // トランザクションのコミット
-    //         DB::commit();
-
-    //         // 購入完了後、マイページへリダイレクト
-    //         return redirect()->route('mypage', ['tab' => 'buy'])->with('success', '購入が完了しました。');
-    //     } catch (\Exception $e) {
-    //         // トランザクションのロールバック
-    //         DB::rollback();
-
-    //         // エラーログの記録
-    //         Log::error($e);
-
-    //         // エラーメッセージと共に元のページへリダイレクト
-    //         return redirect()->back()->with('error', '購入処理中にエラーが発生しました。');
-    //     }
-    // }
 }

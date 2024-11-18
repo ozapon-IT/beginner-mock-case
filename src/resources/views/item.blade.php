@@ -7,6 +7,13 @@
 @endsection
 
 @section('content')
+<!-- セッションメッセージ -->
+@if (session('error'))
+    <div class="error">
+        <span>{{ session('error') }}</span>
+    </div>
+@endif
+
 <div class="product-detail">
     <div class="product-detail__container">
         <!-- 商品画像 -->

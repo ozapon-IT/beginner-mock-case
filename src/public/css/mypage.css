@@ -79,9 +79,10 @@
 }
 
 .product-grid__image {
-    width: 100%;
+    width: 300px;
     height: 300px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .product-grid__image img {
@@ -93,6 +94,18 @@
 .product-grid__image a {
     text-decoration: none;
     color: inherit;
+}
+
+.product-grid__label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 .product-grid__name {
@@ -156,12 +169,20 @@
     }
 
     .product-grid__image {
+        width: 167px;
         height: 167px;
     }
 
     .product-grid__image img {
         width: 167px;
         height: 167px;
+    }
+
+    .product-grid__label {
+        top: 5px;
+        right: 5px;
+        padding: 3px 6px;
+        font-size: 1rem;
     }
 
     .product-grid__name {
