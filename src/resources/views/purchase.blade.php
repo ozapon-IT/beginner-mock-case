@@ -13,12 +13,6 @@
         <span>{{ session('error') }}</span>
     </div>
 @endif
-<!-- stripe決済キャンセル時メーセージ -->
-@if (request('error') === 'cancelled')
-    <div class="error">
-        <span>決済がキャンセルされました。</span>
-    </div>
-@endif
 
 <div class="purchase">
     <!-- 購入商品 -->

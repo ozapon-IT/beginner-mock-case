@@ -71,5 +71,8 @@ Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke
 // stripe決済成功時
 Route::get('/purchase/success/{item}', [PurchaseController::class, 'handleSuccess'])->name('purchase.success');
 
-// webhookイベント用ルート
+// stripe決済キャンセル時
+Route::get('/purchase/cancel/{item}', [PurchaseController::class, 'handleCancel'])->name('purchase.cancel');
+
+// stripe webhookイベント用ルート
 Route::post('/stripe/webhook', [StripeWebhookController::class, 'handleWebhook']);
