@@ -55,7 +55,9 @@ class ItemSeeder extends Seeder
                 ['name' => 'アクセサリー'],
                 ['name' => 'おもちゃ'],
                 ['name' => 'ベビー・キッズ'],
+                ['name' => '情報家電'],
                 ['name' => 'PC関連'],
+                ['name' => '黒物家電'],
                 ['name' => 'AV機器'],
                 ['name' => '食品'],
                 ['name' => '食器'],
@@ -91,7 +93,7 @@ class ItemSeeder extends Seeder
                 'price' => '5000',
                 'status' => '在庫あり',
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/HDD+Hard+Disk.jpg',
-                'category_names' => ['PC関連'],
+                'category_names' => ['情報家電','PC関連'],
             ],
             [
                 'user_id' => $users->random()->id,
@@ -101,7 +103,7 @@ class ItemSeeder extends Seeder
                 'price' => '300',
                 'status' => '在庫あり',
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/iLoveIMG+d.jpg',
-                'category_names' => ['食品'],
+                'category_names' => ['食品','キッチン'],
             ],
             [
                 'user_id' => $users->random()->id,
@@ -111,7 +113,7 @@ class ItemSeeder extends Seeder
                 'price' => '4000',
                 'status' => '在庫あり',
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Leather+Shoes+Product+Photo.jpg',
-                'category_names' => ['ファッション', 'メンズ'],
+                'category_names' => ['ファッション','メンズ'],
             ],
             [
                 'user_id' => $users->random()->id,
@@ -121,7 +123,7 @@ class ItemSeeder extends Seeder
                 'price' => '45000',
                 'status' => '在庫あり',
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Living+Room+Laptop.jpg',
-                'category_names' => ['PC関連'],
+                'category_names' => ['情報家電','PC関連'],
             ],
             [
                 'user_id' => $users->random()->id,
@@ -131,7 +133,7 @@ class ItemSeeder extends Seeder
                 'price' => '8000',
                 'status' => '在庫あり',
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Music+Mic+4632231.jpg',
-                'category_names' => ['AV機器'],
+                'category_names' => ['黒物家電','AV機器'],
             ],
             [
                 'user_id' => $users->random()->id,
@@ -151,7 +153,7 @@ class ItemSeeder extends Seeder
                 'price' => '500',
                 'status' => '在庫あり',
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Tumbler+souvenir.jpg',
-                'category_names' => ['食器'],
+                'category_names' => ['食器','キッチン'],
             ],
             [
                 'user_id' => $users->random()->id,
@@ -161,7 +163,7 @@ class ItemSeeder extends Seeder
                 'price' => '4000',
                 'status' => '在庫あり',
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Waitress+with+Coffee+Grinder.jpg',
-                'category_names' => ['インテリア', 'グッズ'],
+                'category_names' => ['インテリア','グッズ'],
             ],
             [
                 'user_id' => $users->random()->id,
@@ -171,7 +173,7 @@ class ItemSeeder extends Seeder
                 'price' => '2500',
                 'status' => '在庫あり',
                 'image_path' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/%E5%A4%96%E5%87%BA%E3%83%A1%E3%82%A4%E3%82%AF%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%82%BB%E3%83%83%E3%83%88.jpg',
-                'category_names' => [ 'レディース', 'コスメ'],
+                'category_names' => [ 'レディース','コスメ'],
             ],
         ];
 
