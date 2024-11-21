@@ -61,18 +61,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/purchase/{item}/address', [AddressController::class, 'showAddressChangePage'])->name('address');
 
     Route::post('/purchase/{item}/address', [AddressController::class, 'changeAddress'])->name('address.change');
+
+    // stripe決済成功時
+    Route::get('/purchase/success/{item}', [PurchaseController::class, 'handleSuccess'])->name('purchase.success');
+
+    // stripe決済キャンセル時
+    Route::get('/purchase/cancel/{item}', [PurchaseController::class, 'handleCancel'])->name('purchase.cancel');
 });
 
  // デフォルトのメール認証ルートを上書き
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-    ->middleware(['signed', 'setUserFromId']) // 'auth' ミドルウェアは削除
+    ->middleware(['signed', 'setUserFromId']) // 'auth' ミドルウェアは削除、カスタム'setUserFromId'ミドルウェアを追加
     ->name('verification.verify');
-
-// stripe決済成功時
-Route::get('/purchase/success/{item}', [PurchaseController::class, 'handleSuccess'])->name('purchase.success');
-
-// stripe決済キャンセル時
-Route::get('/purchase/cancel/{item}', [PurchaseController::class, 'handleCancel'])->name('purchase.cancel');
 
 // stripe webhookイベント用ルート
 Route::post('/stripe/webhook', [StripeWebhookController::class, 'handleWebhook']);

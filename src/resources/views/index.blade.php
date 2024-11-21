@@ -9,9 +9,9 @@
 @section('content')
 <div class="tabs">
     <div class="tabs__container">
-        <a class="tabs__tab {{ request('tab') !== 'mylist' ? 'tabs__tab--active' : '' }}" href="{{ route('top') }}">おすすめ</a>
+        <a class="tabs__tab {{ request('tab') !== 'mylist' ? 'tabs__tab--active' : '' }}" href="{{ route('top', ['search' => request('search'), 'tab' => 'recommend']) }}">おすすめ</a>
 
-        <a class="tabs__tab {{ request('tab') === 'mylist' ? 'tabs__tab--active' : '' }}" href="{{ route('top', ['tab' => 'mylist']) }}">マイリスト</a>
+        <a class="tabs__tab {{ request('tab') === 'mylist' ? 'tabs__tab--active' : '' }}" href="{{ route('top', ['search' => request('search'), 'tab' => 'mylist']) }}">マイリスト</a>
     </div>
 </div>
 

@@ -29,7 +29,7 @@ class ProfileController extends Controller
 
         // 画像の処理
         if ($request->hasFile('image_path')) {
-            $path = $request->file('image_path')->store('items', 'public');
+            $path = $request->file('image_path')->store('profiles', 'public');
             $profileData['image_path'] = $path;
         }
 

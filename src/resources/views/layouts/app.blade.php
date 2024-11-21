@@ -17,7 +17,7 @@
             <a class="header__logo" href="{{ route('top') }}"><img src="{{ asset('img/logo.svg') }}" alt="coachtechロゴ画像"></a>
 
             <div class="header__search-form">
-                <input class="header__search-box" type="text" placeholder="なにをお探しですか？" name="search" form="search-form">
+                <input class="header__search-box" type="text" placeholder="なにをお探しですか？" name="search" form="search-form" value="{{ request('search') }}">
 
                 <form id="search-form" action="{{ route('top') }}" method="GET">
                     <input type="hidden" name="tab" value="recommend">
