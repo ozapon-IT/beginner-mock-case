@@ -24,10 +24,10 @@ class PaymentMethodSelectionTest extends TestCase
         $item = Item::create([
             'user_id' => $otherUser->id,
             'condition_id' => $condition->id,
-            'image_path' => 'items/test.item.png',
+            'image_path' => 'items/test_image.png',
             'name' => 'テスト商品',
             'brand' => 'テストブランド',
-            'description' => 'テスト商品の説明文',
+            'description' => 'テスト商品の説明',
             'price' => 1000.00,
             'status' => '在庫あり',
         ]);
