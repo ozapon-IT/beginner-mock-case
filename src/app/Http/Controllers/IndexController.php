@@ -12,10 +12,10 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
-        $tab = $request->input('tab', 'recommend');
+        $currentTab = $request->input('tab', 'recommend');
         $search = $request->input('search');
 
-        if ($tab === 'mylist') {
+        if ($currentTab === 'mylist') {
             // ログインユーザーが「いいね」した商品を取得
             if (Auth::check()) {
                 $items = Item::whereIn('id', function ($query) {
@@ -43,6 +43,6 @@ class IndexController extends Controller
             $items = $itemsQuery->get();
         }
 
-        return view('index', compact('items', 'tab', 'search'));
+        return view('index', compact('items', 'currentTab', 'search'));
     }
 }

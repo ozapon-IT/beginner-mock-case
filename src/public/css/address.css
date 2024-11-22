@@ -1,11 +1,4 @@
 /* PC画面時(1400-1540px) */
-
-.error-message {
-    color: red;
-    font-size:1rem;
-    margin-top: 5px;
-}
-
 .address-change {
     width: 680px;
     margin: 100px auto;
@@ -61,13 +54,7 @@
 }
 
 /* タブレット画面時(768-850px) */
-
 @media screen and (max-width: 850px) {
-    .error-message {
-        font-size: 0.5rem;
-        margin-top: 5px;
-    }
-
     .address-change {
         width: 400px;
         margin: 60px auto;
