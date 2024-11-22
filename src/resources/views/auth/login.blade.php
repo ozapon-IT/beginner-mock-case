@@ -1,65 +1,47 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン画面 - COACHTECHフリマ</title>
-    <link rel="stylesheet" href="{{ asset('css/common/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
-</head>
+@section('title', 'ログイン画面 - COACHTECHフリマ')
 
-<body>
-    <header class="header">
-        <div class="header__container">
-            <a class="header__logo" href="{{ route('top') }}"><img src="{{ asset('img/logo.svg') }}" alt="coachtechロゴ画像"></a>
-        </div>
-    </header>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
+@endsection
 
-    <main>
-        @if (session('success'))
-            <div class="success">
-                <span>{{ session('success') }}</span>
+@section('header')
+<x-header :search="false" :nav="false" />
+@endsection
+
+@section('main')
+<main>
+    <x-alert type="success" :message="session('success')" />
+
+    <div class="login">
+        <h1 class="login__title">ログイン</h1>
+
+        <form class="login__form" action="{{ route('login') }}" method="POST">
+            @csrf
+
+            <div class="login__form-group">
+                <label class="login__label" for="email">メールアドレス</label>
+
+                <input class="login__input" type="text" id="email" name="email" value="{{ old('email') }}">
+
+                <x-validation-error field="email" />
             </div>
-        @endif
 
-        <div class="login">
-            <h1 class="login__title">ログイン</h1>
+            <div class="login__form-group">
+                <label class="login__label" for="password">パスワード</label>
 
-            <form class="login__form" action="{{ route('login') }}" method="POST">
-                @csrf
-                <div class="login__form-group">
-                    <label class="login__label" for="email">メールアドレス</label>
+                <input class="login__input" type="password" id="password" name="password">
 
-                    <input class="login__input" type="text" id="email" name="email" value="{{ old('email') }}">
-
-                    @error('email')
-                        <span class="error-message">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="login__form-group">
-                    <label class="login__label" for="password">パスワード</label>
-
-                    <input class="login__input" type="password" id="password" name="password">
-
-                    @error('password')
-                        <span class="error-message">{{ $message }}</span>
-                    @enderror
-
-                    @if(session('error'))
-                        <span class="error-message">{{ session('error') }}</span>
-                    @endif
-                </div>
-
-                <button class="login__button" type="submit">ログインする</button>
-            </form>
-
-            <div class="login__register-link">
-                <a href="{{ route('register') }}">会員登録はこちら</a>
+                <x-validation-error field="password" />
             </div>
-        </div>
-    </main>
-</body>
 
-</html>
+            <button class="login__button" type="submit">ログインする</button>
+        </form>
+
+        <div class="login__register-link">
+            <a href="{{ route('register') }}">会員登録はこちら</a>
+        </div>
+    </div>
+</main>
+@endsection

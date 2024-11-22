@@ -61,9 +61,17 @@ body {
     border-radius: 5px;
 }
 
-/* タブレット画面時(768-850px) */
+.error-message {
+    color: red;
+    font-size:1rem;
+    margin-top: 5px;
+}
 
+/* タブレット画面時(768-850px) */
 @media screen and (max-width: 850px) {
+    .header {
+        padding: 5px 10px;
+    }
     .header__container {
         max-width: 768px;
         height: 40px;
@@ -98,5 +106,10 @@ body {
 
     .header__link--sell {
         padding: 8px 12px;
+    }
+
+    .error-message {
+        font-size: 0.5rem;
+        margin-top: 5px;
     }
 }

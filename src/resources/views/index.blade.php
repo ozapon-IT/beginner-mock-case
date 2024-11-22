@@ -6,30 +6,21 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
-@section('content')
-<div class="tabs">
-    <div class="tabs__container">
-        <a class="tabs__tab {{ request('tab') !== 'mylist' ? 'tabs__tab--active' : '' }}" href="{{ route('top', ['search' => request('search'), 'tab' => 'recommend']) }}">おすすめ</a>
+@section('header')
+<x-header />
+@endsection
 
-        <a class="tabs__tab {{ request('tab') === 'mylist' ? 'tabs__tab--active' : '' }}" href="{{ route('top', ['search' => request('search'), 'tab' => 'mylist']) }}">マイリスト</a>
+@section('main')
+<main>
+    <x-tabs :tabs="[
+        ['key' => 'recommend', 'label' => 'おすすめ', 'url' => route('top', ['search' => request('search'), 'tab' => 'recommend'])],
+        ['key' => 'mylist', 'label' => 'マイリスト', 'url' => route('top', ['search' => request('search'), 'tab' => 'mylist'])],
+    ]" :current-tab="$currentTab" />
+
+    <div class="product-grid">
+        @foreach ($items as $item)
+            <x-product-card :item="$item" context="index" />
+        @endforeach
     </div>
-</div>
-
-<div class="product-grid">
-    @foreach ($items as $item)
-        <div class="product-grid__item">
-            <div class="product-grid__image">
-                <a href="{{ route('item', ['item' => $item]) }}">
-                    <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
-
-                    @if ($item->status === 'sold' || $item->status === 'transaction')
-                        <span class="product-grid__sold-label">SOLD</span>
-                    @endif
-                </a>
-            </div>
-
-            <p class="product-grid__name">{{ $item->name }}</p>
-        </div>
-    @endforeach
-</div>
+</main>
 @endsection

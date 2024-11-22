@@ -14,13 +14,6 @@
     color: #842029;
 }
 
-/* バリデーションエラー */
-.error-message {
-    color: red;
-    font-size:1rem;
-    margin-top: 5px;
-}
-
 /* コンテンツ */
 .profile-settings {
     max-width: 680px;
@@ -98,7 +91,7 @@
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 70px;
 }
 
 .profile-settings__button:hover {
@@ -106,33 +99,25 @@
 }
 
 /* タブレット画面時(768-850px) */
-
 @media screen and (max-width: 850px) {
     /* セッションエラー */
-    .error {
+    .alert {
         padding: 5px 20px;
     }
 
-    .error span {
+    .alert span {
         font-size: 0.5rem;
         max-width: 768px;
     }
 
-    /* バリデーションエラー */
-    .error-message {
-        color: red;
-        font-size:0.5rem;
-        margin-top: 5px;
-    }
-
     /* コンテンツ */
     .profile-settings {
-        max-width: 400px;
+        max-width: 360px;
         margin: 50px auto;
     }
 
     .profile-settings__title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .profile-settings__avatar {
@@ -146,6 +131,7 @@
     }
 
     .profile-settings__avatar-button {
+        border: 1px solid #ff6f61;
         width: 60px;
         padding: 5px 10px;
         font-size: 0.6rem;
@@ -156,22 +142,22 @@
     }
 
     .profile-settings__group:not(:nth-of-type(2)) {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     .profile-settings__label {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .profile-settings__input {
         padding: 5px;
-        font-size: 1rem;
+        font-size: 0.8rem;
         margin-top: 5px;
     }
 
     .profile-settings__button {
         padding: 5px;
         font-size: 1rem;
-        margin-top: 40px;
+        margin-top: 45px;
     }
 }

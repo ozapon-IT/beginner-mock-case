@@ -10,10 +10,7 @@
 }
 
 .error-message {
-    color: red;
-    font-size: 1rem;
     display: inline-block;
-    margin-top: 5px;
 }
 
 /* 商品画像 */
@@ -227,26 +224,22 @@
 /* タブレット画面時(768-850px) */
 @media screen and (max-width: 850px) {
     .sell {
-        width: 400px;
-        margin: 40px auto;
+        width: 370px;
+        margin: 35px auto;
     }
 
     .sell__title {
-        font-size: 1.5rem;
-    }
-
-    .error-message {
-        font-size: 0.5rem;
-        margin-top: 5px;
+        font-size: 1.3rem;
     }
 
     /* 商品画像 */
     .sell__section--image {
-        margin-top: 30px;
+        margin-top: 25px;
     }
 
     .sell__subtitle {
-        font-size: 1.2rem;
+        border-bottom: 1px solid #bbb;
+        font-size: 1.1rem;
         padding-bottom: 5px;
         margin-top: 40px;
     }
@@ -258,13 +251,15 @@
     }
 
     .sell__image-upload {
+        border: 1px dashed #bbb;
         padding: 40px 0;
         margin-top: 5px;
     }
 
     .sell__image-button {
-        padding: 5px 15px;
-        font-size: 0.6rem;
+        border: 1px solid #ff6f61;
+        padding: 5px 13px;
+        font-size: 0.5rem;
     }
 
     /* 商品の詳細 */
@@ -279,7 +274,7 @@
 
     .sell__category-items {
         gap: 10px;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .sell__category-item {
@@ -287,8 +282,9 @@
     }
 
     .sell__category-item span {
+        border: 1px solid #ff6f61;
         font-size: 0.5rem;
-        padding: 4px 8px;
+        padding: 3px 6px;
     }
 
     /* ブランド名 */
@@ -316,8 +312,8 @@
     }
 
     .sell__select {
-        padding: 8px;
-        font-size: 0.8rem;
+        padding: 6px;
+        font-size: 0.7rem;
         margin-top: 5px;
     }
 
@@ -336,8 +332,8 @@
 
     .sell__input,
     .sell__textarea {
-        padding: 8px;
-        font-size: 0.8rem;
+        padding: 6px;
+        font-size: 0.7rem;
         margin-top: 5px;
     }
 
@@ -360,6 +356,7 @@
 
     /* 出品ボタン */
     .sell__submit-button {
+        padding: 6px;
         font-size: 0.8rem;
         margin-top: 60px;
     }

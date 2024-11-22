@@ -1,5 +1,4 @@
 /* PC画面時(1400-1540px) */
-
 .product-detail__container {
     display: flex;
     justify-content: space-around;
@@ -21,13 +20,6 @@
     max-width: 1400px;
     margin: 0 auto;
     color: #842029;
-}
-
-/* バリデーションエラー */
-.error-message {
-    color: red;
-    font-size:1rem;
-    margin-top: 5px;
 }
 
 /* 商品画像 */
@@ -243,7 +235,6 @@
 }
 
 /* タブレット画面時(768-850px) */
-
 @media screen and (max-width: 850px) {
     .product-detail__container {
         max-width: 768px;
@@ -259,12 +250,6 @@
     .error span {
         font-size: 0.5rem;
         max-width: 768px;
-    }
-
-    /* バリデーションエラー */
-    .error-message {
-        font-size: 0.5rem;
-        margin-top: 5px;
     }
 
     /* 商品画像 */
