@@ -1,28 +1,16 @@
-/* PC画面時(1400-1540px) */
+/* デフォルトスタイル */
 .success {
-    padding: 10px 30px;
     border-color: #badbcc;
     background-color: rgb(208 231 222);
 }
 
 .success span {
     display: block;
-    max-width: 1400px;
     margin: 0 auto;
     color: rgb(9 83 54);
 }
 
-.login {
-    width: 680px;
-    margin: 100px auto;
-}
-
-.login__form {
-    margin-top: 50px;
-}
-
 .login__title {
-    font-size: 2rem;
     font-weight: bold;
     text-align: center;
 }
@@ -32,33 +20,17 @@
     flex-direction: column;
 }
 
-.login__form-group:nth-of-type(2) {
-    margin-top: 30px
-}
-
-.login__label {
-    font-size: 1.5rem;
-}
-
 .login__input {
-    padding: 10px;
-    font-size: 1.5rem;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    margin-top: 10px;
+    border: 1px solid #bbb;
 }
 
 .login__button {
     background-color: #ff5a5a;
     color: #ffffff;
-    font-size: 1.5rem;
     font-weight: bold;
-    padding: 10px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    margin-top: 70px;
     width: 100%;
 }
 
@@ -68,12 +40,10 @@
 
 .login__register-link {
     text-align: center;
-    margin-top: 30px;
 }
 
 .login__register-link a {
     color: #007bff;
-    font-size: 1.2rem;
     text-decoration: none;
 }
 
@@ -81,19 +51,72 @@
     text-decoration: underline;
 }
 
-/* タブレット画面時(768-850px) */
-@media screen and (max-width: 850px) {
+/* PC画面時(1400-1540px) */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
     .success {
-        padding: 5px 20px;
+        padding: 10px 20px;
+    }
+
+    .success span {
+        font-size: 1rem;
+    }
+
+    .login {
+        width: 680px;
+        margin: 100px auto;
+    }
+
+    .login__form {
+        margin-top: 50px;
+    }
+
+    .login__title {
+        font-size: 2rem;
+    }
+
+    .login__form-group:nth-of-type(2) {
+        margin-top: 30px
+    }
+
+    .login__label {
+        font-size: 1.5rem;
+    }
+
+    .login__input {
+        padding: 10px;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .login__button {
+        font-size: 1.5rem;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 70px;
+    }
+
+    .login__register-link {
+        margin-top: 30px;
+    }
+
+    .login__register-link a {
+        font-size: 1.2rem;
+    }
+}
+
+/* タブレット画面時(768-850px) */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .success {
+        padding: 5px 10px;
     }
 
     .success span {
         font-size: 0.5rem;
-        max-width: 768px;
     }
 
     .login {
-        width: 370px;
+        width: 360px;
         margin: 60px auto;
     }
 
@@ -117,12 +140,14 @@
         padding: 5px;
         font-size: 0.8rem;
         margin-top: 5px;
+        border-radius: 3px;
     }
 
     .login__button {
         font-size: 0.8rem;
         padding: 5px;
         margin-top: 40px;
+        border-radius: 3px;
     }
 
     .login__register-link {

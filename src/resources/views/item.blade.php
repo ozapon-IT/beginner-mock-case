@@ -16,99 +16,99 @@
     <x-alert type="error" :message="session('error')" />
 
     <div class="product-detail">
-        <div class="product-detail__container">
-            <!-- 商品画像 -->
-            <div class="product-detail__image">
-                <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
+        <!-- 商品画像 -->
+        <div class="product-detail__image">
+            <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
+        </div>
+
+        <!-- 商品情報 -->
+        <div class="product-detail__info">
+            <h2 class="product-detail__title">{{ $item->name }}</h2>
+
+            <p class="product-detail__brand">ブランド名: {{ $item->brand }}</p>
+
+            <p class="product-detail__price">
+                ¥{{ number_format($item->price) }} <span class="product-detail__tax">(税込)</span>
+            </p>
+
+            <div class="product-detail__actions">
+                <!-- いいね機能 -->
+                <x-like-button :item="$item" />
+
+                <!-- コメント数表示 -->
+                <div class="product-detail__icon">
+                    <i class="bi bi-chat"></i>
+
+                    <p>{{ $comments->count() }}</p>
+                </div>
             </div>
 
-            <!-- 商品情報 -->
-            <div class="product-detail__info">
-                <h2 class="product-detail__title">{{ $item->name }}</h2>
+            <!-- 購入手続き -->
+            @guest
+                <form action="{{ route('login') }}" method="GET">
+                    <button class="product-detail__purchase-button" type="submit">購入手続きへ</button>
+                </form>
+            @endguest
 
-                <p class="product-detail__brand">ブランド名: {{ $item->brand }}</p>
+            @auth
+                <form action="{{ route('purchase', ['item' => $item]) }}" method="GET">
+                    <button class="product-detail__purchase-button" type="submit">購入手続きへ</button>
+                </form>
+            @endauth
 
-                <p class="product-detail__price">¥{{ number_format($item->price) }} <span class="product-detail__tax">(税込)</span></p>
+            <!-- 商品についての各セクション -->
+            <section class="product-detail__section">
+                <h3 class="product-detail__section-title">商品説明</h3>
 
-                <div class="product-detail__actions">
-                    <!-- いいね機能 -->
-                    <x-like-button :item="$item" />
+                <p class="product-detail__description">{{ $item->description }}</p>
+            </section>
 
-                    <!-- コメント数表示 -->
-                    <div class="product-detail__icon">
-                        <i class="bi bi-chat"></i>
+            <section class="product-detail__section">
+                <h3 class="product-detail__section-title">商品の情報</h3>
 
-                        <p>{{ $comments->count() }}</p>
+                <div class="product-detail__category">
+                    <p>カテゴリー</p>
+
+                    <div class="product-detail__category-box">
+                        @foreach ($item->categories as $category)
+                            <span class="product-detail__category-tag">{{ $category->name }}</span>
+                        @endforeach
                     </div>
                 </div>
 
-                <!-- 購入手続き -->
+                <div class="product-detail__condition">
+                    <p>商品の状態</p>
+
+                    <span class="product-detail__condition-detail">{{ $item->condition->name }}</span>
+                </div>
+
+            </section>
+
+            <!-- コメント機能 -->
+            <section class="product-detail__comments">
+                <h3 class="product-detail__section-title">コメント ({{ $comments->count() }})</h3>
+
+                @foreach ($comments as $comment)
+                    <x-comment-component :comment="$comment" />
+                @endforeach
+
                 @guest
-                    <form action="{{ route('login') }}" method="GET">
-                        <button class="product-detail__purchase-button" type="submit">購入手続きへ</button>
-                    </form>
+                    <form class="product-detail__comment-form" action="{{ route('login') }}" method="GET">
                 @endguest
 
                 @auth
-                    <form action="{{ route('purchase', ['item' => $item]) }}" method="GET">
-                        <button class="product-detail__purchase-button" type="submit">購入手続きへ</button>
-                    </form>
+                    <form class="product-detail__comment-form" action="{{ route('comment', ['item' => $item->id]) }}" method="POST">
+                        @csrf
                 @endauth
+                        <label class="product-detail__comment-label" for="comment">商品へのコメント</label>
 
-                <!-- 商品についての各セクション -->
-                <section class="product-detail__section">
-                    <h3 class="product-detail__section-title">商品説明</h3>
+                        <textarea class="product-detail__comment-input" name="content" id="comment" rows="10"></textarea>
 
-                    <p class="product-detail__description">{{ $item->description }}</p>
-                </section>
+                        <x-validation-error field="content" />
 
-                <section class="product-detail__section">
-                    <h3 class="product-detail__section-title">商品の情報</h3>
-
-                    <div class="product-detail__category">
-                        <p>カテゴリー</p>
-
-                        <div class="product-detail__category-box">
-                            @foreach ($item->categories as $category)
-                                <span class="product-detail__category-tag">{{ $category->name }}</span>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div class="product-detail__condition">
-                        <p>商品の状態</p>
-
-                        <span class="product-detail__condition-detail">{{ $item->condition->name }}</span>
-                    </div>
-                </section>
-
-                <!-- コメント機能 -->
-                <section class="product-detail__comments">
-                    <h3 class="product-detail__section-title">コメント ({{ $comments->count() }})</h3>
-
-                    @foreach ($comments as $comment)
-                        <x-comment :comment="$comment" :profile="$profile" />
-                    @endforeach
-
-                    @guest
-                        <form class="product-detail__comment-form" action="{{ route('login') }}" method="GET">
-                    @endguest
-
-                    @auth
-                        <form class="product-detail__comment-form" action="{{ route('comment', ['item' => $item->id]) }}" method="POST">
-                            @csrf
-                    @endauth
-
-                            <label class="product-detail__comment-label" for="comment">商品へのコメント</label>
-
-                            <textarea class="product-detail__comment-input" name="content" id="comment" rows="10"></textarea>
-
-                            <x-validation-error field="content" />
-
-                            <button class="product-detail__comment-button" type="submit">コメントを送信する</button>
-                        </form>
-                </section>
-            </div>
+                        <button class="product-detail__comment-button" type="submit">コメントを送信する</button>
+                    </form>
+            </section>
         </div>
     </div>
 </main>

@@ -1,15 +1,5 @@
-/* PC画面時(1400-1540px) */
-.register {
-    width: 680px;
-    margin: 100px auto;
-}
-
-.register__form {
-    margin-top: 50px;
-}
-
+/* デフォルトスタイル */
 .register__title {
-    font-size: 2rem;
     font-weight: bold;
     text-align: center;
 }
@@ -19,33 +9,17 @@
     flex-direction: column;
 }
 
-.register__form-group:not(:nth-of-type(1)) {
-    margin-top: 30px;
-}
-
-.register__label {
-    font-size: 1.5rem;
-}
-
 .register__input {
-    padding: 10px;
-    font-size: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 10px;
+    border: 1px solid #bbb;
 }
 
 .register__button {
     background-color: #ff5a5a;
     color: #ffffff;
-    font-size: 1.5rem;
     font-weight: bold;
-    padding: 10px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    margin-top: 70px;
     width: 100%;
 }
 
@@ -55,12 +29,10 @@
 
 .register__login-link {
     text-align: center;
-    margin-top: 30px;
 }
 
 .register__login-link a {
     color: #007bff;
-    font-size: 1.2rem;
     text-decoration: none;
 }
 
@@ -68,10 +40,56 @@
     text-decoration: underline;
 }
 
-/* タブレット画面時(768-850px) */
-@media screen and (max-width: 850px) {
+/* PC画面時(1400-1540px) */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
     .register {
-        width: 370px;
+        width: 680px;
+        margin: 100px auto;
+    }
+
+    .register__form {
+        margin-top: 50px;
+    }
+
+    .register__title {
+        font-size: 2rem;
+    }
+
+    .register__form-group:not(:nth-of-type(1)) {
+        margin-top: 30px;
+    }
+
+    .register__label {
+        font-size: 1.5rem;
+    }
+
+    .register__input {
+        padding: 10px;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .register__button {
+        font-size: 1.5rem;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 70px;
+    }
+
+    .register__login-link {
+        margin-top: 30px;
+    }
+
+    .register__login-link a {
+        font-size: 1.2rem;
+    }
+}
+
+/* タブレット画面時(768-850px) */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .register {
+        width: 360px;
         margin: 60px auto;
     }
 
@@ -95,12 +113,14 @@
         padding: 5px;
         font-size: 0.8rem;
         margin-top: 5px;
+        border-radius: 3px;
     }
 
     .register__button {
         font-size: 0.8rem;
         padding: 5px;
         margin-top: 40px;
+        border-radius: 3px;
     }
 
     .register__login-link {

@@ -86,12 +86,6 @@
             <!-- 購入概要 -->
             <div class="purchase__summary">
                 <div class="purchase__summary-item">
-                    <p class="purchase__summary-label">商品名</p>
-
-                    <p class="purchase__summary-name">{{ $item->name }}</p>
-                </div>
-
-                <div class="purchase__summary-item">
                     <p class="purchase__summary-label">商品代金</p>
 
                     <p class="purchase__summary-price">¥ {{ number_format($item->price) }}</p>
@@ -101,22 +95,6 @@
                     <p class="purchase__summary-label">支払い方法</p>
 
                     <p class="purchase__summary-method" id="selected-payment-method">選択してください</p>
-                </div>
-
-                <div class="purchase__summary-item">
-                    <p class="purchase__summary-label">配送先</p>
-
-                    <p class="purchase__summary-shipping">
-                        @if (is_array($address))
-                            〒 {{ $address['postal_code'] }} <br>
-                            {{ $address['address'] }} <br>
-                            {{ $address['building'] }}
-                        @else
-                            〒 {{ $profile->postal_code }} <br>
-                            {{ $profile->address }} <br>
-                            {{ $profile->building}}
-                        @endif
-                    </p>
                 </div>
 
                 <button class="purchase__buy-button" type="submit">購入する</button>

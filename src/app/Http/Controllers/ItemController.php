@@ -10,10 +10,8 @@ class ItemController extends Controller
 {
     public function showItemPage(Item $item)
     {
-        $comments = $item->comments()->with('user')->get();
+        $comments = $item->comments()->with(['user.profile'])->get();
 
-        $profile = Profile::where('user_id', Auth::id())->first();
-
-        return view('item', compact('item', 'comments', 'profile'));
+        return view('item', compact('item', 'comments'));
     }
 }
