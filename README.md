@@ -6,7 +6,7 @@
 1. `git clone git@github.com:ozapon-IT/beginner-mock-case.git`
 2. `docker-compose up -d --build`
 
-\* MySQL、phpMyAdmin、MailHogは、OSによって起動しない場合があるのでそれぞれのPCに合わせて `docker-compose.yml` ファイルを編集してください。
+> MySQL、phpMyAdmin、MailHogは、OSによって起動しない場合があるのでそれぞれのPCに合わせて `docker-compose.yml` ファイルを編集してください。
 
 ### Laravel環境構築
 
