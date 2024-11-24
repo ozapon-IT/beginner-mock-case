@@ -1,0 +1,360 @@
+/* デフォルトスタイル */
+
+/* セッションメッセージ */
+.error {
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+}
+
+.error span {
+    display: block;
+    margin: 0 auto;
+    color: #842029;
+}
+
+/* バリデーションエラー */
+.error-message {
+    display: block;
+}
+
+/* 購入商品 */
+.purchase__item {
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.purchase__item-details {
+    text-align: left;
+}
+
+.purchase__item-name {
+    font-weight: bold;
+}
+
+/* 支払い方法 */
+.purchase__payment {
+    border-bottom: 1px solid #000;
+}
+
+.purchase__payment-method {
+    position: relative;
+}
+
+.purchase__payment-method:after {
+    content: "";
+    position: absolute;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.purchase__payment-title {
+    font-weight: bold;
+}
+
+.purchase__payment-select {
+    border-color: #999;
+    color: #777;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+}
+
+/* 配送先 */
+.purchase__shipping {
+    border-bottom: 1px solid #000;
+    position: relative;
+}
+
+.purchase__shipping-title {
+    font-weight: bold;
+}
+
+.purchase__shipping-address {
+    line-height: 1.5;
+}
+
+.purchase__shipping-change {
+    position: absolute;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.purchase__shipping-change:hover {
+    text-decoration: underline;
+}
+
+/* 購入概要 */
+.purchase__summary {
+        position: absolute;
+    }
+
+.purchase__summary-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.purchase__summary-item:nth-of-type(1) {
+    border: 1px solid #000;
+}
+
+.purchase__summary-item:nth-of-type(2) {
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.purchase__buy-button {
+    width: 100%;
+    color: #fff;
+    background-color: #ff5a5a;
+    border: none;
+    cursor: pointer;
+}
+
+.purchase__buy-button:hover {
+    background-color: #e14a4a;
+}
+
+/* PC画面時(1400-1540px) */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .purchase {
+        padding: 80px;
+    }
+
+    /* セッションメッセージ */
+    .error {
+        padding: 10px 20px;
+    }
+
+    .error span {
+        font-size: 1rem;
+    }
+
+    /* バリデーションエラー */
+    .error-message {
+        margin-left: 80px;
+    }
+
+    /* 購入商品 */
+    .purchase__item {
+        width: calc(100% - 520px);
+        padding-bottom: 30px;
+    }
+
+    .purchase__form {
+        width: calc(100% - 520px);
+    }
+
+    .purchase__item-image {
+        width: 180px;
+        aspect-ratio: 1 / 1;
+    }
+
+    .purchase__item-details {
+        width: calc(100% - 220px);
+        padding-left: 40px;
+        font-size: 2.5rem;
+    }
+
+    .purchase__item-price {
+        margin-top: 30px;
+    }
+
+    /* 支払い方法 */
+    .purchase__payment {
+        padding: 30px 30px 60px;
+    }
+
+    .purchase__payment-method:after {
+        left: 330px;
+        top: 80%;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 12px solid #999;
+    }
+
+    .purchase__payment-title {
+        font-size: 1.5rem;
+    }
+
+    .purchase__payment-select {
+        width: 270px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-left: 80px;
+        margin-top: 40px;
+        font-size: 1rem;
+    }
+
+    /* 配送先 */
+    .purchase__shipping {
+        padding: 30px 30px 60px;
+    }
+
+    .purchase__shipping-title {
+        font-size: 1.5rem;
+    }
+
+    .purchase__shipping-address {
+        margin-left: 80px;
+        margin-top: 40px;
+        font-size: 1.5rem;
+    }
+
+    .purchase__shipping-change {
+        top: 30px;
+        right: 30px;
+        font-size: 1.2rem;
+    }
+
+    /* 購入概要 */
+    .purchase__summary {
+        width: 440px;
+        top: 160px;
+        right: 80px
+    }
+
+    .purchase__summary-item {
+        padding: 40px 0;
+    }
+
+    .purchase__summary-label {
+        font-size: 1.3rem;
+    }
+
+    .purchase__summary-price,
+    .purchase__summary-method {
+        font-size: 1.6rem;
+    }
+
+    .purchase__buy-button {
+        padding: 10px;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        margin-top: 60px;
+    }
+}
+
+
+/* タブレット画面時(768-850px) */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .purchase {
+        padding: 40px;
+    }
+
+    /* セッションエラー */
+    .error {
+        padding: 5px 10px;
+    }
+
+    .error span {
+        font-size: 0.5rem;
+    }
+
+    /* バリデーションエラー */
+    .error-message {
+        margin-left: 50px;
+    }
+
+    /* 購入商品 */
+    .purchase__item {
+        width: calc(100% - 300px);
+        padding-bottom: 20px;
+    }
+
+    .purchase__form {
+        width: calc(100% - 300px);
+    }
+
+    .purchase__item-image {
+        width: 100px;
+        aspect-ratio: 1 / 1;
+    }
+
+    .purchase__item-details {
+        width: calc(100% - 120px);
+        padding-left: 20px;
+        font-size: 1.3rem;
+    }
+
+    .purchase__item-price {
+        margin-top: 20px;
+    }
+
+    /* 支払い方法 */
+    .purchase__payment {
+        padding: 20px 20px 30px;
+    }
+
+    .purchase__payment-method:after {
+        left: 185px;
+        top: 83%;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 8px solid #999;
+    }
+
+    .purchase__payment-title {
+        font-size: 0.8rem;
+    }
+
+    .purchase__payment-select {
+        width: 150px;
+        padding: 2px 6px;
+        margin-left: 50px;
+        margin-top: 30px;
+        font-size: 0.6rem;
+        border-radius: 3px;
+    }
+
+    /* 配送先 */
+    .purchase__shipping {
+        padding: 20px 20px 30px;
+    }
+
+    .purchase__shipping-title {
+        font-size: 0.8rem;
+    }
+
+    .purchase__shipping-address {
+        margin-left: 50px;
+        margin-top: 30px;
+        font-size: 0.8rem;
+    }
+
+    .purchase__shipping-change {
+        top: 20px;
+        right: 20px;
+        font-size: 0.7rem;
+    }
+
+    /* 購入概要 */
+    .purchase__summary {
+        width: 260px;
+        top: 90px;
+        right: 40px;
+    }
+
+    .purchase__summary-item {
+        padding: 20px 0;
+    }
+
+    .purchase__summary-label {
+        font-size: 0.7rem;
+    }
+
+    .purchase__summary-price,
+    .purchase__summary-method {
+        font-size: 0.9rem;
+    }
+
+    .purchase__buy-button {
+        padding: 5px;
+        font-size: 1rem;
+        margin-top: 40px;
+        border-radius: 3px;
+    }
+}

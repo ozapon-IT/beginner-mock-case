@@ -1,0 +1,160 @@
+/* デフォルトスタイル */
+.success {
+    border-color: #badbcc;
+    background-color: rgb(208 231 222);
+}
+
+.success span {
+    display: block;
+    margin: 0 auto;
+    color: rgb(9 83 54);
+}
+
+.login__title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.login__form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__input {
+    border: 1px solid #bbb;
+}
+
+.login__button {
+    background-color: #ff6f61;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+.login__button:hover {
+    background-color: #e14a4a;
+}
+
+.login__register-link {
+    text-align: center;
+}
+
+.login__register-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login__register-link a:hover {
+    text-decoration: underline;
+}
+
+/* PC画面時(1400-1540px) */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .success {
+        padding: 10px 20px;
+    }
+
+    .success span {
+        font-size: 1rem;
+    }
+
+    .login {
+        width: 680px;
+        margin: 100px auto;
+    }
+
+    .login__form {
+        margin-top: 50px;
+    }
+
+    .login__title {
+        font-size: 2rem;
+    }
+
+    .login__form-group:nth-of-type(2) {
+        margin-top: 30px
+    }
+
+    .login__label {
+        font-size: 1.5rem;
+    }
+
+    .login__input {
+        padding: 10px;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .login__button {
+        font-size: 1.5rem;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 70px;
+    }
+
+    .login__register-link {
+        margin-top: 30px;
+    }
+
+    .login__register-link a {
+        font-size: 1.2rem;
+    }
+}
+
+/* タブレット画面時(768-850px) */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .success {
+        padding: 5px 10px;
+    }
+
+    .success span {
+        font-size: 0.5rem;
+    }
+
+    .login {
+        width: 360px;
+        margin: 60px auto;
+    }
+
+    .login__form {
+        margin-top: 20px;
+    }
+
+    .login__title {
+        font-size: 1.1rem;
+    }
+
+    .login__form-group:nth-of-type(2) {
+        margin-top: 15px
+    }
+
+    .login__label {
+        font-size: 0.8rem;
+    }
+
+    .login__input {
+        padding: 5px;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        border-radius: 3px;
+    }
+
+    .login__button {
+        font-size: 0.8rem;
+        padding: 5px;
+        margin-top: 40px;
+        border-radius: 3px;
+    }
+
+    .login__register-link {
+        margin-top: 20px;
+    }
+
+    .login__register-link a {
+        font-size: 0.7rem;
+    }
+}

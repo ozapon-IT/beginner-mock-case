@@ -1,0 +1,434 @@
+/* デフォルトスタイル */
+
+.sell__title {
+    text-align: center;
+}
+
+.error-message {
+    display: inline-block;
+}
+
+/* 商品画像 */
+.sell__subtitle {
+    font-weight: bold;
+    color: #888;
+}
+
+.sell__image-preview {
+    display: none;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.sell__image-preview--visible {
+    display: block;
+}
+
+.sell__image-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sell__image-button {
+    border: 2px solid #ff6f61;
+    color: #ff6f61;
+    cursor: pointer;
+}
+
+.sell__image-button:hover {
+    color: #e14a4a;
+    border-color: #e14a4a;
+}
+
+.sell__image-button input[type="file"] {
+    display: none;
+}
+
+/* 商品の詳細 */
+
+/* カテゴリー */
+.sell__category-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sell__category-item input {
+    display: none;
+}
+
+.sell__category-item span {
+    color: #ff6f61;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.sell__category-item input:checked + span {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+/* ブランド名 */
+.sell__brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.sell__brand .sell__label {
+    display: flex;
+    align-items: center;
+}
+
+.sell__brand-optional {
+    background-color: #ddd;
+    color: #888;
+}
+
+/* 商品の状態 */
+.sell__condition {
+    position: relative;
+}
+
+.sell__condition:after {
+    content: "";
+    position: absolute;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.sell__select {
+    width: 100%;
+    border: 1px solid #bbb;
+    color: #777;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+}
+
+/* 商品名と説明 */
+
+.sell__field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.sell__label {
+    font-weight: bold;
+    display: block;
+}
+
+.sell__input,
+.sell__textarea {
+    border: 1px solid #bbb;
+}
+
+.sell__textarea {
+    resize: vertical;
+}
+
+.sell__input--yen-sign {
+    position: absolute;
+    pointer-events: none;
+    font-weight: bold;
+}
+
+/* 出品ボタン */
+.sell__submit-button {
+    width: 100%;
+    background-color: #ff6f61;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.sell__submit-button:hover {
+    background-color: #e14a4a;
+}
+
+/* PC画面時(1400-1540px) */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .sell {
+        width: 680px;
+        margin: 60px auto;
+    }
+
+    .sell__title {
+        font-size: 2.5rem;
+    }
+
+    /* 商品画像 */
+    .sell__section--image {
+        margin-top: 50px;
+    }
+
+    .sell__subtitle {
+        font-size: 2rem;
+        border-bottom: 2px solid #bbb;
+        padding-bottom: 10px;
+        margin-top: 60px;
+    }
+
+    .sell__image-preview {
+        width: 150px;
+        margin-top: 10px;
+    }
+
+    .sell__image-upload {
+        border: 2px dashed #bbb;
+        border-radius: 5px;
+        padding: 60px 0;
+        margin-top: 10px;
+    }
+
+    .sell__image-button {
+        border: 2px solid #ff6f61;
+        padding: 10px 25px;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    /* 商品の詳細 */
+    .sell__section--details {
+        margin-top: 80px;
+    }
+
+    /* カテゴリー */
+    .sell__category {
+        margin-top: 40px;
+    }
+
+    .sell__category-items {
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .sell__category-item {
+        margin-bottom: 20px;
+    }
+
+    .sell__category-item span {
+        border: 2px solid #ff6f61;
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+
+    /* ブランド名 */
+    .sell__brand {
+        margin-top: 40px;
+    }
+
+    .sell__brand-optional {
+        font-size: 1rem;
+        padding: 5px;
+        margin-left: 10px;
+    }
+
+    /* 商品の状態 */
+    .sell__condition {
+        margin-top: 40px;
+    }
+
+    .sell__condition:after {
+        right: 10px;
+        top: 75%;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 14px solid #777;
+    }
+
+    .sell__select {
+        padding: 10px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    /* 商品名と説明 */
+    .sell__section--description {
+        margin-top: 80px;
+    }
+
+    .sell__field {
+        margin-top: 40px;
+    }
+
+    .sell__label {
+        font-size: 1.5rem;
+    }
+
+    .sell__input,
+    .sell__textarea {
+        padding: 10px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .sell__textarea {
+        height: 150px;
+    }
+
+    .sell__field:nth-of-type(3) .sell__input {
+        padding-left: 35px;
+    }
+
+    .sell__input--yen-sign {
+        top: 56%;
+        left: 15px;
+        font-size: 1.5rem;
+    }
+
+    /* 出品ボタン */
+    .sell__submit-button {
+        padding: 10px;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        margin-top: 100px;
+    }
+}
+
+/* タブレット画面時(768-850px) */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .sell {
+        width: 370px;
+        margin: 35px auto;
+    }
+
+    .sell__title {
+        font-size: 1.3rem;
+    }
+
+    /* 商品画像 */
+    .sell__section--image {
+        margin-top: 25px;
+    }
+
+    .sell__subtitle {
+        border-bottom: 1px solid #bbb;
+        font-size: 1.1rem;
+        padding-bottom: 5px;
+        margin-top: 40px;
+    }
+
+    .sell__image-preview {
+        width: 80px;
+        margin-top: 5px;
+    }
+
+    .sell__image-upload {
+        border: 1px dashed #bbb;
+        padding: 40px 0;
+        margin-top: 5px;
+        border-radius: 3px;
+    }
+
+    .sell__image-button {
+        border: 1px solid #ff6f61;
+        padding: 5px 13px;
+        font-size: 0.5rem;
+        border-radius: 3px;
+    }
+
+    /* 商品の詳細 */
+    .sell__section--details {
+        margin-top: 50px;
+    }
+
+    /* カテゴリー */
+    .sell__category {
+        margin-top: 30px;
+    }
+
+    .sell__category-items {
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .sell__category-item {
+        margin-bottom: 10px;
+    }
+
+    .sell__category-item span {
+        border: 1px solid #ff6f61;
+        font-size: 0.5rem;
+        padding: 3px 6px;
+    }
+
+    /* ブランド名 */
+    .sell__brand {
+        margin-top: 30px;
+    }
+
+    .sell__brand-optional {
+        font-size: 0.6rem;
+        padding: 3px;
+        margin-left: 5px;
+    }
+
+    /* 商品の状態 */
+    .sell__condition {
+        margin-top: 30px;
+    }
+
+    .sell__condition:after {
+        right: 10px;
+        top: 73%;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 10px solid #777;
+    }
+
+    .sell__select {
+        padding: 6px;
+        font-size: 0.7rem;
+        margin-top: 5px;
+        border-radius: 3px;
+    }
+
+    /* 商品名と説明 */
+    .sell__section--description {
+        margin-top: 50px;
+    }
+
+    .sell__field {
+        margin-top: 30px;
+    }
+
+    .sell__label {
+        font-size: 0.9rem;
+    }
+
+    .sell__input,
+    .sell__textarea {
+        padding: 6px;
+        font-size: 0.7rem;
+        margin-top: 5px;
+        border-radius: 3px;
+    }
+
+    .sell__textarea {
+        height: 80px;
+    }
+
+    .sell__field:nth-of-type(3) .sell__input {
+        padding-left: 25px;
+    }
+
+    .sell__input--yen-sign {
+        top: 53%;
+        left: 10px;
+        font-size: 1.0rem;
+    }
+
+    /* 出品ボタン */
+    .sell__submit-button {
+        padding: 6px;
+        font-size: 0.8rem;
+        margin-top: 60px;
+        border-radius: 3px;
+    }
+}

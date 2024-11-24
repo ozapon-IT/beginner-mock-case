@@ -1,0 +1,133 @@
+/* デフォルトスタイル */
+.tabs__container {
+    margin: 0 auto;
+}
+
+.tabs__tab {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: #666;
+}
+
+.tabs__tab--active {
+    color: red;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto;
+}
+
+.product-grid__item {
+    width: 100%;
+}
+
+.product-grid__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-grid__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-grid__label {
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.7);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* PC画面時(1400-1540px) */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .tabs {
+        border-bottom: 2px solid #666;
+        padding: 10px 0px;
+        margin-top: 50px;
+    }
+
+    .tabs__container {
+        max-width: calc(100% - 300px);
+    }
+
+    .tabs__tab {
+        margin-right: 50px;
+        font-size: 1.5rem;
+    }
+
+    .product-grid {
+        gap: 60px;
+        padding: 70px 0;
+        max-width: calc(100% - 120px);
+    }
+
+    .product-grid__image {
+        margin-bottom: 10px;
+    }
+
+    .product-grid__image img {
+        border-radius: 5px;
+    }
+
+    .product-grid__label {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 1.5rem;
+        border-radius: 5px;
+    }
+
+    .product-grid__name {
+        font-size: 1.5rem;
+    }
+}
+
+/* タブレット画面時(768-850px) */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .tabs {
+        border-bottom: 1px solid #666;
+        padding: 5px 0px;
+        margin-top: 30px;
+    }
+
+    .tabs__container {
+        max-width: calc(100% - 168px);
+    }
+
+    .tabs__tab {
+        margin-right: 30px;
+        font-size: 0.8rem;
+    }
+
+    .product-grid {
+        gap: 34px;
+        padding: 40px 0;
+        max-width: calc(100% - 68px);
+    }
+
+    .product-grid__image {
+        margin-bottom: 5px;
+    }
+
+    .product-grid__image img {
+        border-radius: 3px;
+    }
+
+    .product-grid__label {
+        top: 5px;
+        right: 5px;
+        padding: 3px 6px;
+        font-size: 1rem;
+        border-radius: 3px;
+    }
+
+    .product-grid__name {
+        font-size: 0.8rem;
+    }
+}
