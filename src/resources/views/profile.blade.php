@@ -22,7 +22,9 @@
             @csrf
 
             <div class="profile-settings__avatar">
-                <img class="profile-settings__avatar-image" src="{{ $profile && $profile->image_path ? Storage::url($profile->image_path) : '' }}" alt="{{ $profile && $profile->image_path ? 'プロフィール画像' : '' }}" id="avatar-preview">
+                <div class="profile-settings__avatar-image">
+                    <img src="{{ $profile && $profile->image_path ? Storage::url($profile->image_path) : '' }}" alt="{{ $profile && $profile->image_path ? 'プロフィール画像' : '' }}" id="avatar-preview">
+                </div>
 
                 <label class="profile-settings__avatar-button" for="image">
                     画像を選択

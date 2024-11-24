@@ -15,7 +15,9 @@
     <x-alert type="success" :message="session('success')" />
 
     <div class="user">
-        <img class="user__avatar-image" src="{{ $profile && $profile->image_path ? asset('storage/' . $profile->image_path) : '' }}" alt="">
+        <div class="user__avatar-image">
+            <img src="{{ $profile && $profile->image_path ? asset('storage/' . $profile->image_path) : '' }}" alt="{{ $profile && $profile->image_path ? 'プロフィール画像' : '' }}">
+        </div>
 
         <h2 class="user__username">{{ $user->name }}</h2>
 

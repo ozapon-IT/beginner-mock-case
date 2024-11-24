@@ -16,6 +16,8 @@
 
 .sell__image-preview {
     display: none;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
 .sell__image-preview--visible {
@@ -172,7 +174,6 @@
 
     .sell__image-preview {
         width: 150px;
-        height: 150px;
         margin-top: 10px;
     }
 
@@ -315,7 +316,6 @@
 
     .sell__image-preview {
         width: 80px;
-        height: 80px;
         margin-top: 5px;
     }
 

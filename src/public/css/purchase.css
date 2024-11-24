@@ -20,6 +20,7 @@
 /* 購入商品 */
 .purchase__item {
     display: flex;
+    border-bottom: 1px solid #000;
 }
 
 .purchase__item-details {
@@ -140,6 +141,7 @@
     /* 購入商品 */
     .purchase__item {
         width: calc(100% - 520px);
+        padding-bottom: 30px;
     }
 
     .purchase__form {
@@ -147,12 +149,12 @@
     }
 
     .purchase__item-image {
-        width: 250px;
-        height: 250px;
+        width: 180px;
+        aspect-ratio: 1 / 1;
     }
 
     .purchase__item-details {
-        width: 430px;
+        width: calc(100% - 220px);
         padding-left: 40px;
         font-size: 2.5rem;
     }
@@ -260,6 +262,7 @@
     /* 購入商品 */
     .purchase__item {
         width: calc(100% - 300px);
+        padding-bottom: 20px;
     }
 
     .purchase__form {
@@ -267,12 +270,12 @@
     }
 
     .purchase__item-image {
-        width: 124px;
-        height: 124px;
+        width: 100px;
+        aspect-ratio: 1 / 1;
     }
 
     .purchase__item-details {
-        width: 200px;
+        width: calc(100% - 120px);
         padding-left: 20px;
         font-size: 1.3rem;
     }
@@ -336,7 +339,7 @@
     }
 
     .purchase__summary-item {
-        padding: 20px;
+        padding: 20px 0;
     }
 
     .purchase__summary-label {
@@ -345,7 +348,7 @@
 
     .purchase__summary-price,
     .purchase__summary-method {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .purchase__buy-button {

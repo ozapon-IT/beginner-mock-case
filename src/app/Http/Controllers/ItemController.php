@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Profile;
 
 class ItemController extends Controller
 {

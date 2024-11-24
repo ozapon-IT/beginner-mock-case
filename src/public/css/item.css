@@ -71,7 +71,7 @@
     display: block;
     width: 100%;
     color: #fff;
-    background-color: #ff5a5a;
+    background-color: #ff6f61;
     border: none;
     cursor: pointer;
 }
@@ -128,6 +128,23 @@
 .product-detail__comment-avatar {
     background-color: #ddd;
     border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.product-detail__comment-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.product-detail__comment-avatar img:not([src]) {
+    visibility: hidden;
+}
+
+.product-detail__comment-avatar img[src=""] {
+    visibility: hidden;
 }
 
 .product-detail__comment-username {
@@ -150,7 +167,7 @@
 
 .product-detail__comment-button {
     color: #fff;
-    background-color: #ff5a5a;
+    background-color: #ff6f61;
     border: none;
     cursor: pointer;
 }
@@ -273,7 +290,6 @@
 
     .product-detail__comment-avatar {
         width: 80px;
-        height: 80px;
         margin-right: 20px;
     }
 
@@ -435,7 +451,6 @@
 
     .product-detail__comment-avatar {
         width: 50px;
-        height: 50px;
         margin-right: 10px;
     }
 
