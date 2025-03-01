@@ -12,27 +12,32 @@ class IndexController extends Controller
 {
     public function index(Request $request)
     {
-        $currentTab = $request->input('tab', 'recommend');
-        $search = $request->input('search');
+        $currentTab = $request->query('tab', 'recommend');
+        $search = $request->query('search');
 
         if ($currentTab === 'mylist') {
             // ログインユーザーが「いいね」した商品を取得
-            if (Auth::check()) {
-                $items = Item::whereIn('id', function ($query) {
+            if (auth()->check()) {
+                $itemsQuery = Item::whereIn('id', function ($query) {
                     $query->select('item_id')
                         ->from('likes')
-                        ->where('user_id', Auth::id());
-                })->select('id', 'image_path', 'name', 'status')->get();
+                        ->where('user_id', auth()->id());
+                })->select('id', 'image_path', 'name', 'status');
+
+                if (!empty($search)) {
+                    $itemsQuery->where('name', 'like', '%' . $search . '%');
+                }
+
+                $items = $itemsQuery->get();
             } else {
-                // 未認証ユーザーの場合は空のコレクション
                 $items = collect();
             }
         } else {
             // 「おすすめ」商品の取得（ログインユーザーの出品商品を除外）
             $itemsQuery = Item::select('id', 'image_path', 'name', 'status');
 
-            if (Auth::check()) {
-                $itemsQuery->where('user_id', '!=', Auth::id());
+            if (auth()->check()) {
+                $itemsQuery->where('user_id', '!=', auth()->id());
             }
 
             // 部分一致検索

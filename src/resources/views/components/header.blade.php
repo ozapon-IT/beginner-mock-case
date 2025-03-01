@@ -1,4 +1,4 @@
-@props(['search' => true, 'nav' => true])
+@props(['search' => true, 'nav' => true, 'currentTab' => null])
 
 <header class="header">
     <div class="header__container">
@@ -8,10 +8,9 @@
 
         @if ($search)
             <div class="header__search-form">
-                <input class="header__search-box" type="text" placeholder="なにをお探しですか？" name="search" form="search-form" value="{{ request('search') }}">
-
                 <form id="search-form" action="{{ route('top') }}" method="GET">
-                    <input type="hidden" name="tab" value="recommend">
+                    <input type="hidden" name="tab" value="{{ request('tab', $currentTab ?? 'recommend') }}">
+                    <input class="header__search-box" type="text" placeholder="なにをお探しですか？" name="search" value="{{ request('search') }}">
                 </form>
             </div>
         @endif

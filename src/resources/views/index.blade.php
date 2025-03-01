@@ -7,7 +7,7 @@
 @endsection
 
 @section('header')
-<x-header />
+<x-header :current-tab="$currentTab" />
 @endsection
 
 @section('main')
