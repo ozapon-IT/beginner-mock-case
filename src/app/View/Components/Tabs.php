@@ -26,8 +26,8 @@ class Tabs extends Component
      */
     public function processTabs()
     {
-        foreach ($this->tabs as &$tab) {
-            $tab['isActive'] = $tab['key'] === $this->currentTab;
+        foreach ($this->tabs as $index => $tab) {
+            $this->tabs[$index]['isActive'] = $tab['key'] === $this->currentTab;
         }
     }
 
