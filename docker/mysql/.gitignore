@@ -1,3 +1,3 @@
-/data/
-!my.cnf
-!.gitignore
+/docker/mysql/data/
+!/docker/mysql/my.cnf
+!/docker/mysql/.gitignore
