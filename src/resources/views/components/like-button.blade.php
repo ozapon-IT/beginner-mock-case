@@ -10,7 +10,11 @@
     @endguest
 
     @auth
-        @if($item->likes->contains('user_id', auth()->id()))
+        @if($item->user_id === auth()->id())
+            <button>
+                <i class="bi bi-star"></i>
+            </button>
+        @elseif($item->likes->contains('user_id', auth()->id()))
             <form action="{{ route('unlike', $item) }}" method="POST">
                 @csrf
                 @method('DELETE')
