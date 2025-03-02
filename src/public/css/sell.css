@@ -1,7 +1,12 @@
 /* デフォルトスタイル */
+.sell {
+    width: 45.3vw;
+    margin: 4vw auto;
+}
 
 .sell__title {
     text-align: center;
+    font-size: 2.67vw;
 }
 
 .error-message {
@@ -9,15 +14,25 @@
 }
 
 /* 商品画像 */
+.sell__section--image {
+    margin-top: 3.33vw;
+}
+
 .sell__subtitle {
     font-weight: bold;
     color: #888;
+    font-size: 2.13vw;
+    border-bottom: 0.13vw solid #bbb;
+    padding-bottom: 0.67vw;
+    margin-top: 4vw;
 }
 
 .sell__image-preview {
     display: none;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    width: 10vw;
+    margin-top: 0.67vw;
 }
 
 .sell__image-preview--visible {
@@ -28,12 +43,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 0.13vw dashed #bbb;
+    border-radius: 0.33vw;
+    padding: 4vw 0;
+    margin-top: 0.67vw;
 }
 
 .sell__image-button {
-    border: 2px solid #ff6f61;
     color: #ff6f61;
     cursor: pointer;
+    border: 0.13vw solid #ff6f61;
+    padding: 0.67vw 1.67vw;
+    border-radius: 0.33vw;
+    font-size: 1.07vw;
 }
 
 .sell__image-button:hover {
@@ -46,11 +68,24 @@
 }
 
 /* 商品の詳細 */
+.sell__section--details {
+    margin-top: 5.33vw;
+}
 
 /* カテゴリー */
+.sell__category {
+    margin-top: 2.67vw;
+}
+
 .sell__category-items {
     display: flex;
     flex-wrap: wrap;
+    gap: 1.33vw;
+    margin-top: 2.67vw;
+}
+
+.sell__category-item {
+    margin-bottom: 1.33vw;
 }
 
 .sell__category-item input {
@@ -60,7 +95,10 @@
 .sell__category-item span {
     color: #ff6f61;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 1.33vw;
+    border: 0.13vw solid #ff6f61;
+    padding: 0.33vw 0.67vw;
+    font-size: 0.96vw;
 }
 
 .sell__category-item input:checked + span {
@@ -72,6 +110,7 @@
 .sell__brand {
     display: flex;
     flex-direction: column;
+    margin-top: 2.67vw;
 }
 
 .sell__brand .sell__label {
@@ -82,11 +121,15 @@
 .sell__brand-optional {
     background-color: #ddd;
     color: #888;
+    font-size: 1.07vw;
+    padding: 0.33vw;
+    margin-left: 0.67vw;
 }
 
 /* 商品の状態 */
 .sell__condition {
     position: relative;
+    margin-top: 2.67vw;
 }
 
 .sell__condition:after {
@@ -94,45 +137,71 @@
     position: absolute;
     transform: translateY(-50%);
     pointer-events: none;
+    right: 0.67vw;
+    top: 75%;
+    border-left: 0.47vw solid transparent;
+    border-right: 0.47vw solid transparent;
+    border-top: 0.93vw solid #777;
 }
 
 .sell__select {
     width: 100%;
-    border: 1px solid #bbb;
     color: #777;
     background-color: #fff;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     position: relative;
+    border: 0.07vw solid #bbb;
+    padding: 0.67vw;
+    font-size: 1.28vw;
+    border-radius: 0.33vw;
+    margin-top: 0.67vw;
 }
 
 /* 商品名と説明 */
+.sell__section--description {
+    margin-top: 5.33vw;
+}
 
 .sell__field {
     display: flex;
     flex-direction: column;
     position: relative;
+    margin-top: 2.67vw;
 }
 
 .sell__label {
     font-weight: bold;
     display: block;
+    font-size: 1.6vw;
 }
 
 .sell__input,
 .sell__textarea {
-    border: 1px solid #bbb;
+    border: 0.07vw solid #bbb;
+    padding: 0.67vw;
+    font-size: 1.28vw;
+    border-radius: 0.33vw;
+    margin-top: 0.67vw;
 }
 
 .sell__textarea {
     resize: vertical;
+    height: 10vw;
+}
+
+.sell__field:nth-of-type(3) .sell__input {
+    padding-left: 2.33vw;
 }
 
 .sell__input--yen-sign {
     position: absolute;
     pointer-events: none;
     font-weight: bold;
+    top: 56%;
+    left: 1vw;
+    font-size: 1.6vw;
 }
 
 /* 出品ボタン */
@@ -143,6 +212,10 @@
     font-weight: bold;
     border: none;
     cursor: pointer;
+    padding: 0.67vw;
+    font-size: 1.6vw;
+    border-radius: 0.33vw;
+    margin-top: 6.67vw;
 }
 
 .sell__submit-button:hover {
@@ -211,6 +284,7 @@
     }
 
     .sell__category-item span {
+        border-radius: 20px;
         border: 2px solid #ff6f61;
         padding: 5px 10px;
         font-size: 0.9rem;
@@ -241,6 +315,7 @@
     }
 
     .sell__select {
+        border: 1px solid #bbb;
         padding: 10px;
         font-size: 1.2rem;
         border-radius: 5px;
@@ -262,6 +337,7 @@
 
     .sell__input,
     .sell__textarea {
+        border: 1px solid #bbb;
         padding: 10px;
         font-size: 1.2rem;
         border-radius: 5px;

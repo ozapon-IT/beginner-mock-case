@@ -51,9 +51,14 @@
             @endguest
 
             @auth
-                <form action="{{ route('purchase', ['item' => $item]) }}" method="GET">
-                    <button class="product-detail__purchase-button" type="submit">購入手続きへ</button>
-                </form>
+                @if($item->user_id === auth()->id())
+                    <button class="product-detail__purchase-button">購入手続きへ</button>
+                @else
+                    <form action="{{ route('purchase', ['item' => $item]) }}" method="GET">
+                        <button class="product-detail__purchase-button" type="submit">購入手続きへ</button>
+                    </form>
+                @endif
+
             @endauth
 
             <!-- 商品についての各セクション -->
