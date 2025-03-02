@@ -4,23 +4,32 @@
 .alert {
     border-color: #f5c2c7;
     background-color: #f8d7da;
+    padding: 0.67vw 1.33vw;
 }
 
 .alert span {
     display: block;
     margin: 0 auto;
     color: #842029;
+    font-size: 1.07vw;
 }
 
 /* コンテンツ */
+.profile-settings {
+    width: 45.3vw;
+    margin: 5.33vw auto;
+}
+
 .profile-settings__title {
     font-weight: bold;
     text-align: center;
+    font-size: 2.13vw;
 }
 
 .profile-settings__avatar {
     display: flex;
     align-items: center;
+    margin-top: 4vw;
 }
 
 .profile-settings__avatar-image {
@@ -28,6 +37,8 @@
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+    width: 10vw;
+    margin-right: 4.67vw;
 }
 
 .profile-settings__avatar-image img{
@@ -50,10 +61,19 @@
     background-color: #fff;
     cursor: pointer;
     text-align: center;
+    width: 6.67vw;
+    border: 0.13vw solid #ff6f61;
+    padding: 0.53vw 1.07vw;
+    border-radius: 0.33vw;
+    font-size: 1.07vw;
 }
 
 .profile-settings__avatar-button input {
     display: none;
+    padding: 0.67vw;
+    font-size: 1.6vw;
+    border-radius: 0.33vw;
+    margin-top: 0.67vw;
 }
 
 .profile-settings__group {
@@ -61,12 +81,25 @@
     flex-direction: column;
 }
 
+.profile-settings__group:nth-of-type(2) {
+    margin-top: 4vw;
+}
+
+.profile-settings__group:not(:nth-of-type(2)) {
+    margin-top: 2vw;
+}
+
 .profile-settings__label {
     display: block;
+    font-size: 1.6vw;
 }
 
 .profile-settings__input {
-    border: 1px solid #bbb;
+    border: 0.07vw solid #bbb;
+    padding: 0.67vw;
+    font-size: 1.6vw;
+    border-radius: 0.33vw;
+    margin-top: 0.67vw;
 }
 
 .profile-settings__button {
@@ -75,6 +108,10 @@
     border: none;
     cursor: pointer;
     width: 100%;
+    padding: 0.67vw;
+    font-size: 1.6vw;
+    border-radius: 0.33vw;
+    margin-top: 4.67vw;
 }
 
 .profile-settings__button:hover {
@@ -103,7 +140,7 @@
     }
 
     .profile-settings__avatar {
-        margin-top: 60px
+        margin-top: 60px;
     }
 
     .profile-settings__avatar-image {
@@ -132,6 +169,7 @@
     }
 
     .profile-settings__input {
+        border: 1px solid #bbb;
         padding: 10px;
         font-size: 1.5rem;
         border-radius: 5px;

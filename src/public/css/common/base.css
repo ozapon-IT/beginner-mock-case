@@ -7,6 +7,7 @@ body {
 .header {
     background-color: #000;
     color: #fff;
+    padding: 0.67vw;
 }
 
 .header__container {
@@ -14,36 +15,56 @@ body {
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+    width: 97.3vw;
+    height: 4vw;
+}
+
+.header__logo img {
+    width: 24.7vw;
+    height: 4vw;
 }
 
 .header__search-box {
     border: none;
+    padding: 0.33vw 2vw;
+    font-size: 1.6vw;
+    width: 26.7vw;
+    height: 2.67vw;
+    border-radius: 0.33vw;
 }
 
 .header__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 24.7vw;
+    height: 4vw;
 }
 
 .header__link {
     color: #fff;
     text-decoration: none;
+    font-size: 1.6vw;
 }
 
 .header__button {
     all: unset;
     cursor: pointer;
+    font-size: 1.6vw;
 }
 
 .header__link--sell {
     background-color: #fff;
     color: #000;
     border: none;
+    padding: 0.67vw 1.33vw;
+    border-radius: 0.33vw;
 }
 
 .error-message {
     color: red;
+    font-size: 1.07vw;
+    margin-top: 0.67vw;
 }
 
 /* PC画面時(1400-1540px) */

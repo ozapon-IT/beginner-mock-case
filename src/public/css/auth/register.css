@@ -1,7 +1,17 @@
 /* デフォルトスタイル */
+.register {
+    width: 45.3vw;
+    margin: 6.67vw auto;
+}
+
+.register__form {
+    margin-top: 3.33vw;
+}
+
 .register__title {
     font-weight: bold;
     text-align: center;
+    font-size: 2.13vw;
 }
 
 .register__form-group {
@@ -9,8 +19,20 @@
     flex-direction: column;
 }
 
+.register__form-group:not(:nth-of-type(1)) {
+    margin-top: 2vw;
+}
+
+.register__label {
+    font-size: 1.6vw;
+}
+
 .register__input {
-    border: 1px solid #bbb;
+    border: 0.07vw solid #bbb;
+    padding: 0.67vw;
+    font-size: 1.6vw;
+    border-radius: 0.33vw;
+    margin-top: 0.67vw;
 }
 
 .register__button {
@@ -21,6 +43,10 @@
     cursor: pointer;
     text-align: center;
     width: 100%;
+    font-size: 1.6vw;
+    padding: 0.67vw;
+    border-radius: 0.33vw;
+    margin-top: 4.67vw;
 }
 
 .register__button:hover {
@@ -29,11 +55,13 @@
 
 .register__login-link {
     text-align: center;
+    margin-top: 2vw;
 }
 
 .register__login-link a {
     color: #007bff;
     text-decoration: none;
+    font-size: 1.28vw;
 }
 
 .register__login-link a:hover {
@@ -64,6 +92,7 @@
     }
 
     .register__input {
+        border: 1px solid #bbb;
         padding: 10px;
         font-size: 1.5rem;
         border-radius: 5px;
