@@ -10,7 +10,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\AddressController;
-use Laravel\Fortify\Http\Controllers\VerifyEmailController;
+use App\Http\Controllers\VerifyEmailController;
 use App\Http\Controllers\StripeWebhookController;
 
 /*
