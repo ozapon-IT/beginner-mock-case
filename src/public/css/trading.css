@@ -1,0 +1,523 @@
+/* デフォルトスタイル */
+.trading__container {
+    display: flex;
+}
+
+/* サイドバー */
+.trading__sidebar {
+    background: #868686;
+    width: 17vw;
+    height: 100vh;
+    padding: 1vw 0;
+}
+
+.trading__sidebar p {
+    color: #fff;
+    text-align: center;
+    font-size: 2.13vw;
+}
+
+.trading__navigation {
+    margin-top: 3.33vw;
+}
+
+.trading__navigation ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3vw;
+}
+
+.trading__navigation li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EEEFEB;
+    width: 13.3vw;
+    height: 2.67vw;
+    font-size: 1.6vw;
+    border-radius: 0.33vw;
+}
+
+.trading__navigation a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* コンテント */
+.trading__content {
+    width: 83vw;
+}
+
+/* ヘッダーセクション */
+.trading__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 2vw;
+    border-bottom: 0.15vw solid #5F5F5F;
+}
+
+.trading__header-container {
+    display: flex;
+    align-items: center;
+}
+
+.trading__avatar {
+    background: #D9D9D9;
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+}
+
+.trading__avatar--large {
+    width: 5.33vw;
+    height: 5.33vw;
+}
+
+.trading__heading {
+    font-size: 2.5vw;
+}
+
+.trading__button {
+    all: unset;
+    cursor: pointer;
+    color: #fff;
+    background: #FF8282;
+    text-align: center;
+    font-weight: bold;
+    width: 10vw;
+    height: 3vw;
+    line-height: 3vw;
+    font-size: 1.07vw;
+    border-radius: 2vw;
+}
+
+/* 商品情報セクション */
+.trading__product-info {
+    display: flex;
+    padding: 0.67vw 2vw;
+    border-bottom: 0.15vw solid #5F5F5F;
+}
+
+.trading__product-image {
+    background-color: #ccc;
+    width: 13.3vw;
+    height: 13.3vw;
+}
+
+.trading__product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 2.5vw;
+}
+
+.trading__subheading {
+    font-size: 3vw;
+}
+
+.trading__product-details p {
+    font-size: 2.5vw;
+}
+
+/* チャットセクション */
+.trading__chat {
+    padding: 2vw;
+}
+
+.trading__message {
+    margin-bottom: 1vw;
+}
+
+.trading__message--right {
+    text-align: right;
+}
+
+.trading__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.67vw;
+}
+
+.trading__user--right {
+    justify-content: right;
+}
+
+.trading__user-name {
+    font-size: 1.33vw;
+    font-weight: bold;
+}
+
+.trading__message--left .trading__user-name {
+    margin-left: 1.5vw;
+}
+
+.trading__message--right .trading__avatar {
+    margin-left: 1.5vw;
+}
+
+.trading__message-body {
+    display: inline-block;
+    background-color: #D9D9D9;
+    width: 30.7vw;
+    padding: 1vw;
+    font-size: 1vw;
+    line-height: 1.5;
+    margin-bottom: 0.67vw;
+    border-radius: 0.33vw;
+}
+
+.trading__message--right .trading__message-body {
+    text-align: left;
+}
+
+.trading__message-link {
+    text-decoration: none;
+    color: #aaa;
+    margin-left: 1vw;
+    font-size: 1vw;
+}
+
+.trading__message-link:hover {
+    text-decoration: underline;
+    color: #FF8282;
+}
+
+.trading__chat-input {
+    display: flex;
+    align-items: center;
+    gap: 0.67vw;
+    margin-top: 2vw;
+}
+
+.trading__input {
+    color: #5F5F5F;
+    width: 62.3vw;
+    font-size: 1.33vw;
+    padding: 0.55vw 1vw;
+    border: 0.07vw solid #5F5F5F;
+    border-radius: 0.33vw;
+}
+
+.trading__label-button {
+    color: #ff6f61;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+    width: 6.67vw;
+    border: 0.15vw solid #ff6f61;
+    padding: 0.62vw 0.67vw 0.62vw 1vw;
+    border-radius: 0.67vw;
+    font-size: 1.33vw;
+}
+
+.trading__label-button input {
+    display: none;
+}
+
+.trading__icon-button {
+    all: unset;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.bi-send {
+    font-size: 2.5vw;
+}
+
+.trading__icon-button:hover {
+    color: #5F5F5F;
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    /* サイドバー */
+    .trading__sidebar {
+        width: 245px;
+        padding: 15px 0;
+    }
+
+    .trading__sidebar p {
+        font-size: 30px;
+    }
+
+    .trading__navigation {
+        margin-top: 45px;
+    }
+
+    .trading__navigation ul {
+        gap: 40px;
+    }
+
+    .trading__navigation li {
+        width: 195px;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    /* コンテント */
+    .trading__content {
+        width: calc(100% - 245px);
+    }
+
+    /* ヘッダーセクション */
+    .trading__header {
+        padding: 15px 30px;
+        border-bottom: 2px solid #5F5F5F;
+    }
+
+    .trading__avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .trading__avatar--large {
+        width: 80px;
+        height: 80px;
+    }
+
+    .trading__heading {
+        font-size: 35px;
+    }
+
+    .trading__button {
+        width: 150px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 16px;
+        border-radius: 30px;
+    }
+
+    /* 商品情報セクション */
+    .trading__product-info {
+        padding: 10px 30px;
+        border-bottom: 2px solid #5F5F5F;
+    }
+
+    .trading__product-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .trading__product-details {
+        margin-left: 35px;
+    }
+
+    .trading__subheading {
+        font-size: 45px;
+    }
+
+    .trading__product-details p {
+        font-size: 37px;
+    }
+
+    /* チャットセクション */
+    .trading__chat {
+        padding: 30px;
+    }
+
+    .trading__message {
+        margin-bottom: 15px;
+    }
+
+    .trading__user {
+        margin-bottom: 10px;
+    }
+
+    .trading__user-name {
+        font-size: 20px;
+    }
+
+    .trading__message--left .trading__user-name {
+        margin-left: 22px;
+    }
+
+    .trading__message--right .trading__avatar {
+        margin-left: 22px;
+    }
+
+    .trading__message-body {
+        width: 450px;
+        padding: 15px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .trading__message-link {
+        margin-left: 15px;
+        font-size: 16px;
+    }
+
+    .trading__chat-input {
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .trading__input {
+        width: 930px;
+        font-size: 20px;
+        padding: 8px 15px;
+        border: 1px solid #5F5F5F;
+        border-radius: 5px;
+    }
+
+    .trading__label-button {
+        width: 110px;
+        border: 2px solid #ff6f61;
+        padding: 9px 10px 9px 15px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+
+    .bi-send {
+        font-size: 37px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    /* サイドバー */
+    .trading__sidebar {
+        width: 130px;
+        padding: 8px 0;
+    }
+
+    .trading__sidebar p {
+        font-size: 16px;
+    }
+
+    .trading__navigation {
+        margin-top: 25px;
+    }
+
+    .trading__navigation ul {
+        gap: 25px;
+    }
+
+    .trading__navigation li {
+        width: 100px;
+        height: 20px;
+        font-size: 12px;
+        border-radius: 3px;
+    }
+
+    /* コンテント */
+    .trading__content {
+        width: calc(100% - 130px);
+    }
+
+    /* ヘッダーセクション */
+    .trading__header {
+        padding: 8px 16px;
+        border-bottom: 1px solid #5F5F5F;
+    }
+
+    .trading__avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .trading__avatar--large {
+        width: 50px;
+        height: 50px;
+    }
+
+    .trading__heading {
+        font-size: 20px;
+    }
+
+    .trading__button {
+        width: 85px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 10px;
+        border-radius: 15px;
+    }
+
+    /* 商品情報セクション */
+    .trading__product-info {
+        padding: 6px 18px;
+        border-bottom: 1px solid #5F5F5F;
+    }
+
+    .trading__product-image {
+        width: 110px;
+        height: 110px;
+    }
+
+    .trading__product-details {
+        margin-left: 20px;
+    }
+
+    .trading__subheading {
+        font-size: 25px;
+    }
+
+    .trading__product-details p {
+        font-size: 20px;
+    }
+
+    /* チャットセクション */
+    .trading__chat {
+        padding: 18px;
+    }
+
+    .trading__message {
+        margin-bottom: 8px;
+    }
+
+    .trading__user {
+        margin-bottom: 6px;
+    }
+
+    .trading__user-name {
+        font-size: 12px;
+    }
+
+    .trading__message--left .trading__user-name {
+        margin-left: 14px;
+    }
+
+    .trading__message--right .trading__avatar {
+        margin-left: 14px;
+    }
+
+    .trading__message-body {
+        width: 240px;
+        padding: 8px;
+        font-size: 10px;
+        margin-bottom: 6px;
+        border-radius: 3px;
+    }
+
+    .trading__message-link {
+        margin-left: 8px;
+        font-size: 10px;
+    }
+
+    .trading__chat-input {
+        gap: 6px;
+        margin-top: 18px;
+    }
+
+    .trading__input {
+        width: 500px;
+        font-size: 12px;
+        padding: 4px 8px;
+        border: 1px solid #5F5F5F;
+        border-radius: 3px;
+    }
+
+    .trading__label-button {
+        width: 65px;
+        border: 1px solid #ff6f61;
+        padding: 5px 6px 5px 8px;
+        border-radius: 6px;
+        font-size: 12px;
+    }
+
+    .bi-send {
+        font-size: 20px;
+    }
+}

@@ -65,6 +65,7 @@ class StripeWebhookController extends Controller
                     $item = Item::find($order->item_id);
                     if ($item && $item->status !== 'sold') {
                         $item->status = 'sold';
+                        $item->trading_status = 'progression';
                         $item->save();
                     }
 

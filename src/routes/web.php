@@ -67,6 +67,11 @@ Route::middleware('auth')->group(function () {
 
     // stripe決済キャンセル時
     Route::get('/purchase/cancel/{item}', [PurchaseController::class, 'handleCancel'])->name('purchase.cancel');
+
+    // 取引関連(商品購入後)
+    Route::get('/trading', function () {
+        return view('trading');
+    })->name('trading');
 });
 
  // デフォルトのメール認証ルートを上書き

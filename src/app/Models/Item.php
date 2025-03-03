@@ -18,6 +18,7 @@ class Item extends Model
         'status',
         'image_path',
         'brand',
+        'trading_status'
     ];
 
     public function categories()
