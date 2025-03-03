@@ -27,6 +27,7 @@
     <x-tabs :tabs="[
         ['key' => 'sell', 'label' => '出品した商品', 'url' => route('mypage', ['tab' => 'sell'])],
         ['key' => 'buy', 'label' => '購入した商品', 'url' => route('mypage', ['tab' => 'buy'])],
+        ['key' => 'transaction', 'label' => '取引中の商品', 'url' => route('mypage', ['tab' => 'transaction'])],
     ]" :current-tab="$currentTab" />
 
     <div class="product-grid">

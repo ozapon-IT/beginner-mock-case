@@ -126,7 +126,7 @@ class PurchaseController extends Controller
 
     public function handleSuccess()
     {
-        return redirect()->route('mypage', ['tab' => 'buy'])->with('success', '購入が完了しました。');
+        return redirect()->route('mypage', ['tab' => 'buy'])->with('success', '購入が完了しました。取引中の商品から取引を続けてください。');
     }
 
     public function handleCancel(Item $item)
