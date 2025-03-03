@@ -28,6 +28,18 @@ class MypageController extends Controller
                 ->with('item')
                 ->get()
                 ->pluck('item'); // itemデータのみ抽出
+        } elseif ($currentTab === 'transaction') {
+            // 取引中の商品
+            $sellingItems = Item::where('user_id', $user->id)
+                ->where('status', 'sold')
+                ->get();
+
+            $purchasedItems = Order::where('user_id', $user->id)
+                ->with('item')
+                ->get()
+                ->pluck('item');
+
+            $items = $sellingItems->concat($purchasedItems);
         }
 
         // プロフィール情報を取得
