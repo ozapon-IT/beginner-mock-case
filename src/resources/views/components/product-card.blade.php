@@ -1,6 +1,6 @@
 <div class="product-grid__item">
     <div class="product-grid__image">
-        <a href="{{ route('item', ['item' => $item->id]) }}">
+        <a href="{{ $url }}">
             <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->name }}">
 
             @if ($label)

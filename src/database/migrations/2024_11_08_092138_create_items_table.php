@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('description', 255);
             $table->decimal('price', 8, 2);
             $table->string('status', 100);
+            $table->string('trading_status', 100)->nullable();
             $table->timestamps();
         });
     }

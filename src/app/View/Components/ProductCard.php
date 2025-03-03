@@ -31,11 +31,23 @@ class ProductCard extends Component
         }
     }
 
+    public function getUrl()
+    {
+        if ($this->context === 'mypage' && $this->item->trading_status === 'progression') {
+            return route('trading');
+        } else {
+            return route('item', ['item' => $this->item->id]);
+        }
+    }
+
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('components.product-card', ['label' => $this->getLabel()]);
+        return view('components.product-card', [
+            'label' => $this->getLabel(),
+            'url' => $this->getUrl(),
+        ]);
     }
 }
