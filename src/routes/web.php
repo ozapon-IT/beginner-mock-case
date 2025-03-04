@@ -12,6 +12,7 @@ use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\VerifyEmailController;
 use App\Http\Controllers\StripeWebhookController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,9 +70,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/purchase/cancel/{item}', [PurchaseController::class, 'handleCancel'])->name('purchase.cancel');
 
     // 取引関連(商品購入後)
-    Route::get('/trading', function () {
-        return view('trading');
-    })->name('trading');
+    Route::get('/trading/{item}', [MessageController::class, 'create'])->name('trading.create');
+
+    Route::post('/trading/{item}/message', [MessageController::class, 'store'])->name('trading.message.store');
+
+    Route::patch('/trading/{item}/message/{message}', [MessageController::class, 'update'])->name('trading.message.update');
+
+    Route::delete('/trading/{item}/message/{message}', [MessageController::class, 'destroy'])->name('trading.message.destroy');
 });
 
  // デフォルトのメール認証ルートを上書き

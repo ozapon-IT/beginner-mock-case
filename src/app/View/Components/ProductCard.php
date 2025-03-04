@@ -34,7 +34,7 @@ class ProductCard extends Component
     public function getUrl()
     {
         if ($this->context === 'mypage' && $this->item->trading_status === 'progression') {
-            return route('trading');
+            return route('trading.create', ['item' => $this->item->id]);
         } else {
             return route('item', ['item' => $this->item->id]);
         }
