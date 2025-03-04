@@ -1,13 +1,14 @@
 /* デフォルトスタイル */
 .trading__container {
     display: flex;
+    height: 100%
 }
 
 /* サイドバー */
 .trading__sidebar {
     background: #868686;
     width: 17vw;
-    height: 100vh;
+    min-height: 100vh;
     padding: 1vw 0;
 }
 
@@ -70,6 +71,13 @@
     border-radius: 50%;
 }
 
+.trading__avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .trading__avatar--large {
     width: 5.33vw;
     height: 5.33vw;
@@ -104,6 +112,12 @@
     background-color: #ccc;
     width: 13.3vw;
     height: 13.3vw;
+}
+
+.trading__product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .trading__product-details {
@@ -160,6 +174,7 @@
 .trading__message-body {
     display: inline-block;
     background-color: #D9D9D9;
+    border: none;
     width: 30.7vw;
     padding: 1vw;
     font-size: 1vw;
@@ -168,12 +183,25 @@
     border-radius: 0.33vw;
 }
 
+.trading__message-image {
+    display: block;
+    background-color: #ccc;
+    object-fit: cover;
+    width: 32.7vw;
+    height: 32.7vw;
+    margin-bottom: 0.67vw;
+}
+
 .trading__message--right .trading__message-body {
     text-align: left;
 }
 
+.trading__message--right .trading__message-image {
+    margin-left: auto;
+}
+
 .trading__message-link {
-    text-decoration: none;
+    all:unset;
     color: #aaa;
     margin-left: 1vw;
     font-size: 1vw;
@@ -184,11 +212,19 @@
     color: #FF8282;
 }
 
+.trading__edit-form,
+.trading__delete-form {
+    display: inline;
+}
+
 .trading__chat-input {
+    margin-top: 2vw;
+}
+
+.trading__message-form {
     display: flex;
     align-items: center;
     gap: 0.67vw;
-    margin-top: 2vw;
 }
 
 .trading__input {
@@ -228,6 +264,10 @@
 
 .trading__icon-button:hover {
     color: #5F5F5F;
+}
+
+.error-message {
+    margin-left: 0.33vw;
 }
 
 @media screen and (min-width: 1400px) and (max-width: 1540px) {
@@ -345,14 +385,23 @@
         border-radius: 5px;
     }
 
+    .trading__message-image {
+        width: 480px;
+        height: 480px;
+        margin-bottom: 10px;
+    }
+
     .trading__message-link {
         margin-left: 15px;
         font-size: 16px;
     }
 
     .trading__chat-input {
-        gap: 10px;
         margin-top: 30px;
+    }
+
+    .trading__message-form {
+        gap: 10px;
     }
 
     .trading__input {
@@ -373,6 +422,10 @@
 
     .bi-send {
         font-size: 37px;
+    }
+
+    .error-message {
+        margin-left: 5px;
     }
 }
 
@@ -491,14 +544,23 @@
         border-radius: 3px;
     }
 
+    .trading__message-image {
+        width: 256px;
+        height: 256px;
+        margin-bottom: 6px;
+    }
+
     .trading__message-link {
         margin-left: 8px;
         font-size: 10px;
     }
 
     .trading__chat-input {
-        gap: 6px;
         margin-top: 18px;
+    }
+
+    .trading__message-form {
+        gap: 6px;
     }
 
     .trading__input {
@@ -519,5 +581,9 @@
 
     .bi-send {
         font-size: 20px;
+    }
+
+    .error-message {
+        margin-left: 3px;
     }
 }
